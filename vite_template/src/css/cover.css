@@ -1,0 +1,13 @@
+/* Cover Management */
+#cover {
+    text-align: center;
+    font-size: 60px;
+}
+
+@media print {
+
+    @page:first {
+        background-color: blue;
+        color: white;
+    }
+}

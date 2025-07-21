@@ -1,0 +1,117 @@
+
+/* Page Management */
+
+@media print {
+
+    @page {
+        /* format */
+        size: 130mm 200mm;
+
+        /* Margin  */
+        margin-top: 15mm;
+        margin-left: 15mm;
+        margin-right: 15mm;
+        margin-bottom: 35mm;
+
+        /* Color */
+        color: black;
+    }
+
+    /* --------------  Main Content Management */
+
+    #content {
+        break-before: right;
+        page: content;
+    }
+
+    h2 {
+        string-set: title content(text);
+    }
+
+    @page content {
+
+        /* Text Management */
+
+        h1 {
+            /* Block management */
+            margin-top: 0;
+            margin-bottom: 5mm;
+            display: block;
+
+            text-align: center;
+
+            /* Typeface Management */
+            font-weight: 900;
+            font-size: 45pt;
+            line-height: 1.20;
+
+        }
+
+        h2 {
+            /* Block management */
+            margin-top: 0;
+            margin-bottom: 5mm;
+            display: block;
+
+            text-align: center;
+
+            /* Typeface Management */
+            font-weight: 900;
+            font-size: 30pt;
+            line-height: 1.20;
+        }
+
+        h3 {
+            /* Block management */
+            margin-top: 0;
+            margin-bottom: 5mm;
+            display: block;
+
+            text-align: left;
+
+            /* Typeface Management */
+            font-weight: 900;
+            font-size: 20pt;
+            line-height: 1.20;
+        }
+
+        p {
+            /* Block management */
+            margin-top: 0;
+            margin-bottom: 5mm;
+            display: block;
+
+            text-align: left;
+
+            /* Typeface Management */
+            font-weight: 400;
+            font-size: 13pt;
+            line-height: 1.20;
+        }
+    }
+
+    /* pagination and running title */
+
+    @page content:right {
+
+        @bottom-left {
+            content: counter(page);
+        }
+
+        @bottom-right {
+            content: "My title";
+        }
+    }
+
+    @page content:left {
+
+        @bottom-left {
+            content: counter(page);
+        }
+
+        @bottom-right {
+            content: string(title);
+            width: fit-content;
+        }
+    }
+}

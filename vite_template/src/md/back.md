@@ -1,0 +1,3 @@
+## Back
+
+Présentation abrégée, orale ou écrite, qui rend compte de l'essentiel. Synon. bilan, condensé.Le résumé des nouvelles. L'Académie désirerait qu'ils lui donnassent, à leur retour, un résumé du travail important qu'ils auront entrepris (Voy. La Pérouse, t. 1, 1797, p. 162).Voici le résumé de mes impressions au sujet des entretiens que j'ai eus à Casablanca (De Gaulle,Mém. guerre, 1956, p. 441).

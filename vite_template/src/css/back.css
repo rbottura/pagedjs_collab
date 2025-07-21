@@ -1,0 +1,14 @@
+/* BackCover Management */
+#back {
+    break-before: left;
+    page: last_page;
+    font-size: 12px;
+}
+
+@media print {
+
+    @page last_page {
+        background-color: blue;
+        color: white;
+    }
+}
