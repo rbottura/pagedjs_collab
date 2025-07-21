@@ -379,6 +379,7 @@ class multilang extends Paged.Handler {
     );
 
     this.parallelFLows.forEach((pflow) => {
+      console.log(pflow)
       let hostId = getBiggestHeight(pflow.selectors);
       let hostObj = document.querySelectorAll(hostId.selector);
       let guestIds = getAllButBiggestHeight(pflow.selectors);
@@ -388,11 +389,13 @@ class multilang extends Paged.Handler {
         guestsObj.push(document.querySelectorAll(gu.selector));
       });
 
-      let guests = [];
 
-      guestIds.forEach((selectors) => {
-        guests = [...document.querySelectorAll(hostId.selector)];
-      });
+      // question about usage of this 4 lines 
+
+      // let guests = [];
+      // guestIds.forEach((selectors) => {
+      //   guests = [...document.querySelectorAll(hostId.selector)];
+      // });
 
       if (this.flowLocation == "samepage") {
         guestsObj.forEach((guests) => {
@@ -400,11 +403,11 @@ class multilang extends Paged.Handler {
             if (hostObj[i] && guests[i]) {
               let obj = guests[i];
 
+
               let pageToRemove = guests[i].closest(".pagedjs_page");
 
-              // added brut force 30px to test overlaping in rendering 
-              obj.style.left = `${obj.offsetLeft - 30}px`;
-              obj.style.width = `${obj.offsetWidths0}px`;
+              obj.style.marginLeft = `${obj.offsetLeft}px`;
+              obj.style.width = `${obj.offsetWidth}px`;
               obj.style.top = `${obj.offsetTop}px`;
               obj.style.height = `${obj.offsetHeight}px`;
               obj.style.position = "absolute";

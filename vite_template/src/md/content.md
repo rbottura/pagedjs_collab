@@ -2,11 +2,14 @@
 
 ## Part One \: try
 
-<section class="a">
-Ut rutrum faucibus lectus ut dapibus. Nunc consectetur scelerisque metus, a sodales enim elementum in. Ut ut nunc quis massa mattis interdum. Donec in tristique ipsum, eu gravida risus. Aenean iaculis est et magna consectetur congue. Nullam luctus id justo a egestas. Nam placerat orci quis rutrum placerat. Ut pellentesque tellus eu tortor iaculis blandit. Donec mattis eros id vehicula volutpat. Cras magna libero, vulputate in tristique vel, mattis non purus. Sed eget augue vitae lorem pellentesque auctor.</section>
+<section class="chapter a">  
 
-<section class="b">
-Note:Nulla facilisi. In nec rutrum augue.:{.footnote} Praesent sed tincidunt dui, a tempor metus. Pellentesque venenatis, sem vitae rhoncus interdum, nibh nisi iaculis neque, vitae pulvinar tortor libero vel neque. Nulla fringilla suscipit nulla, non fermentum sapien dapibus sit amet. Fusce tempor scelerisque diam, in ornare dolor ornare eget. Aenean eu placerat lacus. Suspendisse fringilla lorem et tempor vulputate. Etiam iaculis libero libero, sed placerat nisl pulvinar et. Proin sed nisi sed magna tempus aliquam.</section>
+Le cinéma est le seul art dont le sort dépende étroitement de la technique. L'architecte, mal­gré les bétonneuses, peut encore bâtir en pierres taillées. L'auteur de films ne peut plus, aujour­d’hui, faire un film muet. Il ne pourra plus, de­main, faire un film gris, après‑demain un film plat.
+
+</section>
+
+<section class="chapter b">
+La science, par les forces qu'elle a libérées, détruira un jour le monde. Avant de le frapper, elle le construira merveilleux et terrible. Les machines arracheront l'homme à sa peine et l'enchaîneront à mille besoins nouveaux. Elles feront tout pour lui. Même choisir. Notre fils ne cherchera plus ses joies. Les joies s'imposeront à lui. Il recevra et n'aura plus à donner. Ainsi deviendra-t-il parcelle d'une masse passive, femelle, que quelques hommes maîtres du monde, esclaves eux-mêmes de la fatalité, brasseront et pétriront. L'individu s'effacera, se fondra dans la chair et l’âme collectives. Quand viendra le jour de sa mort, il n'y aura plus rien en lui à tuer.</section>
 
 Ut nec eleifend arcu. Nulla:foot2:{.footnote} facilisi. Duis lectus ligula, auctor vel imperdiet ac, pharetra dignissim nisi. Praesent faucibus tellus eget dui tincidunt semper. Sed quis tellus elit. Ut luctus non quam sit amet cursus. Nunc mauris nunc, semper eget imperdiet sit amet, molestie non nunc.
 

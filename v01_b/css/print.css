@@ -42,8 +42,8 @@ section.a {
 
   page: section-a;
   color: blue;
-  margin-left: 10%;
-  width: calc(50% - 2ch);
+  margin-left: 150px;
+  width: 250px;
 }
 
 section.b {

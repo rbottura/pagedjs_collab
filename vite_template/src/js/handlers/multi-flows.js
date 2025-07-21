@@ -408,7 +408,7 @@ export class multilang extends Handler {
 
               // added brut force 30px to test overlaping in rendering 
               obj.style.left = `${obj.offsetLeft - 30}px`;
-              obj.style.width = `${obj.offsetWidths0}px`;
+              obj.style.width = `${obj.offsetWidths}px`;
               obj.style.top = `${obj.offsetTop}px`;
               obj.style.height = `${obj.offsetHeight}px`;
               obj.style.position = "absolute";

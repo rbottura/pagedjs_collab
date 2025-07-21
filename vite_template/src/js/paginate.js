@@ -38,6 +38,6 @@ export async function paginate(elementsList, styleList) {
     
     await import("../css/multiflow.css");
     await import("../css/interface.css");
-    
+
     await paged.preview(documentFragment, null, document.body);
 }

@@ -4,21 +4,27 @@ section {
 
 section.a {
     /*parallel-flow: name,  this will trigger the parallel-flow script*/
-    --parallel-flow: beta;
+    --parallel-flow: alpha;
 
     page: section-a;
     color: blue;
-    margin-left: 10%;
+    margin-left: 0;
     width: calc(50% - 2ch);
 }
 
 section.b {
     /*parallel-flow: name,  this will trigger the parallel-flow script*/
-    --parallel-flow: alpha;
+    --parallel-flow: beta;
 
-    font-size: 8px;
+    font-size: 12pt;
     page: section-b;
-    border-right: 2em solid red;
+    border-right: 2px solid rgb(0, 255, 13);
     width: 40mm;
+    margin-left: auto;
+}
+
+section.c {
+    --parallel-flow: beta;
+    width: 30ch;
     margin-left: auto;
 }
