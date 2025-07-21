@@ -19,5 +19,8 @@
     "markdown-it-sup": "^2.0.0",
     "pagedjs": "^0.4.3",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "css-tree": "^3.1.0"
   }
 }

@@ -1,8 +1,11 @@
+// import fonts and css for print btn
 import "./src/css/style.css";
+
+// css for print view linked to cover, content and back MD files
 import "./src/css/cover.css";
 import "./src/css/content.css";
 import "./src/css/back.css";
-//import "./src/css/GitHub Flavor.css";
+
 import "highlight.js/styles/intellij-light.css";
 
 import cover from "./src/md/cover.md?raw";
@@ -13,9 +16,9 @@ import markdownit from "markdown-it";
 import markdownitContainer from "markdown-it-container";
 import markdownItAttrs from "markdown-it-attrs";
 
+
 import { paginate } from "./src/js/paginate.js";
 
-// Using ES6 import syntax
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
 import html from 'highlight.js/lib/languages/xml';
@@ -86,6 +89,7 @@ async function layoutHTML() {
 
 //wait to have all the element loaded (module scripts can't be defered)
 window.addEventListener("load", async (event) => {
+    // await 
     await layoutHTML();
 });
 
