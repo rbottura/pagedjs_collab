@@ -10,7 +10,7 @@ import "highlight.js/styles/intellij-light.css";
 
 import cover from "./src/md/cover.md?raw";
 import content_fr from "./src/md/cramer_FR.md?raw";
-import content_en from "./src/md/content_en.md?raw";
+import content_en from "./src/md/cramer_EN.md?raw";
 import back from "./src/md/back.md?raw"
 
 import markdownit from "markdown-it";

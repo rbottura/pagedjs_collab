@@ -1,0 +1,124 @@
+# [Zehn Hypothesen zur Software-Kunst][1]
+#### Florian Cramer
+
+### 1. Worum es sich nicht handelt?
+Um Software-Kunst, wie sie in der kostenlosen Internet-Enzyklopädie Wikipedia definiert wird (Version von September 2003):
+> « Software-Kunst ist der Begriff, der verwendet wird, um das grafische Design der visuellen Elemente in einer Software zu bezeichnen, zum Beispiel eine grafische Benutzeroberfläche, Icons, usw. »[2]
+
+### 2. Worum es sich handelt?
+
+Um Künstler, die Computer-Software verwenden, um Werke zu produzieren, die selbst – was nur Schriftsteller vor ihnen getan hatten – digitale Schöpfungen sind, die aus Symbolen hergestellt werden, mit Hilfe eines Werkzeugsatzes, der ebenfalls vollständig aus Symbolen besteht. Kein Schriftsteller kann die Sprache als bloße "Füllung" verwenden, um ein Werk zu komponieren, das selbst nicht Sprache wäre. So produziert die Literatur, nach Art einer rekursiven Schleife, ihre eigenen Werkzeuge. Ebenso sind die 0en und 1en der digitalen Kunst eng mit den 0en und 1en des Instruments verbunden, das sie nicht nur produziert, sondern auch angezeigt und kopiert hat.
+
+[1]: Der Ausdruck « Software Art » wurde in diesem Text auf Wunsch von Florian Cramer mit « Software-Kunst » übersetzt, der damit die « Software-Kunst » nicht als Bewegung, sondern als allgemeine Bezeichnung zur Beschreibung dieser Praxis behandeln möchte (Anm. d. Ü.).
+[2]: « Software art is a term for the graphic design of visual elements contained in software, eg. GUI (Graphic User Interface), Icons, etc. », http://www.wikipedia.org/wiki/Software_art (diese Definition erschien im September 2003, sie wurde seitdem geändert)
+
+### 3. Ohne Software keine digitale Kunst
+
+Es wäre naiv zu glauben, dass Schrift, Bild, Ton und Netzwerk auf einem Computer als solche oder in "multimedialer" Kombination existieren, insofern keine dieser Datenformen ohne das Computerprogramm existieren kann, das sie produziert. Eine Wahrheit, die nicht nur für ihre Konzeption und Bearbeitung gilt (dank Textverarbeitungs-, Grafikdesign- oder Musikproduktionssoftware zum Beispiel), sondern auch für ihre einfache Anzeige (in Browsern, Bildbetrachtungssoftware und Playern) und ihre Reproduktion (über Netzwerksoftware und Betriebssysteme). Ebenso kann jedes digitale Werk, das nicht selbst ein Computerprogramm ist, nur innerhalb des Rahmens existieren, den ihm eine vorgefertigte Software zugewiesen hat.
+Jedes digitale Kunstwerk nimmt daher an Software-Kunst im weiteren Sinne teil, zumindest insofern es von einer Form software-assistierter Kunst stammt. Es nimmt an Software-Kunst im engeren Sinne teil, so scheint mir, wenn es Software nicht als externe Hilfe, sondern als integralen Bestandteil seiner Ästhetik einbezieht.
+
+### 4. Software-Kunst ist nicht notwendigerweise digital oder elektronisch
+
+Ein Computerprogramm ist eine Reihe formaler (algorithmischer) Anweisungen, deren Ausführung von einer Maschine durchgeführt werden kann, aber nicht notwendigerweise muss.
+Nehmen wir folgendes Beispiel:
+
+    // Classic.walk
+    Repeat
+    {
+    1 st street left
+    2 nd street right
+    2 nd street left
+    }
+
+Dies ist ein Beispiel des .Walk-Programms, das auf der Website Socialfiction zu finden ist (http://cryptoforest.blogspot.com)[3]. Laut seinen Schöpfern funktioniert .Walk als "psychogeographischer Computer", in dem die Gitter eines Transistors durch die Straßen einer Großstadt und die Elektronen durch Fußgänger ersetzt werden, die in ihren Arterien zirkulieren. Das Programm verweist so auf zwei historische Vorläufer: zunächst auf die Konzeptkunst und die Fluxus-Bewegung mit ihren para-algorithmischen, minimalistischen Ereignissen (wie die von George Brecht, La Monte Young und Sol LeWitt orchestrierten nach einem von John Cage definierten Paradigma); dann auf die Geschichte des modernen Computers in seiner ersten Verkörperung, nämlich nichts mehr als jenes imaginäre und theoretische Gerät, das die Turing-Maschine darstellte.
+
+### 5. Software-Kunst ist nicht synonym mit Konzeptkunst
+
+.Walk unterscheidet sich von einem Ereignis wie der binären Anweisung « on. off. » aus George Brechts Three Lamp Events von 1961 [4], insofern dieses Werk eine wiederholte kulturelle Praxis widerspiegelt: die Verwendung von Computern, Software und ihrer Programmierung. Während das Lamp Event als Präambel zur künstlerischen Softwareprogrammierung über formale Logik betrachtet werden könnte, beansprucht .Walk – durch seinen Titel, der an Microsofts .NET erinnert – seine Zugehörigkeit zu einer Software-Kultur. Folglich ist es in diesem Werk nicht die Konzeptkunst, die auf Software Bezug nimmt, sondern umgekehrt: die Software verweist auf die konzeptuellen Performances und Interventionen der 1960er Jahre (die auch die Psychogeographie der Situationistischen Internationale einschloss), die sie als Software überarbeitet. Dennoch hat diese Anspielung an sich nichts Konzeptuelles mehr; sie ist historisch, ironisch, ein Collage-Werk.
+
+Und genau hier widerspricht die heutige Software-Kunst jener Gleichsetzung von Kunst und Software, wie sie 1970 während Jack Burnhams Konzeptkunst-Ausstellung Software im Jewish Museum in New York und in der ersten Ausgabe des Videokunst-Magazins Radical Software [5] präsentiert wurde. Dreißig Jahre später erscheint Software nicht mehr als Laborkonzept und konzeptualistisches Reinigungsparadigma, sondern präsentiert sich vielmehr – und das seit der Demokratisierung von PCs und Internet – als fehlerhafter Code, als Verantwortlicher für Abstürze, Inkompatibilitäten, Viren, und drückt so Kontingenz und nicht mehr die Strenge der Symbole aus.
+
+Da die Net.art von Jodi, Alexei Shulgin, Vuk ćosić oder I/O/D es ermöglicht hat, diese Kontingenzen zu ästhetisieren und so die digitale Kunst von ihrem scheinbaren akademischen und industriellen Glanz zu befreien, ist es nicht überraschend, in der jüngsten Geschichte der Software-Kunst, die sich in die diskursive Kontinuität der Online-Kunst der 1990er Jahre einschreibt, einige vertraute Namen zu finden.
+
+[3]: Wilfried Hou Je Bek, .Walk for dummies, einsehbar auf Socialfiction, http://www.socialfiction.org/dotwalk/dummies.html
+[4]: Diese Anweisung findet sich als kleine Partitur in George Brecht, Water-Yam/George Brecht, Ed. Lebeer Hossmann, Brüssel, 1986 (die Originalversion stammt von 1963).
+[5]: Zur Ausstellung siehe Edward A. Shanken, « The House That Jack Built: Jack Burnham's Concept of "Software" as a Metaphor for Art », in Leonardo Electronic Almanac, vol. 6, Nr. 10, November 1998, http://www.leoalmanac.org/journal/Vol_6/lea_v6_n10.txt. Auch einsehbar unter http://www.artexetra.com/House.pdf ; Radical Software ist seit kurzem auf der Website http://www.radicalsoftware.org einsehbar
+
+Die Betrachtung der Entwicklung von Jodis künstlerischen Arbeiten von 1996 bis heute ermöglicht es ideal zu sehen, wie die Net.art-Experimente mit Bildschirmgrafiken und Netzwerkkommunikation zunächst ein Werk bildeten, das die Zwänge seiner Software-Umgebung anprangerte (siehe die Browser-Manipulation mit dem Titel OSS unter http://oss.jodi.org), dann zur Umprogrammierung von Software entwickelte (siehe das Werk Untitled Game, basierend auf dem Videospiel Quake, unter http://www.untitled-game.org) und schließlich durch die Reduktion des sichtbaren Objekts zu einem BASIC-Quelltext führte (im allerneuesten Werk mit dem Titel 10 Programs written in BASIC ©1984 [6]).
+
+Es ist wahr, dass Software-Kunst, wenn sie minimalistisch wird, eine gewisse Ähnlichkeit mit der älteren Praxis der Konzeptkunst zeigt; diese Annäherung bleibt jedoch antinomisch, insofern sie nicht im Geiste jener Entmaterialisierung des Kunstwerks typisch für die Periode 1966-1971 erfolgt, wie sie von Lucy Lippard in ihrem Buch Six Years beschrieben wird. Im Gegenteil, in der Software-Kunst wird Software als materielles Element betrachtet – ein Postulat, das auch eine Voraussetzung für die Codeworks („Code-Werke") von Künstlern wie Jodi, antiorp, mez, Alan Sondheim, Johan Meskens und Lanny Quarles [7] darstellt, die syntaktische Elemente aus Programmiersprachen, Netzwerkprotokollen, Systemmeldungen und umgangssprachliche Ausdrücke der Computerkultur vermischen, wie die folgende E-Mail der französischen Künstlerin Pascale Gustin zeigt:
+
+    L'_eN(g)Rage \ment politi][~isch][K et l' _art is T(od)
+    ][ref lex][1/O.ns 10verses NOT es][
+    --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+    ------------------------------------A:
+    ---------------------------][menta les_sel][l] a tenement) T nem T
+    -tout d_abord--------1/O(f.ne
+    1 of 1 deletions
+    1 deletion done
+    apply: Command attempted to use minibuffer while in minibuffer
+
+### 6. Software-Kunst ist nicht synonym mit algorithmischer Kunst
+
+Wenn Software, allgemein definiert, aus Algorithmen besteht, kann man Software-Kunst mit algorithmischer Kunst oder generativer Kunst gleichsetzen – wofür Philip Galanter eine sehr nützliche Definition geliefert hat:
+> « Generative Kunst bezieht sich auf jede künstlerische Praxis, in der der Künstler einen Prozess schafft, wie eine Reihe von Regeln in natürlicher Sprache, ein Computerprogramm, eine Maschine oder jeden anderen Mechanismus, der dann mit einem gewissen Grad an Autonomie umgesetzt wird und zu einem vollendeten Kunstwerk beiträgt oder führt. »[8]
+
+Gewiss kann es sein, dass Software-Kunst eine gewisse Autonomie in der Verkettung von Ereignissen impliziert, wie sie Jack Burnham in Essays beschrieben hat, die stark von der Kybernetik und der allgemeinen Systemtheorie der 1960er Jahre geprägt waren [9]. Eine Autonomie, die man zum Beispiel im Fall von funktionalem Code findet, der das Aussehen einer klassischen PC-Anwendung annimmt[10], oder auch im Fall eindeutiger formaler Anweisungen wie in .Walk. Wenn man jedoch einige der beliebtesten Software-Kunst-Subgenres betrachtet, wie Videospiel-Modifikationen[11] und experimentelle Browser [12], geht es nicht mehr um die ästhetische Autonomie algorithmischer Prozesse, sondern um ihre unzeitgemäße Unterbrechung durch die kombinierte Aktion von Software, Mensch und Netzwerkdaten. Außerdem ist nach Galanters Definition in der generativen Kunst Software nur ein Mittel unter anderen, das nicht an sich ein Kunstwerk darstellt, sondern sich damit begnügt, dazu „beizutragen", ähnlich wie viele Formen computergestützter Kunst (insbesondere elektronische Musik), in denen Software nicht als Teil der Ästhetik des Werks betrachtet wird, sondern als im Hintergrund wirkendes Element.
+
+Software-Kunst ihrerseits erfüllt die Kriterien generativer Kunst nicht, oder ist zumindest nur in der Lage, sie in metaphorischem und nicht technischem Sinne zu erfüllen, das heißt, wenn sie dysfunktionale und imaginäre Software produziert. Dies ist zum Beispiel bei Codeworks der Fall.
+
+[8]: Ein Zitat, das sich auf http://www.philipgalanter.com/downloads/ga2003_what_is_genart.pdf oder auch http://www.generative.net/read/definitions findet
+[9]: Siehe auch die deutsche Version von Jack Burnhams Structure of Art, ungeschickt unter dem Titel Kunst und Strukturalismus übersetzt, DuMont Schauberg, Köln, 1973.
+[10]: Auto-Illustrator, Adrian Ward, 2001, http://www.auto-illustrator.com
+[11]: Untitled Game von Jodi (http://www.untitled-game.org/download.html) ; retroyou von Joan Leandre (http://www.retroyou.org).
+[12]: Web Stalker von I/O/D (http://bak.spc.org/iod/iod4.html) ; Nebula.M81 von Netochka Nezvanova (http://www.mediaartnet.org/works/nebula/) ; %Wrong Browser von Jodi (http://www.wrongbrowser.org) ; Shredder von Mark Napier (http://www.potatoland.org/shredder/) ; Discoder von Kensuke Sembos und Yae Akaivas (http://www.exonemo.com/DISCODER/indexE.html) ; ZNC Browser von Peter Luining (http://znc.ctrlaltdel.org/pc_znc2.0.htm).
+
+[6]: Ausgestellt während Electrohype in Malmö 2003.
+[7]: Siehe auch insbesondere Alan Sondheim, « Introduction: Codework », in American Book Review, vol. 22, Nr. 6, University of Houston-Victoria, Victoria, September 2001, S. 1-4, http://www.litline.org/ABR/issues/Volume22/Issue6/sondheim.pdf ; McKenzie Wark, « Essay: Codework », in American Book Review, vol. 22, Nr. 6, September 2001, S. 1-5.
+
+### 7. Software-Kunst beruht nicht auf Leere, sie ist Teil einer Software-Kultur
+
+Wenn Software-Kunst Software weniger als Mittel zur Kontrolle generativer Prozesse denn als Spielmaterial begreift, interpretiert sie es nicht mehr – im Gegensatz zu den „klassischen" Praktiken der Konzeptkunst und generativen Kunst – als reine Syntax. Software wird dann semantisch, Träger ästhetischer, kultureller und politischer Bedeutung[13]. Während 1970 die Software-Kultur – wie durch Burnhams Software-Ausstellung und die Konfrontation zwischen Konzeptkunst und Software-Entwicklung in Forschungslabors dokumentiert – auf den universitären Bereich beschränkt blieb, und selbst die Hacker-Kultur sich auf prestigeträchtige Institutionen wie das MIT und Berkeley beschränkte, ist sie heute eine Massenkultur, die von einer alltäglichen Ästhetik der Software begleitet wird. Ebenso hat Software, wie insbesondere die Debatten um freie Software, Monopole, Lizenzen, Adware und Spyware zeigen, heute immer häufiger eine politische Resonanz. Trotz allem war die kulturelle Kritik von Software nur Gegenstand einiger sporadischer Versuche, wie in den Essays von Wolfgang Hagen, Matthew Fuller oder auch auf der von Jeremy Hunsinger gestarteten Mailingliste softwareandculture[14].
+
+### 8. Software-Kunst ist nicht die Kunst des Programmierers
+
+Historisch resultiert die Kluft zwischen der „Verwendung" und „Programmierung" von Computern aus der Schaffung der „ikonischen" Benutzeroberfläche[15] und ihrer Kommerzialisierung durch Apple und Microsoft, die zum ersten Mal jeder Betriebsart ein anderes Medium zuordneten: „ikonische" Bilder für die „Verwendung" und alphanumerischen Text für die „Programmierung". Genau in diesem Moment wurde die Computerprogrammierung zu einer obskuren Kunst, verbunden mit einem Wissen, das nur eine angebliche Elite besitzen würde [16]. Programmierer haben natürlich diesen Mythos kultiviert und das ideologische Erbe des späten 18. Jahrhunderts für sich beansprucht, indem sie durch die Figur des Hackers eine Reinkarnation des romantischen Genies schufen.
+
+Jede Darstellung über Software-Kunst birgt daher ein Risiko, nämlich das, den Kult des Programmiergenies zu unterhalten. Ein Kult, dem imaginäre, simulierte und dysfunktionale Software sowie Manipulationen bestehender Software widersprechen, die keine besondere Programmierkompetenz erfordern [17]. Wenn Software nicht nur das Grundmaterial der Software-Kunst, sondern auch ihr Reflexionsobjekt sein kann, dann kann sich diese Reflexion durch völlig andere Materialien ausdrücken – wie das Werk von Julia Guther und Jakob Lehr n:info zeigt, das 2001 in Berlin während des Browserday-Festivals enthüllt wurde. Dieses präsentiert sich als Browser in Form eines abnehmbaren Fensterrahmens und kehrt die Rhetorik „ikonischer" PC-Software um, indem es ein analoges Werkzeug als Metapher für digitale Software vorschlägt und dabei die sogenannte „Web-Navigation"-Software-Anwendung als kulturelle Technik, als Wahrnehmungs- und Denkweise exponiert[18]. Man würde also nichts gegen Software-Kunst einzuwenden haben, die die Form eines gemalten Bildes annimmt.
+
+### 9. Genre-Klischees könnten Software-Kunst langweilig machen
+
+Gewiss existiert das Risiko, sich auf Stereotypen zu beschränken, auch in künstlerischen Formen, die sich wie die Fluxus-Bewegung nicht über spezifische Materialien definieren. Und dennoch könnte Software-Kunst durchaus alles Interesse verlieren – in den Augen von Kritikern, Kuratoren und Wettbewerbsjurys – wenn sich ihr Repertoire auf experimentelle Web-Browser, Datenvisualisierungen, modifizierte Videospiele und Cracks [19] (wie Computerviren und Fork-Bomben [20]) beschränkte. Ein anderes Problem kommt daher, dass man Software-Kunst oft mit jenem Ensemble assoziiert, das „Medienkunst" ist, was zur Folge hat, dass bestimmte Programme mit künstlerischem Interesse – wie die, die im Rahmen von GNU/Linux und freier Software erscheinen – nicht bis zu Software-Kunst-Wettbewerben, -Festivals und -Ausstellungen gelangen.
+
+### 10. In Wirklichkeit betrifft die Debatte über Software-Kunst und ihre Legitimität als Kunst nicht die Software-Kunst selbst
+
+Man stellt regelmäßig die Relevanz des Wortes „Kunst" in der Bezeichnung „Software-Kunst" in Frage, die so zu einer eigenständigen Disziplin würde. Die naive Art, die Frage zu betrachten, betrachtet Software als einfaches Ergebnis von Ingenieurswesen und stellt so ihren künstlerischen Wert in Frage. Umgekehrt prangert eine reflektiertere Sicht die Tatsache an, dass eine polymorphe Bewegung sich, wieder einmal und ungerechtfertigt, das Etikett „Kunst" hat anheften lassen. Tatsächlich, wie die traditionelle japanische Kultur ohne jedes Konzept der freien Künste im Gegensatz zu den angewandten Künsten ausgekommen ist, stellt man auch in der Software-Kultur fest, sowohl im Fall freier Software als auch kommerzieller Software, eine Sicht der „Kunst" im Sinne ihrer lateinischen etymologischen Wurzel ars, die „Geschicklichkeit", „Know-how" bedeutet.
+
+Wie ein von dem Künstler Alexei Shulgin organisiertes Festival gezeigt hat, kann es möglich sein, dank der Vorstellungskraft und Hacker-Mentalität der Programmierer freier Software, im Rahmen der Software-Kunst die Arbeiten von Künstlern und selbsternannten Nicht-Künstlern zu vereinen [21]. Jedoch sind die Einwände gegen die Klassifizierung der Software-Kunst in der Kategorie „Kunst" nur eine der verschiedenen Arten, das Konzept der Kunst selbst zu überdenken.
+
+Lev Manovich formuliert in seinem Bericht mit dem Titel « Don't Call it Art: Ars Electronica 2003 » [22] einen persönlichen Einwand auf subtilere Weise als die beiden vorherigen, indem er dazu aufruft, Software-Kunst nicht als „Kunst" zu bezeichnen, insofern diese Praxis sich selbst aus dem Rahmen der „zeitgenössischen Kunst" durch ihr zu großes Interesse an einem spezifischen Material ausschließen würde. Nun besteht zeitgenössische Kunst, wie man sie in Galerien, Salons, Museen und ihren Ausstellungen sehen kann, aus Unterdisziplinen, die eine Haltung bezeugen, die alles andere als neutral gegenüber ihren jeweiligen Materialien ist: man findet einerseits großformatige Malerei und fotografische Kunst für private Sammler, und andererseits akademische Kunstinstallationen (oft auf Video-Support), die allgemein in subventionierten Räumen präsentiert und von Künstlern und Kuratoren produziert werden, die aus den Cultural Studies stammen [23]. Dies beiseite gestellt, ist Software-Kunst nichts anderes als ein Oberbegriff, ebenso wie Mal-, Klang-, Schrift- oder Videokunst. Außerdem wurde sie nicht von den Künstlern selbst definiert, sondern von Kritikern und Kuratoren, die in der zeitgenössischen digitalen Kunst eine Tendenz identifiziert hatten, Software als Medium zu verwenden [24].
+
+Es wird daher sehr leicht, die Verwendung des Ausdrucks „Software-Kunst" zu rechtfertigen. Tatsächlich kommt sie einfach daher, dass heute bedeutende Produktionen zeitgenössischer Kunst (nach Art derer, die in diesem Artikel beschrieben werden) in Form von Software das Licht der Welt erblicken.
+Es wird dann notwendig, über eine Theorie und Kritik der Software-Kunst zu verfügen.
+
+Arbeit unter Creative Commons Attribution-ShareAlike License. Um eine Kopie dieser Lizenz zu sehen,
+besuchen Sie die Website http://creativecommons.org/licenses/by-sa/1.0/ oder senden Sie einen Brief an Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA.
+
+[13]: Der Injunction Generator von Ubermorgen.com (http://www.ipnic.org/intro.html), der automatisch juristische Verfügungen ausstellt, sowie der Proxy-Server Insert_coin (http://odem.org/insert_coin/) von Alvar Freude und Dragan Espenschied, der Text zensiert, sind zwei überzeugende Beispiele für den politischen Aktivismus der Software-Kunst.
+[14]: Wolfgang Hagen, « Der Stil der Sourcen. Anmerkungen zur Theorie und Geschichte der Programmiersprachen », in Wolfgang Coy, Georg C.Tholen, Martin Warnke (Hrsg.), Hyperkult, Stroemfeld, Basel, 1997, S. 33-68 ; Matthew Fuller, Behind the Blip. Essays on the Culture of Software, Autonomedia, New York, 2003 ; softwareandculture, Homepage auf http://lists.tmttlt.com/listinfo.cgi/softwareandculture-tmttlt.com und Archive auf http://lists.tmttlt.com/private.cgi/softwareandculture-tmttlt.com/
+[15]: Hier verwendet Florian Cramer den Begriff „ikonisch" im Sinne einer Ähnlichkeitsbeziehung, in Bezugnahme auf Charles S. Peirce (Anm. d. Ü.).
+[16]: Und das, obwohl Programmierung in einer gewöhnlichen Sprache kaum mehr als Kenntnisse von Variablen, Schleifen und „wenn/dann"-Anweisungen erfordert.
+[17]: Wie zum Beispiel der ScreenSaver von Ivan Khimin und Eldar Karhalev (http://runme.org/project/+screensaver/), eine Konfiguration des Windows-Bildschirmschoners, die es ermöglicht, ein sowohl suprematistisches als auch hypnotisches fliegendes Quadrat zu erhalten.
+[18]: n:info, http://myhd.org
+[19]: Cracks sind Computerprogramme, die dazu dienen, das normale Funktionieren einer anderen Software zu stören, im Allgemeinen um deren Schutz oder Nutzungsbeschränkungen zu umgehen (Anm. d. Ü.).
+[20]: Eine Fork-Bomb zielt darauf ab, die Prozessverwaltungskapazität eines Computers bis zum Absturz zu sättigen, indem sie schnell eine zu erledigende Aufgabe vervielfältigt (Anm. d. Ü.).
+[21]: Zum Beispiel das von einem Hacker entwickelte und beim Read_Me 2002 Festival preisgekrönte Programm WinGluk Builder (http://readme.runme.org/1.2/inde6.htm) und das im folgenden Jahr ausgestellte Programm Tempest for Eliza (http://www.erikyyy.de/tempest/), das einen Kurzwellen-Radiosender über eine auf Monitoren angezeigte Grafik implementiert.
+[22]: Lev Manovich, « Don't Call It Art: Ars Electronica 2003 », Nettime, September 2003, http://amsterdam.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+[23]: In den 1960er Jahren in Großbritannien entstanden, vermischt die Disziplin der Cultural Studies hauptsächlich Literaturanalyse mit Soziologie. Sie besitzt kein institutionelles Äquivalent in Frankreich (Anm. d. Ü.).
+[24]: Dies war insbesondere der Fall bei Saul Albert in « Artware », Mute, Nr. 14, Mute Publishing Ltd, London, 1999, S. 63-65, http://twenteenthcentury.com/saul/artware.htm, bei Alexander Galloway in « Year in Review: State of net.art 99 », in Switch, 1999, http://switch.sjsu.edu/web/v5n3/D-1.html, bei Andreas Broeckmann, der 2000 eine „Software"-Sektion im Transmediale-Festival einführte, und schließlich bei Tilman Baumgärtel mit dem Artikel « Experimentelle Software. Zu einigen neueren Computerprogrammen von Künstlern », in Telepolis, Heise Zeitschriften Verlag, Hannover, Oktober 2001, http://www.heise.de/tp/r4/artikel/9/9908/1.html
+
+http://cryptoforest.blogspot.com
+Website von Wilfried Hou Je Bek.
+http://www.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+« Don't Call it Art: Ars Electronica 2003 » von Lev Manovich. Archiv des im
+September 2003 auf der Nettime-Mailingliste geposteten Textes.

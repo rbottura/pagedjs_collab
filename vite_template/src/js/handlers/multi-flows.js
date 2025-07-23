@@ -410,6 +410,9 @@ export class multilang extends Handler {
 
               obj.style.left = `${obj.offsetLeft}px`;
               obj.style.width = `${obj.offsetWidths}px`;
+
+              console.log(obj)
+
               obj.style.top = `${obj.offsetTop}px`;
               obj.style.height = `${obj.offsetHeight}px`;
               obj.style.position = "absolute";
