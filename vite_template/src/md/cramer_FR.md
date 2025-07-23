@@ -2,11 +2,12 @@
 #### Florian Cramer
 
 ### 1. De quoi ne s’agit-il pas ?
-De l’art logiciel, tel qu’il est défini dans l’encyclopédie gratuite sur Internet Wikipédia
-(version de septembre 2003) : « L’art logiciel est le terme utilisé pour désigner la conception graphique des éléments visuels contenus dans un logiciel, par exemple une interface graphique utilisateur, des icônes, etc. »[2]
+De l’art logiciel, tel qu’il est défini dans l’encyclopédie gratuite sur Internet Wikipédia (version de septembre 2003) :
+> « L’art logiciel est le terme utilisé pour désigner la conception graphique des éléments visuels contenus dans un logiciel, par exemple une interface graphique utilisateur, des icônes, etc. »[2]
+
 ### 2. De quoi s’agit-il ?
-D’artistes qui utilisent des logiciels informatiques pour produire des œuvres qui sont
-elles-mêmes – ce que seuls les écrivains avaient fait avant eux – des créations numériques fabriquées à partir de symboles, à l’aide d’un ensemble d’outils égalementconstitués entièrement de symboles. Nul écrivain ne peut utiliser le langage comme un simple « remplissage » en vue de composer une œuvre qui elle-même ne serait pas du langage. Ainsi la littérature, à l’image d’une boucle récursive, fabrique ses propres outils. De la même manière les 0 et les 1 de l’art numérique sont étroitement liés aux 0 et 1 de l’instrument qui les a non seulement produits, mais également affichés et recopiés.
+
+D’artistes qui utilisent des logiciels informatiques pour produire des œuvres qui sont elles-mêmes – ce que seuls les écrivains avaient fait avant eux – des créations numériques fabriquées à partir de symboles, à l’aide d’un ensemble d’outils égalementconstitués entièrement de symboles. Nul écrivain ne peut utiliser le langage comme un simple « remplissage » en vue de composer une œuvre qui elle-même ne serait pas du langage. Ainsi la littérature, à l’image d’une boucle récursive, fabrique ses propres outils. De la même manière les 0 et les 1 de l’art numérique sont étroitement liés aux 0 et 1 de l’instrument qui les a non seulement produits, mais également affichés et recopiés.
 
 [1]: L’expression « Software Art » a été traduite dans ce texte par « art logiciel » à la demande de Florian Cramer, qui de ce fait entend aborder l’« art logiciel » non pas en tant que mouvement mais en tant qu’appellation d’ordre général servant à décrire cette pratique (NdT).
 [2]: « Software art is a term for the graphic design of visual elements contained in software, eg. GUI (Graphic User Interface), Icons, etc. », http://www.wikipedia.org/wiki/Software_art (cette définition est celle qui apparaissait en septembre 2003, elle a été modifiée depuis lors)

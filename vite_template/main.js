@@ -9,7 +9,8 @@ import "./src/css/back.css";
 import "highlight.js/styles/intellij-light.css";
 
 import cover from "./src/md/cover.md?raw";
-import content from "./src/md/content.md?raw";
+import content_fr from "./src/md/cramer_FR.md?raw";
+import content_en from "./src/md/content_en.md?raw";
 import back from "./src/md/back.md?raw"
 
 import markdownit from "markdown-it";
@@ -33,9 +34,10 @@ hljs.registerLanguage('md', markdown);
 let elementsToPaginate = [];
 
 //markdown files to load
-const mdFilesList = [cover, content, back];
+const mdFilesList = [cover, content_fr, content_en, back];
+
 //html elements to be filled from converted md file
-const partsList = ["cover", "content", "back"];
+const partsList = ["cover", "content_fr", "content_en", "back"];
 
 //markdownit instanciation (old school method as no ES6 modules are available)
 const md = markdownit
@@ -80,8 +82,9 @@ async function layoutHTML() {
         const mdContent = mdFilesList[index];
         //convertion from md to html, returns a string
         const result = md.render(mdContent);
-
+        
         const destinationElement = document.getElementById(partsList[index]);
+        console.log(destinationElement)
         destinationElement.innerHTML = result;
         elementsToPaginate.push(destinationElement.cloneNode(true));
     };

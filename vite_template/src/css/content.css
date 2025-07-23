@@ -5,12 +5,13 @@
 
     @page {
         /* format */
-        size: 130mm 200mm;
+        /* size: A4 landscape; */
+        size: 147mm 196mm;
 
         /* Margin  */
         margin-top: 15mm;
-        margin-left: 15mm;
-        margin-right: 15mm;
+        margin-left: 9mm;
+        margin-right: 9mm;
         margin-bottom: 35mm;
 
         /* Color */

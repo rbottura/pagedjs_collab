@@ -196,6 +196,8 @@ export class multilang extends Handler {
       let parallelElements = Array.from(
         document.querySelectorAll(`.parallel-obj-${flowName}`),
       );
+      console.log(flows)
+      console.log(parallelElements)
       let biggestHeightId = parallelElements.reduce(
         (max, el) =>
           parseInt(el.dataset.height) > parseInt(max.dataset.height) ? el : max,
@@ -392,11 +394,11 @@ export class multilang extends Handler {
         guestsObj.push(document.querySelectorAll(gu.selector));
       });
 
-      let guests = [];
-
-      guestIds.forEach((selectors) => {
-        guests = [...document.querySelectorAll(hostId.selector)];
-      });
+      // question a bout usefullness of this 4 lines
+      // let guests = [];
+      // guestIds.forEach((selectors) => {
+      //   guests = [...document.querySelectorAll(hostId.selector)];
+      // });
 
       if (this.flowLocation == "samepage") {
         guestsObj.forEach((guests) => {
@@ -406,8 +408,7 @@ export class multilang extends Handler {
 
               let pageToRemove = guests[i].closest(".pagedjs_page");
 
-              // added brut force 30px to test overlaping in rendering 
-              obj.style.left = `${obj.offsetLeft - 30}px`;
+              obj.style.left = `${obj.offsetLeft}px`;
               obj.style.width = `${obj.offsetWidths}px`;
               obj.style.top = `${obj.offsetTop}px`;
               obj.style.height = `${obj.offsetHeight}px`;

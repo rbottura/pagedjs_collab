@@ -96,7 +96,7 @@ class multilang extends Paged.Handler {
   }
 
   onDeclaration(declaration, dItem, dList, rule) {
-    if (!this.flowLocation == "samespread" || !this.flowLocation == "samepage")
+    if (this.flowLocation !== "samespread" && this.flowLocation !== "samepage")
       this.flowLocation = "samespread";
     if (declaration.property == "--parallel-flow") {
       let sel = csstree.generate(rule.ruleNode.prelude);
@@ -382,7 +382,11 @@ class multilang extends Paged.Handler {
       console.log(pflow)
       let hostId = getBiggestHeight(pflow.selectors);
       let hostObj = document.querySelectorAll(hostId.selector);
+      console.log("hostObj : ")
+      console.log(hostObj)
       let guestIds = getAllButBiggestHeight(pflow.selectors);
+      console.log("guestIds : ")
+      console.log(hostObj)
       let guestsObj = [];
 
       guestIds.forEach((gu) => {
@@ -403,9 +407,9 @@ class multilang extends Paged.Handler {
             if (hostObj[i] && guests[i]) {
               let obj = guests[i];
 
-
               let pageToRemove = guests[i].closest(".pagedjs_page");
 
+              console.log(obj.offsetWidth)
               obj.style.marginLeft = `${obj.offsetLeft}px`;
               obj.style.width = `${obj.offsetWidth}px`;
               obj.style.top = `${obj.offsetTop}px`;
