@@ -413,9 +413,10 @@ export class multilang extends Handler {
 
               console.log(obj)
 
-              obj.style.top = `${obj.offsetTop}px`;
-              obj.style.height = `${obj.offsetHeight}px`;
               obj.style.position = "absolute";
+              obj.style.top = `${obj.offsetTop}px`;
+              
+              obj.style.height = `${obj.offsetHeight}px`;
 
               hostObj[i]
                 .closest(".pagedjs_page_content")

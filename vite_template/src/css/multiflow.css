@@ -13,6 +13,7 @@ section.a {
 }
 
 section.c {
+    top: 0px !important;
     width: 48%;
     margin-left: auto;
     --parallel-flow: beta;
@@ -42,5 +43,5 @@ section.d h1 {
 
 section p {
     font-family: 'Times New Roman', Times, serif;
-    font-size: 11pt;
+    font-size: 12pt;
 }
