@@ -29,6 +29,7 @@ section.b {
     width: 45%;
     margin-left: auto;
 }
+
 section.d {
     /*parallel-flow: name,  this will trigger the parallel-flow script*/
     /* --parallel-flow: alpha; */

@@ -90,12 +90,34 @@ export class multilang extends Handler {
     this.flowLocation = "samepage";
 
     // this.parallelFlows will find the flows from the css;
-    this.parallelFLows = [];
+    this.parallelFlows = [];
 
     // this.tracker will keep tack of the flows
     this.flowTracker = [];
 
     this.parallelImpacts = [];
+
+    // NEW: Section sync within flows 
+    this.chapterSelector = 'h3';
+    this.sectionSync = true; // Enable section synchronization
+
+  }
+
+  // ENHANCED METHOD: Extract chapter number with more patterns
+  extractChapterNumber(text) {
+    const patterns = [
+      /chapter\s*(\d+)/i,
+      /chapitre\s*(\d+)/i,
+      /kapitel\s*(\d+)/i,
+      /^(\d+)[\.\s]/
+    ];
+
+    for (const pattern of patterns) {
+      const match = text.match(pattern);
+      if (match) return parseInt(match[1]);
+    }
+
+    return null;
   }
 
   onDeclaration(declaration, dItem, dList, rule) {
@@ -108,13 +130,13 @@ export class multilang extends Handler {
       sel = sel.replace('"]', "");
       let itemsList = sel.split(",");
       itemsList.forEach((el) => {
-        let flow = this.parallelFLows.find((a) => {
+        let flow = this.parallelFlows.find((a) => {
           return a.flow == declaration.value.value.trim();
         });
         if (flow) {
           flow.selectors.push({ selector: el, height: 0 });
         } else {
-          this.parallelFLows.push({
+          this.parallelFlows.push({
             flow: declaration.value.value.trim(),
             selectors: [{ selector: el, height: 0 }],
           });
@@ -140,20 +162,21 @@ export class multilang extends Handler {
       });
     });
 
-    this.parallelFLows.forEach((flow) => {
+    this.parallelFlows.forEach((flow) => {
       flow.selectors = flow.selectors.filter((e) =>
         content.querySelector(e.selector),
       );
     });
+
     document.body.insertAdjacentHTML(
       "beforeend",
       htmlTemplate("find-if-its-a-named-page", "find-if-its-the-first-one"),
     );
 
     // render the parallel flows
-    this.parallelFLows.forEach((flows, flowsIndex) => {
+    this.parallelFlows.forEach((flows, flowsIndex) => {
       //name of the flow
-      let flowName = this.parallelFLows[flowsIndex].flow;
+      let flowName = this.parallelFlows[flowsIndex].flow;
 
       // flow selectors
       flows.selectors.forEach((flow, selectorIndex) => {
@@ -276,7 +299,7 @@ export class multilang extends Handler {
               clone.dataset.ref = "unset";
               clone.setAttribute(
                 "style",
-                `width: ${el.offsetWidth}px ; height: ${el.offsetHeight}px ;  top: ${el.offsetTop}px; left: ${el.offsetLeft}px; position: absolute;`,
+                `width: ${el.offsetWidth}px ; height: ${el.offsetHeight}px ;  top: ${el.offsetTop}px; left: ${el.offsetLeft - 50}px; position: absolute;`,
               );
               clone.style.position = "absolute;";
 
@@ -319,6 +342,8 @@ export class multilang extends Handler {
   }
 
   async finalizePage(page) {
+    console.log(page.dataset.pageNumber)
+    // const pageNum = page.data-page-number
     if (page.querySelector("[data-main-obj-in-flow]")) {
       let impacts = page.querySelectorAll(".parallel-impact");
 
@@ -327,7 +352,7 @@ export class multilang extends Handler {
       let flowtracker = this.flowTracker.find((a) => a.flow == flowName);
 
       if (!flowtracker) {
-        flowtracker = this.flowTracker.push({
+        this.flowTracker.push({
           flow: flowName,
           pages: [],
         });
@@ -355,7 +380,7 @@ export class multilang extends Handler {
 
     if (this.flowSpreadAddWhite) {
       if (page.querySelector("[data-main-obj-in-flow]")) {
-        this.parallelFLows.forEach(async (pflow) => {
+        this.parallelFlows.forEach(async (pflow) => {
           let newpage = this.chunker.addPage();
           newpage.element?.classList.add("addedpage");
           newpage.element?.classList.add("pagedjs_named_page");
@@ -380,85 +405,233 @@ export class multilang extends Handler {
   }
 
   afterRendered(pages) {
-    console.warn(
-      "pagedjs is finished, any error here with next sibling or whatever will not impact us.",
-    );
+    console.warn("pagedjs is finished, doing simple sync logic...");
 
-    this.parallelFLows.forEach((pflow) => {
+    this.parallelFlows.forEach((pflow) => {
+      // Get host/guest as before
       let hostId = getBiggestHeight(pflow.selectors);
-      let hostObj = document.querySelectorAll(hostId.selector);
+      let hostElements = document.querySelectorAll(hostId.selector);
       let guestIds = getAllButBiggestHeight(pflow.selectors);
-      let guestsObj = [];
 
-      guestIds.forEach((gu) => {
-        guestsObj.push(document.querySelectorAll(gu.selector));
-      });
+      guestIds.forEach((guestId) => {
+        let guestElements = document.querySelectorAll(guestId.selector);
 
-      // question a bout usefullness of this 4 lines
-      // let guests = [];
-      // guestIds.forEach((selectors) => {
-      //   guests = [...document.querySelectorAll(hostId.selector)];
-      // });
+        if (this.flowLocation == "samepage") {
+          if (this.sectionSync) {
 
-      if (this.flowLocation == "samepage") {
-        guestsObj.forEach((guests) => {
-          for (let i = 0; i < hostObj.length; i++) {
-            if (hostObj[i] && guests[i]) {
-              let obj = guests[i];
+            // NEW: Get sync marks for both
+            let hostSyncMarks = this.getSyncMarks(hostElements);
+            let guestSyncMarks = this.getSyncMarks(guestElements);
 
-              let pageToRemove = guests[i].closest(".pagedjs_page");
+            console.log(`Host sync marks: ${hostSyncMarks.length}`);
+            console.log(`Guest sync marks: ${guestSyncMarks.length}`);
 
-              obj.style.left = `${obj.offsetLeft}px`;
-              obj.style.width = `${obj.offsetWidths}px`;
-
-              console.log(obj)
-
-              obj.style.position = "absolute";
-              obj.style.top = `${obj.offsetTop}px`;
-              
-              obj.style.height = `${obj.offsetHeight}px`;
-
-              hostObj[i]
-                .closest(".pagedjs_page_content")
-                .querySelector("div")
-                .insertAdjacentElement("beforeend", obj);
-
-              pageToRemove.remove();
-            }
-          }
-        });
-      } else if (this.flowLocation == "samespread") {
-        let diff = hostObj.length - guestsObj.length;
-
-        guestsObj.forEach((guests) => {
-          for (let i = 0; i < hostObj.length; i++) {
-            if (hostObj[i] && guests[i]) {
-              if (this.flowSpreadAddWhite) {
-                hostObj[i]
-                  .closest(".pagedjs_page")
-                  .nextElementSibling.querySelector(".pagedjs_page_content")
-                  .insertAdjacentHTML("afterbegin", `<div></div>`);
-                let previousPage = guests[i].closest(".pagedjs_page");
-                hostObj[i]
-                  .closest(".pagedjs_page")
-                  .nextElementSibling.querySelector(".pagedjs_page_content div")
-                  .insertAdjacentElement("afterbegin", guests[i]);
-                // remove the empty page at the end.
-                previousPage.remove();
-              } else {
-                // bring the content back;
-                hostObj[i]
-                  .closest(".pagedjs_page")
-                  .insertAdjacentElement(
-                    "beforebegin",
-                    guests[i].closest(".pagedjs_page"),
-                  );
+            this.positionWithSync(hostElements, guestElements, hostSyncMarks, guestSyncMarks);
+          } else {
+            // ORIGINAL: Simple index-based positioning
+            console.log("📄 Using original index-based positioning");
+            const guestArray = Array.from(guestElements);
+            for (let i = 0; i < hostElements.length; i++) {
+              if (hostElements[i] && guestArray[i]) {
+                this.positionGuestElement(guestArray[i], hostElements[i]);
               }
             }
           }
+
+        } else if (this.flowLocation == "samespread") {
+          let diff = hostObj.length - guestsObj.length;
+          guestsObj.forEach((guests) => {
+            for (let i = 0; i < hostObj.length; i++) {
+              if (hostObj[i] && guests[i]) {
+                if (this.flowSpreadAddWhite) {
+                  hostObj[i]
+                    .closest(".pagedjs_page")
+                    .nextElementSibling.querySelector(".pagedjs_page_content")
+                    .insertAdjacentHTML("afterbegin", `<div></div>`);
+                  let previousPage = guests[i].closest(".pagedjs_page");
+                  hostObj[i]
+                    .closest(".pagedjs_page")
+                    .nextElementSibling.querySelector(".pagedjs_page_content div")
+                    .insertAdjacentElement("afterbegin", guests[i]);
+                  // remove the empty page at the end.
+                  previousPage.remove();
+                } else {
+                  // bring the content back;
+                  hostObj[i]
+                    .closest(".pagedjs_page")
+                    .insertAdjacentElement(
+                      "beforebegin",
+                      guests[i].closest(".pagedjs_page"),
+                    );
+                }
+              }
+            }
+          });
+        }
+
+      });
+    });
+  }
+
+
+
+
+  getSyncMarks(elements) {
+    const syncMarks = [];
+
+    Array.from(elements).forEach((element, index) => {
+      const hasSyncMark = element.querySelector(this.chapterSelector); // h3
+      if (hasSyncMark) {
+        syncMarks.push({
+          elementIndex: index,
+          element: element,
+          syncText: hasSyncMark.textContent.trim()
         });
       }
     });
+
+    return syncMarks;
+  }
+
+  positionWithSync(hostElements, guestElements, hostSyncMarks, guestSyncMarks) {
+    console.log('🔗 Starting sync-aware positioning...');
+
+    const hostArray = Array.from(hostElements);
+    const guestArray = Array.from(guestElements);
+
+    let hostIndex = 0;
+    let guestIndex = 0;
+    let hostSyncIndex = 0;
+    let guestSyncIndex = 0;
+
+    while (hostIndex < hostArray.length && guestIndex < guestArray.length) {
+
+      const hostElement = hostArray[hostIndex];
+      const guestElement = guestArray[guestIndex];
+
+      // Check if current elements are sync marks
+      const hostIsSyncMark = hostSyncIndex < hostSyncMarks.length &&
+        hostSyncMarks[hostSyncIndex].elementIndex === hostIndex;
+      const guestIsSyncMark = guestSyncIndex < guestSyncMarks.length &&
+        guestSyncMarks[guestSyncIndex].elementIndex === guestIndex;
+
+      console.log(`Comparing host[${hostIndex}] (sync: ${hostIsSyncMark}) with guest[${guestIndex}] (sync: ${guestIsSyncMark})`);
+
+      if (hostIsSyncMark && guestIsSyncMark) {
+        // Both are sync marks - check if they match
+        const hostText = hostSyncMarks[hostSyncIndex].syncText;
+        const guestText = guestSyncMarks[guestSyncIndex].syncText;
+
+        if (this.chaptersMatch(hostText, guestText)) {
+          console.log(`✅ Sync match: "${hostText}" ↔ "${guestText}"`);
+          this.positionGuestElement(guestElement, hostElement);
+
+          hostIndex++;
+          guestIndex++;
+          hostSyncIndex++;
+          guestSyncIndex++;
+
+        } else {
+          console.log(`❌ Sync mismatch: "${hostText}" vs "${guestText}"`);
+          // Skip the guest that doesn't match
+          guestIndex++;
+          guestSyncIndex++;
+        }
+
+      } else if (hostIsSyncMark && !guestIsSyncMark) {
+        // Host is sync mark, guest is not - skip guest until we find matching sync
+        console.log(`⏭️ Skipping guest[${guestIndex}] - waiting for sync mark`);
+        guestIndex++;
+
+      } else if (!hostIsSyncMark && guestIsSyncMark) {
+        // Guest is sync mark, host is not - insert blank to push guest down
+        console.log(`📄 Inserting blank for host[${hostIndex}] - pushing guest sync down`);
+
+        // Position current host with a blank/invisible guest element
+        this.insertBlankGuest(hostElement);
+
+        // Move host forward, keep guest at same position for next iteration
+        hostIndex++;
+        // Don't increment guestIndex or guestSyncIndex - we want to try this guest again
+
+      } else {
+        // Neither is sync mark - normal positioning
+        console.log(`📄 Normal positioning: host[${hostIndex}] with guest[${guestIndex}]`);
+        this.positionGuestElement(guestElement, hostElement);
+
+        hostIndex++;
+        guestIndex++;
+      }
+    }
+
+    console.log(`🏁 Sync positioning complete. Host: ${hostIndex}/${hostArray.length}, Guest: ${guestIndex}/${guestArray.length}`);
+  }
+
+  positionGuestElement(guestElement, hostElement) {
+    const pageToRemove = guestElement.closest(".pagedjs_page");
+
+    guestElement.style.left = `${guestElement.offsetLeft}px`;
+    guestElement.style.width = `${guestElement.offsetWidth}px`;
+    guestElement.style.position = "absolute";
+    guestElement.style.top = `${guestElement.offsetTop}px`;
+    guestElement.style.height = `${guestElement.offsetHeight}px`;
+
+    hostElement
+      .closest(".pagedjs_page_content")
+      .querySelector("div")
+      .insertAdjacentElement("beforeend", guestElement);
+
+    pageToRemove.remove();
+  }
+
+  insertBlankGuest(hostElement) {
+    // Create an invisible spacer element
+    const blankElement = document.createElement('div');
+    blankElement.className = 'sync-blank-spacer';
+    blankElement.style.position = 'absolute';
+    blankElement.style.width = '0px';
+    blankElement.style.height = '0px';
+    blankElement.style.visibility = 'hidden';
+
+    // Position it like a normal guest
+    hostElement
+      .closest(".pagedjs_page_content")
+      .querySelector("div")
+      .insertAdjacentElement("beforeend", blankElement);
+
+    console.log(`  📦 Inserted blank spacer for host element`);
+  }
+
+  chaptersMatch(hostText, guestText) {
+    // Extract numbers from chapter titles
+    const hostNum = this.extractChapterNumber(hostText);
+    const guestNum = this.extractChapterNumber(guestText);
+
+    if (hostNum !== null && guestNum !== null) {
+      return hostNum === guestNum;
+    }
+
+    // Fallback to exact text match
+    return hostText === guestText;
+  }
+
+
+  // EXTRACTED METHOD: Position a single guest element
+  positionGuestElement(guestElement, hostElement) {
+    const pageToRemove = guestElement.closest(".pagedjs_page");
+
+    guestElement.style.left = `${guestElement.offsetLeft}px`;
+    guestElement.style.width = `${guestElement.offsetWidth}px`;
+    guestElement.style.position = "absolute";
+    guestElement.style.top = `${guestElement.offsetTop}px`;
+    guestElement.style.height = `${guestElement.offsetHeight}px`;
+
+    hostElement
+      .closest(".pagedjs_page_content")
+      .querySelector("div")
+      .insertAdjacentElement("beforeend", guestElement);
+
+    pageToRemove.remove();
   }
 }
 // Paged.registerHandlers(multilang);
