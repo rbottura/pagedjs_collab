@@ -1,22 +1,31 @@
 import "../css/paged-preview.css";
 import "../css/pagedjs-interface.css";
 
+// import { Previewer, registerHandlers } from 'pagedjs';
+import { CustomPagedJS, createMultiFlowPaged } from '../lib/custom-pagedjs.js';
 
-import { Previewer, registerHandlers } from 'pagedjs';
 // import { Skeleton } from "./handlers/Skeleton.js";
 import { HighlightAreas } from "./handlers/HighlightAreas.js";
 import { LayerTest } from "./handlers/LayerTest.js";
-import { multilang } from "./handlers/multi-flows.js";
-import { CustomFootnotes } from "./handlers/customFootnotes.js";
-
-import { DualFootnotes } from './handlers/dual-footnotes.js';
+import { multilang } from "./handlers/multiflows/multi-flows.js";
+import { CustomFootnotes } from "./handlers/multiflows/customFootnotes.js";
+// import { DualFootnotes } from './handlers/multiflow/multi-footnotes.js';
 
 //instanciate a Previewer to use,
 //Previewer {settings: {…}, polisher: Polisher, chunker: Chunker, hooks: {…}, size: {…}}
 //register a handler to define hooks on a specific method it defines
+
 registerHandlers(LayerTest);
 registerHandlers(multilang);
-registerHandlers(DualFootnotes);
+
+// Option 2: Manual configuration
+const pagedManual = new CustomPagedJS()
+    .setFlowMode('samepage')
+    .setFootnoteMode('margin')
+    .enableSyncPositioning(true);
+
+
+// registerHandlers(DualFootnotes);
 
 const paged = new Previewer();
 const documentFragment = document.createDocumentFragment();

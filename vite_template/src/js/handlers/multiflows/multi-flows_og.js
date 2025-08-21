@@ -101,7 +101,27 @@ export class multilang extends Handler {
     this.chapterSelector = 'h3';
     this.sectionSync = true; // Enable section synchronization
 
+
+    // Integration with original footnotes
+    this.originalFootnotesHandler = null;
     this.footnoteLayout = 'end-document'; // 'margin' or 'end-document'
+  }
+
+  // Access to original footnotes handler
+  findOriginalFootnotesHandler() {
+    if (this.chunker && this.chunker.handlers) {
+      this.originalFootnotesHandler = this.chunker.handlers.find(handler =>
+        handler.constructor.name === 'Footnotes'
+      );
+    }
+
+    if (this.originalFootnotesHandler) {
+      console.log('✅ Found original footnotes handler');
+      return true;
+    } else {
+      console.log('❌ Original footnotes handler not found');
+      return false;
+    }
   }
 
   // ENHANCED METHOD: Extract chapter number with more patterns
@@ -157,21 +177,21 @@ export class multilang extends Handler {
 
   configureFootnotes() {
     const footnotesHandler = window.dualFootnotesHandler;
-    
+
     if (footnotesHandler) {
       if (this.flowLocation === 'samepage' && this.footnoteLayout === 'margin') {
         // Layout 2: Bottom margin footnotes
         footnotesHandler.setMode('margin', { sectionFootnotes: true });
         console.log('📝 Using margin footnotes for parallel layout');
-        
+
         // Add CSS class for styling
         document.body.classList.add('layout-parallel-margin');
-        
+
       } else {
         // Layout 1: End-of-document footnotes
         footnotesHandler.setMode('end-document');
         console.log('📝 Using end-of-document footnotes');
-        
+
         // Add CSS class for styling
         document.body.classList.add('layout-end-document');
       }
@@ -271,7 +291,7 @@ export class multilang extends Handler {
       });
     });
     document.querySelector("#parallel-removeme").remove();
-    
+
     this.configureFootnotes();
   }
 
