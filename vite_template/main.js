@@ -16,7 +16,7 @@ import back from "./src/md/back.md?raw"
 import markdownit from "markdown-it";
 import markdownitContainer from "markdown-it-container";
 import markdownItAttrs from "markdown-it-attrs";
-
+import markdownItFootnote from "markdown-it-footnote";
 
 import { paginate } from "./src/js/paginate.js";
 
@@ -50,8 +50,8 @@ const md = markdownit
         // Replace english quotation by french quotation
         "quotes": ['«\xA0', '\xA0»', '‹\xA0', '\xA0›'],
         "highlight": function (code, lang) {
-             console.log("code", code,"lang", lang);
-             console.log(hljs.getLanguage(lang));
+            console.log("code", code, "lang", lang);
+            console.log(hljs.getLanguage(lang));
             if (lang && hljs.getLanguage(lang)) {
                 try {
                     const highlightedCode = hljs.highlight(code, { language: lang, ignoreIllegals: true });
@@ -67,6 +67,7 @@ const md = markdownit
         }
     })
     .use(markdownitContainer) //div
+    .use(markdownItFootnote) //div
     .use(markdownItAttrs, { //custom html element attributes
         // optional, these are default options
         leftDelimiter: '{',
@@ -82,7 +83,7 @@ async function layoutHTML() {
         const mdContent = mdFilesList[index];
         //convertion from md to html, returns a string
         const result = md.render(mdContent);
-        
+
         const destinationElement = document.getElementById(partsList[index]);
         console.log(destinationElement)
         destinationElement.innerHTML = result;
@@ -96,10 +97,76 @@ window.addEventListener("load", async (event) => {
     await layoutHTML();
 });
 
-//interaction
-const printBt = document.querySelector('#printBt');
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize web view
+    enableWebView();
 
-printBt.addEventListener("click", () => {
-    // console.log(ele)
-    paginate(elementsToPaginate);
+    // Set up print button functionality
+    const printBt = document.getElementById('printBt');
+    if (printBt) {
+        printBt.addEventListener('click', function () {
+            // Switch to print mode (remove web styling)
+            disableWebView();
+
+            paginate(elementsToPaginate);
+        });
+    }
 });
+
+function enableWebView() {
+    // Add web-publication-view class to body
+    document.body.classList.add('web-publication-view');
+
+    // Wrap chapters in container if not already done
+    const chapters = document.querySelectorAll('.chapter');
+    const existingContainer = document.querySelector('.chapters-container');
+
+    if (chapters.length > 0 && !existingContainer) {
+        // Create container
+        const container = document.createElement('div');
+        container.className = 'chapters-container';
+
+        // Insert container before the first chapter
+        const firstChapter = chapters[0];
+        firstChapter.parentNode.insertBefore(container, firstChapter);
+
+        // Move all chapters into the container
+        chapters.forEach(chapter => {
+            container.appendChild(chapter);
+        });
+    }
+}
+
+function disableWebView() {
+    // Remove web-publication-view class from body
+    document.body.classList.remove('web-publication-view');
+
+    // Optional: Unwrap chapters from container for print layout
+    const container = document.querySelector('.chapters-container');
+    if (container) {
+        const chapters = container.querySelectorAll('.chapter');
+        const parent = container.parentNode;
+
+        // Move chapters back to parent, after the container
+        chapters.forEach(chapter => {
+            parent.insertBefore(chapter, container.nextSibling);
+        });
+
+        // Remove the empty container
+        container.remove();
+    }
+}
+
+// Optional: Add a function to switch back to web view
+function switchToWebView() {
+    enableWebView();
+}
+
+// Optional: Add a function to switch to print view
+function switchToPrintView() {
+    disableWebView();
+}
+
+// Expose functions globally if needed
+window.switchToWebView = switchToWebView;
+window.switchToPrintView = switchToPrintView;

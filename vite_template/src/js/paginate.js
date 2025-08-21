@@ -7,14 +7,18 @@ import { Previewer, registerHandlers } from 'pagedjs';
 import { HighlightAreas } from "./handlers/HighlightAreas.js";
 import { LayerTest } from "./handlers/LayerTest.js";
 import { multilang } from "./handlers/multi-flows.js";
+import { CustomFootnotes } from "./handlers/customFootnotes.js";
+
+import { DualFootnotes } from './handlers/dual-footnotes.js';
 
 //instanciate a Previewer to use,
 //Previewer {settings: {…}, polisher: Polisher, chunker: Chunker, hooks: {…}, size: {…}}
-const paged = new Previewer();
 //register a handler to define hooks on a specific method it defines
 registerHandlers(LayerTest);
 registerHandlers(multilang);
+registerHandlers(DualFootnotes);
 
+const paged = new Previewer();
 const documentFragment = document.createDocumentFragment();
 
 //pagination intitation method
@@ -35,7 +39,8 @@ export async function paginate(elementsList, styleList) {
     document.body.innerHTML = "";
 
     //execute pagedjs preview
-    
+
+    await import("../css/dualFootnote.css");
     await import("../css/multiflow.css");
     await import("../css/interface.css");
 

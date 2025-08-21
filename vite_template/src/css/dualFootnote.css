@@ -1,0 +1,170 @@
+/* SECTION-SPECIFIC FOOTNOTES CSS */
+
+/* Base footnote area styling */
+.pagedjs_footnote_area {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    min-height: 0;
+}
+
+.pagedjs_footnote_content {
+    font-size: 0.85em;
+    line-height: 1.3;
+}
+
+.pagedjs_footnote_inner_content {
+    columns: 1;
+    column-gap: 1em;
+}
+
+/* Hide empty footnote areas */
+.pagedjs_footnote_empty {
+    display: none;
+}
+
+/* Section-specific footnote areas */
+.pagedjs_footnote_area_section_c {
+    border-top-color: #3498db;
+}
+
+.pagedjs_footnote_area_section_a {
+    border-top-color: #e74c3c;
+}
+
+.pagedjs_footnote_area_chapter_c {
+    border-top-color: #3498db;
+}
+
+.pagedjs_footnote_area_chapter_a {
+    border-top-color: #e74c3c;
+}
+
+/* Footnote items in margin */
+.footnote-item {
+    margin-bottom: 8px;
+    padding-left: 1em;
+    text-indent: -1em;
+    break-inside: avoid;
+}
+
+.footnote-item::before {
+    content: attr(data-footnote-marker) ". ";
+    font-weight: bold;
+    color: #666;
+}
+
+/* Footnote calls in text */
+.footnote-call {
+    font-size: 0.7em;
+    vertical-align: super;
+    color: #666;
+    text-decoration: none;
+    margin-left: 1px;
+}
+
+.footnote-call:hover {
+    color: #0066cc;
+    text-decoration: underline;
+}
+
+/* Layout 1: Parallel with bottom margins */
+.layout-parallel-margin {
+    /* Ensure sections have space for footnotes */
+}
+
+.layout-parallel-margin section.c,
+.layout-parallel-margin section.a {
+    margin-bottom: 100px;
+    /* Space for footnotes */
+}
+
+/* Layout 2: End-of-document footnotes */
+.layout-end-document .pagedjs_footnote_area {
+    display: none;
+    /* Hide section footnote areas */
+}
+
+/* Responsive footnote areas for parallel layout */
+@media print {
+    .pagedjs_footnote_area {
+        break-inside: avoid;
+    }
+
+    /* In parallel layout, constrain footnote width */
+    .layout-parallel-margin .pagedjs_footnote_area {
+        max-width: 45%;
+        /* Leave space for parallel content */
+    }
+
+    /* Section C footnotes on left */
+    .layout-parallel-margin section.c .pagedjs_footnote_area {
+        float: left;
+        clear: left;
+    }
+
+    /* Section A footnotes on right */
+    .layout-parallel-margin section.a .pagedjs_footnote_area {
+        float: right;
+        clear: right;
+    }
+}
+
+/* Advanced: Split bottom margin for parallel footnotes */
+.split-footnote-layout {
+    position: relative;
+}
+
+.split-footnote-layout .pagedjs_page {
+    padding-bottom: 120px;
+    /* Space for footnotes */
+}
+
+.split-footnote-layout .dual-footnote-container {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    min-height: 80px;
+}
+
+.split-footnote-layout .footnote-left-area,
+.split-footnote-layout .footnote-right-area {
+    flex: 1;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.split-footnote-layout .footnote-left-area {
+    border-right: 1px solid #eee;
+    padding-right: 10px;
+}
+
+.split-footnote-layout .footnote-right-area {
+    padding-left: 10px;
+}
+
+/* Footnote overflow indicators */
+.footnote-overflow {
+    font-style: italic;
+    color: #999;
+    text-align: center;
+    margin-top: 5px;
+}
+
+.footnote-overflow::after {
+    content: "(continued on next page)";
+}
+
+/* Debug mode for footnote areas */
+.debug-footnotes .pagedjs_footnote_area {
+    background: rgba(255, 255, 0, 0.1);
+    border: 1px dashed #ff0000;
+}
+
+.debug-footnotes .footnote-call {
+    background: rgba(0, 255, 0, 0.3);
+    padding: 1px 2px;
+}

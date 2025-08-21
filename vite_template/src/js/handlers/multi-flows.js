@@ -101,6 +101,7 @@ export class multilang extends Handler {
     this.chapterSelector = 'h3';
     this.sectionSync = true; // Enable section synchronization
 
+    this.footnoteLayout = 'end-document'; // 'margin' or 'end-document'
   }
 
   // ENHANCED METHOD: Extract chapter number with more patterns
@@ -151,6 +152,29 @@ export class multilang extends Handler {
       itemsList.forEach((el) => {
         this.parallelImpacts.push(el);
       });
+    }
+  }
+
+  configureFootnotes() {
+    const footnotesHandler = window.dualFootnotesHandler;
+    
+    if (footnotesHandler) {
+      if (this.flowLocation === 'samepage' && this.footnoteLayout === 'margin') {
+        // Layout 2: Bottom margin footnotes
+        footnotesHandler.setMode('margin', { sectionFootnotes: true });
+        console.log('📝 Using margin footnotes for parallel layout');
+        
+        // Add CSS class for styling
+        document.body.classList.add('layout-parallel-margin');
+        
+      } else {
+        // Layout 1: End-of-document footnotes
+        footnotesHandler.setMode('end-document');
+        console.log('📝 Using end-of-document footnotes');
+        
+        // Add CSS class for styling
+        document.body.classList.add('layout-end-document');
+      }
     }
   }
 
@@ -247,6 +271,8 @@ export class multilang extends Handler {
       });
     });
     document.querySelector("#parallel-removeme").remove();
+    
+    this.configureFootnotes();
   }
 
   renderNode(node) {
@@ -342,8 +368,9 @@ export class multilang extends Handler {
   }
 
   async finalizePage(page) {
-    console.log(page.dataset.pageNumber)
-    // const pageNum = page.data-page-number
+
+    // console.log(page.dataset.pageNumber)
+
     if (page.querySelector("[data-main-obj-in-flow]")) {
       let impacts = page.querySelectorAll(".parallel-impact");
 
@@ -437,6 +464,10 @@ export class multilang extends Handler {
               }
             }
           }
+          // Handle footnotes for parallel layout
+          if (this.footnoteLayout === 'margin') {
+            this.handleParallelFootnotes(hostElements, guestElements);
+          }
 
         } else if (this.flowLocation == "samespread") {
           let diff = hostObj.length - guestsObj.length;
@@ -468,13 +499,56 @@ export class multilang extends Handler {
             }
           });
         }
-
       });
+    });
+    // Handle end-of-document footnotes
+    if (this.footnoteLayout === 'end-document') {
+      this.handleEndDocumentFootnotes();
+    }
+  }
+
+  // NEW: Handle footnotes in parallel layout
+  handleParallelFootnotes(hostElements, guestElements) {
+    console.log('📝 Positioning footnotes for parallel layout...');
+
+    // Position footnote areas alongside content
+    Array.from(hostElements).forEach((hostElement, index) => {
+      const hostFootnoteArea = hostElement.querySelector('.pagedjs_footnote_area');
+      const guestElement = guestElements[index];
+      const guestFootnoteArea = guestElement?.querySelector('.pagedjs_footnote_area');
+
+      if (hostFootnoteArea) {
+        // Position host footnotes (usually right side)
+        hostFootnoteArea.style.position = 'absolute';
+        hostFootnoteArea.style.right = '0';
+        hostFootnoteArea.style.width = '45%';
+        hostFootnoteArea.style.bottom = '20px';
+      }
+
+      if (guestFootnoteArea) {
+        // Position guest footnotes (usually left side)
+        guestFootnoteArea.style.position = 'absolute';
+        guestFootnoteArea.style.left = '0';
+        guestFootnoteArea.style.width = '45%';
+        guestFootnoteArea.style.bottom = '20px';
+      }
     });
   }
 
+  // NEW: Handle end-of-document footnotes
+  handleEndDocumentFootnotes() {
+    const footnotesHandler = window.dualFootnotesHandler;
 
+    if (footnotesHandler) {
+      footnotesHandler.integrateWithMultiFlow('end-document');
+    }
+  }
 
+  // Method to switch footnote layout
+  setFootnoteLayout(layout) {
+    this.footnoteLayout = layout; // 'margin' or 'end-document'
+    console.log(`📝 Footnote layout set to: ${layout}`);
+  }
 
   getSyncMarks(elements) {
     const syncMarks = [];
@@ -567,23 +641,6 @@ export class multilang extends Handler {
     console.log(`🏁 Sync positioning complete. Host: ${hostIndex}/${hostArray.length}, Guest: ${guestIndex}/${guestArray.length}`);
   }
 
-  positionGuestElement(guestElement, hostElement) {
-    const pageToRemove = guestElement.closest(".pagedjs_page");
-
-    guestElement.style.left = `${guestElement.offsetLeft}px`;
-    guestElement.style.width = `${guestElement.offsetWidth}px`;
-    guestElement.style.position = "absolute";
-    guestElement.style.top = `${guestElement.offsetTop}px`;
-    guestElement.style.height = `${guestElement.offsetHeight}px`;
-
-    hostElement
-      .closest(".pagedjs_page_content")
-      .querySelector("div")
-      .insertAdjacentElement("beforeend", guestElement);
-
-    pageToRemove.remove();
-  }
-
   insertBlankGuest(hostElement) {
     // Create an invisible spacer element
     const blankElement = document.createElement('div');
@@ -614,7 +671,6 @@ export class multilang extends Handler {
     // Fallback to exact text match
     return hostText === guestText;
   }
-
 
   // EXTRACTED METHOD: Position a single guest element
   positionGuestElement(guestElement, hostElement) {
