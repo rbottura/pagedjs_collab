@@ -14,7 +14,7 @@ section.a {
 
 section.c {
     top: 0px !important;
-    width: 48%;
+    width: 35%;
     margin-left: auto;
     --parallel-flow: beta;
 }

@@ -1,0 +1,30 @@
+[^1]: L’expression « Software Art » a été traduite dans ce texte par « art logiciel » à la demande de Florian Cramer, qui de ce fait entend aborder l’« art logiciel » non pas en tant que mouvement mais en tant qu’appellation d’ordre général servant à décrire cette pratique (NdT).
+[^2]: « Software art is a term for the graphic design of visual elements contained in software, eg. GUI (Graphic User Interface), Icons, etc. », http://www.wikipedia.org/wiki/Software_art (cette définition est celle qui apparaissait en septembre 2003, elle a été modifiée depuis lors)
+[^3]: Wilfried Hou Je Bek, .Walk for dummies, consultable sur Socialfiction, http://www.socialfiction.org/dotwalk/dummies.html
+[^4]: On retrouve cette instruction sous forme de petite partition dans George Brecht, Water-Yam/George Brecht, Éd. Lebeer Hossmann, Bruxelles, 1986 (la version originale date de 1963).
+[^5]: Pour l’exposition, voir Edward A. Shanken, « The House That Jack Built: Jack Burnham’s Concept of “Software” as a Metaphor for Art », dans Leonardo Electronic Almanac, vol. 6, n° 10, novembre 1998, http://www.leoalmanac.org/journal/Vol_6/lea_v6_n10.txt. Également consultable sur http://www.artexetra.com/House.pdf ; Radical Software est consultable depuis peu sur le site http://www.radicalsoftware.org
+[^6]: Exposé lors d’Electrohype à Malmö en 2003.
+[^7]: Voir aussi notamment Alan Sondheim, « Introduction: Codework », dans American Book Review, vol. 22, n° 6, University of Houston-Victoria, Victoria, septembre 2001, p. 1-4, http://www.litline.org/ABR/issues/Volume22/Issue6/sondheim.pdf ; McKenzie Wark, « Essay: Codework », dans American Book Review, vol. 22, n° 6, septembre 2001, p. 1- 5.
+[^8]: Une citation que l’on retrouve sur http://www.philipgalanter.com/downloads/ga2003_what_is_genart.pdf ou encore http://www.generative.net/read/definitions
+[^9]: Voir aussi la version allemande du Structure of Art de Jack Burnham, traduite maladroitement sous le titre Kunst und Strukturalismus, DuMont Schauberg, Cologne, 1973.
+[^10]: Auto-Illustrator, Adrian Ward, 2001, http://www.auto-illustrator.com
+[^11]: Untitled Game de Jodi (http://www.untitled-game.org/download.html) ; retroyou de Joan Leandre (http://www.retroyou.org).
+[^12]: Web Stalker de I/O/D (http://bak.spc.org/iod/iod4.html) ; Nebula.M81 de Netochka Nezvanova (http://www.mediaartnet.org/works/nebula/) ; %Wrong Browser de Jodi (http://www.wrongbrowser.org) ; Shredder de Mark Napier (http://www.potatoland.org/shredder/) ; Discoder de Kensuke Sembos et Yae Akaivas (http://www.exonemo.com/DISCODER/indexE.html) ; ZNC Browser de Peter Luining (http://znc.ctrlaltdel.org/pc_znc2.0.htm).
+[^13]: Le Injunction Generator de Ubermorgen.com (http://www.ipnic.org/intro.html), qui émet automatiquement des injonctions juridiques, ainsi que le serveur proxy Insert_coin (http://odem.org/insert_coin/) de Alvar Freude et Dragan Espenschied, qui censure du texte, sont deux exemples convaincants de l’activisme politique de l’art logiciel.
+[^14]: Wolfgang Hagen, « Der Stil der Sourcen. Anmerkungen zur Theorie und Geschichte der Programmiersprachen », dans Wolfgang Coy, Georg C.Tholen, Martin Warnke (Sous la dir. de), Hyperkult, Stroemfeld, Bâle, 1997, p. 33-68 ; Matthew Fuller, Behind the Blip. Essays on the Culture of Software, Autonomedia, New York, 2003 ; softwareandculture, page d’accueil sur http://lists.tmttlt.com/listinfo.cgi/softwareandculture-tmttlt.com et archives sur http://lists.tmttlt.com/private.cgi/softwareandculture-tmttlt.com/
+[^15]: Ici Florian Cramer utilise le terme « iconique » au sens d’une relation de ressemblance, en référence à Charles S. Peirce (NdT).
+[^16]: Et ce, bien que la programmation dans un langage usuel ne nécessite guère plus qu’une connaissance des variables, des boucles et des instructions de type « si/alors ».
+[^17]: Comme par exemple le ScreenSaver de Ivan Khimin et Eldar Karhalev (http://runme.org/project/+screensaver/), une configuration de l’économiseur d’écran Windows qui permet d’obtenir un carré volant à la fois suprématiste et hypnotique.
+[^18]: n:info, http://myhd.org
+[^19]: Les cracks sont des programmes informatiques qui servent à perturber la marche normale d’un autre logiciel, généralement pour en dépasser les protections ou les restrictions d’utilisation (NdT).
+[^20]: Une fork bomb vise à saturer, jusqu’au plantage, la capacité de gestion de processus d’un ordinateur en multipliant rapidement une tâche à accomplir (NdT).
+[^21]: Pour exemples, le programme WinGluk Builder développé par un hacker et récompensé lors du festival Read_Me 2002 (http://readme.runme.org/1.2/inde6.htm) et le programme Tempest for Eliza exposé l’année suivante (http://www.erikyyy.de/tempest/), qui implémente un émetteur radio à ondes courtes par le biais d’un graphique affiché sur des moniteurs.
+[^22]: Lev Manovich, « Don’t Call It Art: Ars Electronica 2003 », Nettime, septembre 2003, http://amsterdam.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+[^23]: Née dans les années 1960 en Grande-Bretagne, la discipline des cultural studies mêle principalement l’analyse littéraire à la sociologie. Elle ne possède pas d’équivalent institutionnel en France (NdT).
+[^24]: C’était le cas notamment de Saul Albert dans « Artware », Mute, n° 14, Mute Publishing Ltd, Londres, 1999, p. 63-65, http://twenteenthcentury.com/saul/artware.htm, d’Alexander Galloway dans « Year in Review: State of net.art 99 », dans Switch, 1999, http://switch.sjsu.edu/web/v5n3/D-1.html, d’Andreas Broeckmann qui a introduit en 2000 une section « Software » dans le festival Transmediale, et enfin de Tilman Baumgärtel avec l’article « Experimentelle Software. Zu einigen neueren Computerprogrammen von Künstlern », dans Telepolis, Heise Zeitschriften Verlag, Hanovre, octobre 2001, http://www.heise.de/tp/r4/artikel/9/9908/1.html
+
+http://cryptoforest.blogspot.com
+Site de Wilfried Hou Je Bek.
+http://www.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+« Don’t Call it Art: Ars Electronica 2003 » par Lev Manovich. Archive du texte posté en
+septembre 2003 sur la liste de diffusion Nettime.

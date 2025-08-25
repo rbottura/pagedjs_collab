@@ -11,6 +11,8 @@ import "highlight.js/styles/intellij-light.css";
 import cover from "./src/md/cover.md?raw";
 import content_fr from "./src/md/cramer_FR.md?raw";
 import content_en from "./src/md/cramer_EN.md?raw";
+import notes_fr from "./src/md/cramer_FR_notes.md?raw";
+import notes_en from "./src/md/cramer_EN_notes.md?raw";
 import back from "./src/md/back.md?raw"
 
 import markdownit from "markdown-it";
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const printBt = document.getElementById('printBt');
     if (printBt) {
         printBt.addEventListener('click', function () {
+            
             // Switch to print mode (remove web styling)
             disableWebView();
 

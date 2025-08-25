@@ -1,4 +1,4 @@
-# [Dieci ipotesi sull'arte software][1]
+# Dieci ipotesi sull'arte software[^1]
 #### Florian Cramer
 
 ### 1. Di cosa non si tratta?
@@ -9,7 +9,7 @@ Dell'arte software, come definita nell'enciclopedia gratuita su Internet Wikiped
 
 Di artisti che utilizzano software informatici per produrre opere che sono esse stesse – ciò che solo gli scrittori avevano fatto prima di loro – creazioni digitali fabbricate a partire da simboli, con l'aiuto di un insieme di strumenti ugualmente costituiti interamente da simboli. Nessuno scrittore può utilizzare il linguaggio come un semplice "riempimento" per comporre un'opera che essa stessa non sarebbe linguaggio. Così la letteratura, a immagine di un ciclo ricorsivo, fabbrica i propri strumenti. Allo stesso modo gli 0 e gli 1 dell'arte digitale sono strettamente legati agli 0 e 1 dello strumento che li ha non solo prodotti, ma anche visualizzati e copiati.
 
-[1]: L'espressione « Software Art » è stata tradotta in questo testo con « arte software » su richiesta di Florian Cramer, che intende così affrontare l'« arte software » non come movimento ma come denominazione di ordine generale che serve a descrivere questa pratica (NdT).
+[^1]: L'espressione « Software Art » è stata tradotta in questo testo con « arte software » su richiesta di Florian Cramer, che intende così affrontare l'« arte software » non come movimento ma come denominazione di ordine generale che serve a descrivere questa pratica (NdT).
 [2]: « Software art is a term for the graphic design of visual elements contained in software, eg. GUI (Graphic User Interface), Icons, etc. », http://www.wikipedia.org/wiki/Software_art (questa definizione è quella che appariva nel settembre 2003, è stata modificata da allora)
 
 ### 3. Senza software, niente arte digitale

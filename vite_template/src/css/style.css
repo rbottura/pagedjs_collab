@@ -1,5 +1,6 @@
 html,
 body {
+    margin: 0;
     width: 100%;
     height: 100%;
     font-family: inter;
@@ -64,7 +65,7 @@ code {
     line-height: 1.4;
     color: #333;
     background-color: #f9f9f9;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 /* Print button - WEB VIEW ONLY */
@@ -72,7 +73,7 @@ code {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #007acc;
+    background: #101010;
     color: white;
     padding: 10px 15px;
     border-radius: 5px;
@@ -83,7 +84,7 @@ code {
 }
 
 .web-publication-view #printBt:hover {
-    background: #005a9e;
+    background: #323232;
 }
 
 /* Main content container - WEB VIEW ONLY */
@@ -129,25 +130,25 @@ code {
     /* font-family: 'Palatino', 'Book Antiqua', serif; */
     /* font-family: 'Times New Roman'; */
     background: #fdfcfc;
-    border-left: 4px solid #c0c0c0;
+    /* border-left: 4px solid #c0c0c0; */
 }
 
 .web-publication-view .chapter[lang="fr"]::before {
     content: "Français";
-    background: #e74c3c;
+    background: rgb(255, 68, 0);
 }
 
 /* English column styling - WEB VIEW ONLY */
 .web-publication-view .chapter[lang="en"] {
     font-family: 'Georgia', 'Times New Roman', serif;
     background: #fcfcfd;
-    border-left: 4px solid #5a5a5a;
+    /* border-left: 4px solid #5a5a5a; */
     color: #2c3e50;
 }
 
 .web-publication-view .chapter[lang="en"]::before {
     content: "English";
-    background: #3498db;
+    background: rgb(0, 146, 255);
 }
 
 /* Additional language support - WEB VIEW ONLY */
@@ -250,9 +251,9 @@ code {
 .web-publication-view .back {
     text-align: center;
     padding: 40px;
-    background: white;
+    /* background: white; */
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     margin: 20px auto;
     max-width: 800px;
 }

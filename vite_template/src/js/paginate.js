@@ -1,14 +1,13 @@
 import "../css/paged-preview.css";
 import "../css/pagedjs-interface.css";
 
-
 import { Previewer, registerHandlers } from 'pagedjs';
 // import { Skeleton } from "./handlers/Skeleton.js";
 import { HighlightAreas } from "./handlers/HighlightAreas.js";
 import { LayerTest } from "./handlers/LayerTest.js";
 import { multilang } from "./handlers/multi-flows.js";
-import { CustomFootnotes } from "./handlers/customFootnotes.js";
 
+import { CustomFootnotes } from "./handlers/customFootnotes.js";
 import { DualFootnotes } from './handlers/dual-footnotes.js';
 
 //instanciate a Previewer to use,
@@ -16,7 +15,7 @@ import { DualFootnotes } from './handlers/dual-footnotes.js';
 //register a handler to define hooks on a specific method it defines
 registerHandlers(LayerTest);
 registerHandlers(multilang);
-registerHandlers(DualFootnotes);
+// registerHandlers(DualFootnotes);
 
 const paged = new Previewer();
 const documentFragment = document.createDocumentFragment();
@@ -45,4 +44,7 @@ export async function paginate(elementsList, styleList) {
     await import("../css/interface.css");
 
     await paged.preview(documentFragment, null, document.body);
+
+    // Check what handlers are already registered
+    console.log('Registered handlers:', paged.handlers);
 }

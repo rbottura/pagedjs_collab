@@ -66,19 +66,16 @@ const mdFilesList = [cover, content, back];
 
 ```
 .
-├── EPE.svg
-├── ReadMe.md
-├── index.html
-├── main.js
-├── package-lock.json
-├── package.json
 ├── public
+│   ├── assets
+│   │   ├── EPE-CNfuUzEv.svg
+│   │   ├── Inter-VariableFont_slnt_wght-Cl4AQHp9.ttf
+│   │   ├── Path-C-CEscn95Y.woff
+│   │   ├── Path-R-BRAg_uLu.woff
+│   │   └── Path-RMono-DGzB_oVU.woff
+│   └── index.html
 ├── src
 │   ├── css
-│   │   ├── GitHub Flavor.css
-│   │   ├── back.css
-│   │   ├── content.css
-│   │   ├── cover.css
 │   │   ├── fonts
 │   │   │   ├── Inter-VariableFont_slnt_wght.ttf
 │   │   │   ├── Path-C.woff
@@ -88,20 +85,47 @@ const mdFilesList = [cover, content, back];
 │   │   │   ├── Path-RBold.woff
 │   │   │   ├── Path-RHeavy.woff
 │   │   │   └── Path-RMono.woff
+│   │   ├── modules
+│   │   │   ├── _baseline.css
+│   │   │   ├── _interface.css
+│   │   │   └── _variables.css
+│   │   ├── back.css
+│   │   ├── content.css
+│   │   ├── cover.css
+│   │   ├── dualFootnote.css
+│   │   ├── GitHub Flavor.css
+│   │   ├── interface.css
+│   │   ├── multiflow.css
 │   │   ├── paged-preview.css
 │   │   ├── pagedjs-interface.css
 │   │   └── style.css
 │   ├── js
 │   │   ├── handlers
+│   │   │   ├── customFootnotes.js
+│   │   │   ├── dual-footnotes.js
 │   │   │   ├── HighlightAreas.js
 │   │   │   ├── LayerTest.js
+│   │   │   ├── multi-flows.js
 │   │   │   └── Skeleton.js
 │   │   ├── paginate.js
 │   │   └── utils.js
 │   └── md
 │       ├── back.md
-│       ├── content.md
-│       └── cover.md
+│       ├── content_en.md
+│       ├── content_fr.md
+│       ├── cover.md
+│       ├── cramer_DE.md
+│       ├── cramer_EN_notes.md
+│       ├── cramer_EN.md
+│       ├── cramer_FR_notes.md
+│       ├── cramer_FR.md
+│       └── cramer_IT.md
+├── EPE.svg
+├── index.html
+├── main.js
+├── package-lock.json
+├── package.json
+├── ReadMe.md
 └── vite.config.js
 ```
 

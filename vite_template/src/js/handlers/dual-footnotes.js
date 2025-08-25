@@ -10,7 +10,7 @@ export class DualFootnotes extends Handler {
         window.dualFootnotesHandler = this;
 
         // Configuration
-        this.footnoteMode = 'end-document'; // 'margin' or 'end-document'
+        this.footnoteMode = null; // 'margin' or 'end-document'
         this.sectionFootnotes = true; // Separate footnote areas per section
 
         // Storage
@@ -34,7 +34,7 @@ export class DualFootnotes extends Handler {
         console.log(`📝 Processing footnotes in ${this.footnoteMode} mode...`);
 
         // Find all footnote elements
-        const footnotes = content.querySelectorAll('.footnote, [data-footnote]');
+        const footnotes = content.querySelectorAll('.footnotes, [data-footnote]');
 
         footnotes.forEach(footnote => {
             this.processFootnote(footnote, content);
