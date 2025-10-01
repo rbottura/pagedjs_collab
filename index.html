@@ -4,33 +4,88 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        
-        <ul>
-            <li>
-                <a href="./poly_noSynchro/index.html">FR/EN nosync samepage</a>
-            </li>
-            <li>
-                <a href="./poly_samespread/">FR/EN nosync samespread</a>
-            </li>
-            <li>
-                <a href="./poly_samepage_3L/">FR/EN/IT nosync samepage 3L</a>
-            </li>
-            <li>
-                <a href="./poly_samepage_4L/">FR/EN/IT/DE nosync samepage 4L</a>
-            </li>
-        </ul>
-        <!-- <script src="" async defer></script> -->
-    </body>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title></title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      /* Container styling */
+      .print-links {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* Individual link items */
+      .print-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .print-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        background: #f8f8f8;
+        color: #333;
+        text-decoration: none;
+        border-left: 4px solid #ddd;
+        transition: all 0.2s ease;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      /* Hover effect */
+      .print-links a:hover {
+        background: #fff;
+        border-left-color: #333;
+        padding-left: 2rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Active/visited state */
+      .print-links a:visited {
+        color: #666;
+      }
+
+      /* Optional: Add project title styling */
+      .print-links a::before {
+        content: "→ ";
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .print-links a:hover::before {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <ul class="print-links">
+      <li>
+        <a href="./poly_noSynchro/index.html">FR/EN nosync samepage</a>
+      </li>
+      <li>
+        <a href="./poly_samespread/">FR/EN nosync samespread</a>
+      </li>
+      <li>
+        <a href="./poly_samepage_3L/">FR/EN/IT nosync samepage 3L</a>
+      </li>
+      <li>
+        <a href="./poly_samepage_4L/">FR/EN/IT/DE nosync samepage 4L</a>
+      </li>
+      <li>
+        <a href="./vite_template/">vite template</a>
+      </li>
+    </ul>
+    <!-- <script src="" async defer></script> -->
+  </body>
 </html>
