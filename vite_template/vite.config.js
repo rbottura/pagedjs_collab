@@ -1,6 +1,8 @@
 /** @type {import('vite').UserConfig} */
 export default {
     build: {
-        outDir: 'public'
-    }
+        outDir: 'dist'
+    },
+    // Keep public as the static assets folder
+    publicDir: 'public'
 }
