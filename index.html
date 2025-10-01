@@ -28,28 +28,29 @@
       .print-links a {
         display: block;
         padding: 1rem 1.5rem;
-        background: #f8f8f8;
-        color: #333;
+        background: #f0f7f4;
+        color: #2d5f4d;
         text-decoration: none;
-        border-left: 4px solid #ddd;
+        border-left: 4px solid #a8d5ba;
         transition: all 0.2s ease;
-        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 500;
+        font-size: 26px;
       }
 
       /* Hover effect */
       .print-links a:hover {
         background: #fff;
-        border-left-color: #333;
+        border-left-color: #4a9d6f;
         padding-left: 2rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 8px rgba(74, 157, 111, 0.15);
       }
 
       /* Active/visited state */
       .print-links a:visited {
-        color: #666;
+        color: #3d7a5e;
       }
 
-      /* Optional: Add project title styling */
+      /* Arrow indicator */
       .print-links a::before {
         content: "→ ";
         opacity: 0;
@@ -58,6 +59,62 @@
 
       .print-links a:hover::before {
         opacity: 1;
+      }
+
+      /* Note blocks (add after links) */
+      .note {
+        margin: 0.5rem 0 1.5rem 0;
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* General note */
+      .note.info {
+        background: #e8f4f8;
+        border-left: 4px solid #4a9fd8;
+        color: #2c5f7a;
+      }
+
+      /* Warning note */
+      .note.warning {
+        background: #fff8e1;
+        border-left: 4px solid #f9a825;
+        color: #7a5e1f;
+      }
+
+      .note.warning::before {
+        content: "⚠️ ";
+        margin-right: 0.5rem;
+      }
+
+      /* Bug/error note */
+      .note.bug {
+        background: #ffebee;
+        border-left: 4px solid #e53935;
+        color: #7a2e2e;
+      }
+
+      .note.bug::before {
+        content: "🐛 ";
+        margin-right: 0.5rem;
+      }
+
+      /* Success/done note */
+      .note.success {
+        background: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        color: #2e5f30;
+      }
+
+      .note.success::before {
+        content: "✓ ";
+        margin-right: 0.5rem;
+      }
+      .note {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
       }
     </style>
   </head>
@@ -71,13 +128,19 @@
 
     <ul class="print-links">
       <li>
-        <a href="./poly_noSynchro/index.html">FR/EN nosync samepage (polyfill)</a>
+        <a href="./poly_noSynchro/index.html"
+          >FR/EN nosync samepage (polyfill)</a
+        >
+        <blockquote class="note warning">
+          en train de fixer les appels de notes 
+        </blockquote>
       </li>
       <li>
-        <a href="./poly_2L_synchro/">FR/EN SYNC samepage (polyfill) ⚠️</a>
-          <blockquote>
-            La synchro fonctionne mais la mise en page se fait à l'envers, le chapitre de 10 est en premier et fini par le 1, je ne sais pas comment
-          </blockquote>
+        <a href="./poly_2L_synchro/">FR/EN SYNC samepage (polyfill)</a>
+        <blockquote class="note bug">
+          La synchro fonctionne mais la mise en page se fait à l'envers, le
+          chapitre de 10 est en premier et fini par le 1, je ne sais pas comment
+        </blockquote>
       </li>
       <li>
         <a href="./poly_samespread/">FR/EN nosync samespread (polyfill)</a>
@@ -86,7 +149,9 @@
         <a href="./poly_samepage_3L/">FR/EN/IT nosync samepage 3L (polyfill)</a>
       </li>
       <li>
-        <a href="./poly_samepage_4L/">FR/EN/IT/DE nosync samepage 4L (polyfill)</a>
+        <a href="./poly_samepage_4L/"
+          >FR/EN/IT/DE nosync samepage 4L (polyfill)</a
+        >
       </li>
       <li>
         <!-- <a href="./vite_template/dist/">vite template</a> -->
