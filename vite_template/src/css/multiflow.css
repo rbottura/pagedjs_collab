@@ -14,9 +14,17 @@ section.a {
 
 section.c {
     top: 0px !important;
-    width: 35%;
+    width: 48%;
     margin-left: auto;
     --parallel-flow: beta;
+}
+
+h3 {
+    /*  */
+    /* --parallel-break: all; */
+
+    /* --parallel-flow: beta; */
+    /* --parallel-break: all; */
 }
 
 section.b {

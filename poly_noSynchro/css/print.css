@@ -1,0 +1,224 @@
+/* Parallel-flow demo css */
+:root {
+  --pagedjs-baseline: 16px;
+}
+
+section {
+  width: 64mm !important;
+  height: 185mm !important;
+  p:first-child {
+    margin-top: 0;
+  }
+}
+
+@font-face {
+  font-family: AntiqueSerie;
+  src: url('./fonts/AntiqueSerie-Regular.woff');
+}
+
+section p {
+  margin: 0;
+}
+
+@page {
+  margin-top: 15mm;
+  margin-bottom: 39mm;
+  size: 170mm 240mm;
+  @bottom-center {
+    content: counter(page);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 9.5pt;
+    align-self: flex-start;
+    padding-top: 1em;
+  };
+  @top-center{
+    width: 6mm;
+    content: "";
+  }
+  @top-left {
+    content: 'F';
+    text-align: center;
+    font-family: AntiqueSerie;
+    font-size: 9pt;
+  }
+  @top-right {
+    content: 'E';
+    text-align: center;
+    font-family: AntiqueSerie;
+    font-size: 9pt;
+  }
+}
+
+@page:right{
+  margin-left: 15mm;
+  margin-right: 21mm;
+}
+
+@page:left{
+  margin-left: 21mm;
+  margin-right: 15mm;
+}
+
+@page:nth(14){
+  margin-bottom: 30mm
+}
+
+#fnref_fr1 {
+  vertical-align: 150%;
+  margin-left: 5px;
+}
+
+@page:nth(1){
+  @bottom-center {
+    content:'';
+  }
+  @top-right{
+    content: "";
+  };
+  @top-left{
+    content:"";
+  }
+}
+@page:nth(2){
+  @bottom-center {
+    content:'';
+  }
+  @top-right{
+    content: "";
+  };
+  @top-left{
+    content:"";
+  }
+}
+@page:nth(3){
+  @bottom-center {
+    content:'';
+  }
+  @top-right{
+    content: "";
+  };
+  @top-left{
+    content:"";
+  }
+}
+
+section.a {
+  /*parallel-flow: name,  this will trigger the parallel-flow script*/
+  --parallel-flow: beta;
+
+  page: section-a;
+  /* color: blue; */
+  color: black;
+  margin-left: 0;
+}
+
+section.c {
+  /* color: rgb(0, 128, 124); */
+  color: black;
+  /* width: calc(45% - 2ch); */
+  margin-left: auto;
+  top: 0 !important;
+  --parallel-flow: beta;
+}
+
+section.b {
+  --parallel-flow: alpha;
+}
+
+section.d {
+  --parallel-flow: alpha;
+  margin-left: auto;
+  top: 0 !important;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+p {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 9.5pt;
+  line-height: 4mm;
+}
+
+section {
+  break-before: page;
+}
+
+h1 {
+  font-family: AntiqueSerie;
+  break-after: always;
+  font-size: 8.5pt;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+h4 {
+  font-family: AntiqueSerie;
+  font-size: 8pt;
+  break-after: always;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  display: flex;
+  font-style: italic;
+  justify-content: center;
+  width: 100%;
+  font-size: 9.5pt;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+}
+
+.c h3 {
+  /* text-transform: capitalize; */
+}
+
+h3:first-of-type {
+  margin-top: 0;
+}
+
+.force-break {
+  break-before: always;
+}
+
+.footnotes {
+  break-before: always;
+}
+
+.footnotes li::marker {
+  font-size: 6.5pt;
+}
+
+.footnotes p {
+  font-size: 7.5pt;
+  line-height: 3mm;
+}
+
+#fig_1_fr {
+  --parallel-impact: all;
+  width: 134mm;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+  font-size: 7pt;
+}
+
+.footnote-backref {
+  display: none;
+}
+
+blockquote p{
+  width: 105%;
+}
