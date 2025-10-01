@@ -22,7 +22,7 @@
 
       /* Individual link items */
       .print-links li {
-        margin-bottom: 0.5rem;
+        margin: 0.5rem 0 1.5rem 0;
       }
 
       .print-links a {
@@ -63,7 +63,6 @@
 
       /* Note blocks (add after links) */
       .note {
-        margin: 0.5rem 0 1.5rem 0;
         padding: 1rem 1.5rem;
         border-radius: 4px;
         font-size: 0.9rem;
@@ -131,16 +130,28 @@
         <a href="./poly_noSynchro/index.html"
           >FR/EN nosync samepage (polyfill)</a
         >
-        <blockquote class="note warning">
-          en train de fixer les appels de notes 
-        </blockquote>
+        <div class="note info">
+          appels de notes maintenant styler comme ci :
+          <pre>
+            <code>font-family: 'Times New Roman', Times, serif;
+              font-size: 0.6em;
+              vertical-align: super;
+              line-height: 0;
+              color: #000000;
+              font-weight: bold;</code></pre>
+        </div>
+        <div class="note warning">
+          décalage des appels notes en français car note remplacer par * et dans
+          une section différente, rectifier en désincrémentant la liste de note
+          par 1.
+        </div>
       </li>
       <li>
         <a href="./poly_2L_synchro/">FR/EN SYNC samepage (polyfill)</a>
-        <blockquote class="note bug">
+        <div class="note bug">
           La synchro fonctionne mais la mise en page se fait à l'envers, le
           chapitre de 10 est en premier et fini par le 1, je ne sais pas comment
-        </blockquote>
+        </div>
       </li>
       <li>
         <a href="./poly_samespread/">FR/EN nosync samespread (polyfill)</a>

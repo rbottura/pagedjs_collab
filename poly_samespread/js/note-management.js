@@ -22,10 +22,12 @@ class MyHandler extends Paged.Handler {
     beforeParsed(content) {
         const chapters = content.querySelectorAll(".chapter");
         // reorganisation des notes
+        console.log(chapters)
         chapters.forEach((chap, index) => {
             chap.querySelectorAll(".footnote-ref").forEach((ref, index) => {
+                console.log(ref.querySelector("a"))
                 let note = chap.querySelector(
-                    `${ref.querySelector("a").href.replace("about:blank", "")}`,
+                    ref.querySelector("a").href.replace("about:blank", ""),
                 );
                 let spanappel = document.createElement("span");
                 spanappel.classList.add("footnote-ref");
@@ -36,7 +38,7 @@ class MyHandler extends Paged.Handler {
                 // ref.insertAdjacentElement("afterend", spannote);
                 ref.insertAdjacentElement("beforebegin", spanappel);
                 // ref = ref.childNodes[0]
-                // ref.remove();
+                ref.remove();
             });
 
             // chap.querySelectorAll(".footnotes, .footnotes-sep").forEach((note) => {

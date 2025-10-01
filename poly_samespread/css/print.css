@@ -170,7 +170,7 @@ h3 {
   font-style: italic;
   justify-content: center;
   width: 100%;
-  font-size: 13.5pt;
+  font-size: 16.5pt;
   font-weight: 400;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
@@ -202,10 +202,7 @@ h3:first-of-type {
 }
 
 #fig_1_fr {
-  --parallel-impact: all;
-  width: 98mm;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 7pt;
+  width: 134mm;
 }
 
 a {
@@ -221,4 +218,18 @@ a {
 
 blockquote p{
   width: 105%;
+}
+
+.footnote-ref {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  color: #000000;
+  font-weight: bold;
+  /* margin-left: -3px; */
+}
+
+ol {
+  margin: 0;
 }

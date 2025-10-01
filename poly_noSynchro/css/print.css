@@ -64,8 +64,8 @@ section p {
 }
 
 #fnref_fr1 {
-  vertical-align: 150%;
-  margin-left: 5px;
+  vertical-align: 50%;
+  margin-left: 1px;
 }
 
 @page:nth(1){
@@ -221,4 +221,18 @@ a {
 
 blockquote p{
   width: 105%;
+}
+
+.footnote-ref {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  color: #000000;
+  font-weight: bold;
+  /* margin-left: -3px; */
+}
+
+ol {
+  margin: 0;
 }

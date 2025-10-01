@@ -31,6 +31,24 @@ section p {
     align-self: flex-start;
     padding-top: 1em;
   };
+  @top-left {
+    content: 'F';
+    text-align: center;
+    font-family: AntiqueSerie;
+    font-size: 9pt;
+  }
+  @top-center {
+    content: 'E';
+    text-align: center;
+    font-family: AntiqueSerie;
+    font-size: 9pt;
+  }
+  @top-right {
+    content: 'I';
+    text-align: center;
+    font-family: AntiqueSerie;
+    font-size: 9pt;
+  }
 }
 
 @page:right{
@@ -47,18 +65,18 @@ section p {
 @page:left{
   margin-left: 21mm;
   margin-right: 15mm;
-  @top-center {
-    content: 'F';
-    text-align: center;
-    font-family: AntiqueSerie;
-    font-size: 9pt;
-  }
 }
 
 @page:nth(1){
   @bottom-center {
     content:'';
   }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
   @top-center{
     content: "";
   };
@@ -67,6 +85,12 @@ section p {
   @bottom-center {
     content:'';
   }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
   @top-center{
     content: "";
   };
@@ -75,14 +99,26 @@ section p {
   @bottom-center {
     content:'';
   }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
   @top-center{
     content: "";
   };
 }
-@page:nth(5){
+@page:nth(4){
   @bottom-center {
     content:'';
   }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
   @top-center{
     content: "";
   };
@@ -223,4 +259,18 @@ a {
 
 blockquote p{
   width: 105%;
+}
+
+.footnote-ref {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  color: #000000;
+  font-weight: bold;
+  /* margin-left: -3px; */
+}
+
+ol {
+  margin: 0;
 }

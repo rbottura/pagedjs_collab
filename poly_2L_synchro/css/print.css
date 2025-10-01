@@ -64,8 +64,8 @@ section p {
 }
 
 #fnref_fr1 {
-  vertical-align: 150%;
-  margin-left: 5px;
+  vertical-align: 50%;
+  margin-left: 1px;
 }
 
 @page:nth(1){

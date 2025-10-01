@@ -36,7 +36,7 @@ class MyHandler extends Paged.Handler {
                 // ref.insertAdjacentElement("afterend", spannote);
                 ref.insertAdjacentElement("beforebegin", spanappel);
                 // ref = ref.childNodes[0]
-                // ref.remove();
+                ref.remove();
             });
 
             // chap.querySelectorAll(".footnotes, .footnotes-sep").forEach((note) => {
