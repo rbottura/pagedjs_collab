@@ -11,6 +11,8 @@ import "highlight.js/styles/intellij-light.css";
 import cover from "./src/md/cover.md?raw";
 import content_fr from "./src/md/cramer_FR.md?raw";
 import content_en from "./src/md/cramer_EN.md?raw";
+import content_it from "./src/md/cramer_IT.md?raw";
+import content_de from "./src/md/cramer_DE.md?raw";
 import notes_fr from "./src/md/cramer_FR_notes.md?raw";
 import notes_en from "./src/md/cramer_EN_notes.md?raw";
 import back from "./src/md/back.md?raw"
@@ -36,10 +38,14 @@ hljs.registerLanguage('md', markdown);
 let elementsToPaginate = [];
 
 //markdown files to load
-const mdFilesList = [cover, content_fr, content_en, back];
+// const mdFilesList = [cover, content_fr, content_en, back];
+// const mdFilesList = [cover, content_fr, content_en, content_it, back];
+const mdFilesList = [cover, content_fr, content_en, content_it, content_de, back];
 
 //html elements to be filled from converted md file
-const partsList = ["cover", "content_fr", "content_en", "back"];
+// const partsList = ["cover", "content_fr", "content_en", "back"];
+// const partsList = ["cover", "content_fr", "content_en", 'content_it', "back"];
+const partsList = ["cover", "content_fr", "content_en", 'content_it', 'content_de', "back"];
 
 //markdownit instanciation (old school method as no ES6 modules are available)
 const md = markdownit

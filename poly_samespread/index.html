@@ -6,7 +6,7 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
     <link href="./css/interface.css" rel="stylesheet" type="text/css" />
     <link href="./css/print.css" rel="stylesheet" type="text/css" />
-    <title>2L samepage</title>
+    <title>2L samespread</title>
     <!-- <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script> -->
     <script src="./js/paged.polyfill.js"></script>
     <script src="./js/csstree.js"></script>
@@ -16,21 +16,21 @@
   </head>
 
   <body>
-    <section class="chapter b" id="content_fr" lang="fr">
+    <!-- <section class="chapter b" id="content_fr" lang="fr">
+      <section class="chapter d" id="content_en" lang="en" data-trad-of=".b">
+      </section>
+    </section> -->
+    <div id="title">
       <h1>
-        Dix hypothèses au sujet de l’art logiciel<sup class="footnote-ref"
-          ><a href="#fn1" id="fnref_fr1">*</a></sup
-        >
+        Dix hypothèses au sujet de l’art logiciel<sup class="footnote-ref"><a href="#fn1" id="fnref_fr1">*</a></sup>
       </h1>
-    </section>
-    <section class="chapter d" id="content_en" lang="en" data-trad-of=".b">
       <h1>Ten theses about software art</h1>
-    </section>
-
+    </div>
     <h4>Florian Cramer</h4>
-    <h4><span>F</span><span>E</span></h4>
+    <div class="force-break"></div>
 
     <section class="chapter a" id="content_fr" lang="fr">
+      <h4><span>Français</span></h4>
       <h3>De quoi ne s’agit-il pas ?</h3>
       <p>
         De l’art logiciel, tel qu’il est défini dans l’encyclopédie gratuite sur
@@ -169,19 +169,20 @@
         caractéristiques de la culture informatique, comme le montre l’e-mail
         suivant de l’artiste française Pascale Gustin :
       </p>
-      <div class="force-break"></div>
+      <!-- <div class="force-break"></div> -->
       <div id="fig_1_fr">
         <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
-      ][ref lex][1/O.ns 10verses NOT es][
-      --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+          ][ref lex][1/O.ns 10verses NOT es][
+          --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
       ------------------------------------A:
       ---------------------------][menta les_sel][l] a tenement) T nem T
       -tout d_abord--------1/O(f.ne
       1 of 1 deletions
       1 deletion done
       apply: Command attempted to use minibuffer while in minibuffer
-      </code></pre>
+    </code></pre>
       </div>
+      <!-- <div class="force-break"></div> -->
       <h3>L’art logiciel n’est pas synonyme d’art algorithmique</h3>
       <p>
         Si le logiciel, défini de façon générale, est composé d’algorithmes,
@@ -618,6 +619,7 @@
 
     <section class="chapter c" id="content_en" lang="en" data-trad-of=".b">
       <!-- <h1>Ten theses about software art</h1> -->
+      <h4><span>English</span></h4>
       <h3>What this is not about</h3>
       <p>
         “Software art” as it is defined in the free Internet encyclopaedia
@@ -747,7 +749,7 @@
         protocols, system messages, and computercultural slang. The following
         email by the French artist Pascale Gustin is an example of this:
       </p>
-      <div class="force-break"></div>
+      <!-- <div class="force-break"></div> -->
       <h3>Software art is not synonymous with algorithmic art</h3>
       <p>
         If software, generally defined, is algorithms—does that mean software
