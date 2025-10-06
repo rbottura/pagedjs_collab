@@ -1,0 +1,3 @@
+[submodule "ragadjust"]
+	path = ragadjust
+	url = https://gitlab.coko.foundation/pagedjs/pagedjs-plugins/ragadjust
