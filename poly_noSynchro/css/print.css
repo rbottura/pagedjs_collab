@@ -117,7 +117,7 @@ section.c {
   color: black;
   /* width: calc(45% - 2ch); */
   margin-left: auto;
-  top: 0 !important;
+  /* top: -2mm !important; */
   --parallel-flow: beta;
 }
 
@@ -176,6 +176,10 @@ h3 {
   font-weight: 400;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+
+  line-height: 4mm;
+  margin-top: 4mm;
+  margin-bottom: 4mm;
 }
 
 .c h3 {

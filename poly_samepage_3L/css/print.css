@@ -123,14 +123,6 @@ section p {
     content: "";
   };
 }
-@page:nth(4){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
 
 section.a {
   /*parallel-flow: name,  this will trigger the parallel-flow script*/
@@ -179,7 +171,8 @@ section {
 
 #title {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 10mm;
   align-items: center;
   height: 100%;
   justify-content: center;

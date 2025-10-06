@@ -4,7 +4,7 @@
 }
 
 section {
-  width: 45mm !important;
+  width: 48mm !important;
   height: 116mm !important;
   p:first-child {
     margin-top: 0;
@@ -79,22 +79,6 @@ section p {
     content: "";
   };
 }
-@page:nth(5){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
-@page:nth(4){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
 
 section.a {
   /*parallel-flow: name,  this will trigger the parallel-flow script*/
@@ -116,7 +100,7 @@ section.c {
 
 section.b {
   --parallel-flow: beta;
-  margin-left: 52mm;
+  margin-left: 51mm;
   top: 0 !important;
 }
 
@@ -132,8 +116,8 @@ h2 {
 
 p {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 9pt;
-  line-height: 4mm;
+  font-size: 8pt;
+  line-height: 3.4mm;
 }
 
 section {
