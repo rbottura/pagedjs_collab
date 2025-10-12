@@ -16,6 +16,11 @@ section {
   src: url('./fonts/AntiqueSerie-Regular.woff');
 }
 
+@font-face {
+  font-family: cmuntb;
+  src: url('./fonts/cmuntb.ttf');
+}
+
 section p {
   margin: 0;
 }
@@ -37,7 +42,7 @@ section p {
   margin-left: 15mm;
   margin-right: 21mm;
   @top-center {
-    content: 'E';
+    /* content: 'E'; */
     text-align: center;
     font-family: AntiqueSerie;
     font-size: 9pt;
@@ -48,7 +53,7 @@ section p {
   margin-left: 21mm;
   margin-right: 15mm;
   @top-center {
-    content: 'F';
+    /* content: 'F'; */
     text-align: center;
     font-family: AntiqueSerie;
     font-size: 9pt;
@@ -79,7 +84,7 @@ section p {
     content: "";
   };
 }
-@page:nth(5){
+@page:nth(4){
   @bottom-center {
     content:'';
   }
@@ -87,7 +92,7 @@ section p {
     content: "";
   };
 }
-@page:nth(4){
+@page:nth(5){
   @bottom-center {
     content:'';
   }
@@ -141,27 +146,16 @@ section {
 
 #title {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   height: 100%;
   justify-content: center;
-
+  gap: 15mm;
 }
 
 h1 {
   font-family: AntiqueSerie;
   font-size: 8.5pt;
-  text-transform: uppercase;
-}
-
-h4 {
-  font-family: AntiqueSerie;
-  font-size: 8pt;
-  break-after: always;
-  display: flex;
-  height: 100%;
-  justify-content: space-around;
-  align-items: center;
   text-transform: uppercase;
 }
 
@@ -174,6 +168,22 @@ h3 {
   font-weight: 400;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+
+  
+  line-height: 7mm;
+  margin-top: 7mm;
+  margin-bottom: 7mm;
+}
+
+h4 {
+  font-family: AntiqueSerie;
+  font-size: 8pt;
+  break-after: always;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
 }
 
 .c h3 {
@@ -232,4 +242,192 @@ blockquote p{
 
 ol {
   margin: 0;
+}
+
+code {
+  font-family: cmuntb;
+  margin-top: 4mm;
+  margin-bottom: 4mm;
+  font-size: 9.5pt;
+}
+
+blockquote {
+  margin: 0 0 0 6mm;
+}
+
+ol.footnotes-list {
+  margin-top: 7mm;
+  padding-inline-start: 10px;
+  /* background-color: red; */
+}
+
+
+/* Even pages from 6 to 32 with content "E" */
+@page:nth(6) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(8) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(10) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(12) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(14) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(16) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(18) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(20) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(22) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(24) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(26) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(28) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(30) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+@page:nth(32) { 
+  @top-center {
+    content: "E";
+  }
+}
+
+/* Odd pages from 7 to 33 with content "F" */
+@page:nth(7) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(9) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(11) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(13) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(15) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(17) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(19) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(21) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(23) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(25) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(27) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(29) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(31) { 
+  @top-center {
+    content: "F";
+  }
+}
+
+@page:nth(33) { 
+  @top-center {
+    content: "F";
+  }
 }

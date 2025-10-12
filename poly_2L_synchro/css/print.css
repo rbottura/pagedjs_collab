@@ -16,13 +16,18 @@ section {
   src: url('./fonts/AntiqueSerie-Regular.woff');
 }
 
+@font-face {
+  font-family: cmuntb;
+  src: url('./fonts/cmuntb.ttf');
+}
+
 section p {
   margin: 0;
 }
 
 @page {
   margin-top: 15mm;
-  margin-bottom: 34mm;
+  margin-bottom: 39mm;
   size: 170mm 240mm;
   @bottom-center {
     content: counter(page);
@@ -60,6 +65,10 @@ section p {
 }
 
 @page:nth(14){
+  margin-bottom: 30mm
+}
+
+@page:nth(15){
   margin-bottom: 30mm
 }
 
@@ -101,6 +110,28 @@ section p {
     content:"";
   }
 }
+@page:nth(4){
+  @bottom-center {
+    content:'';
+  }
+  @top-right{
+    content: "";
+  };
+  @top-left{
+    content:"";
+  }
+}
+@page:nth(16){
+  @bottom-center {
+    content:'';
+  }
+  @top-right{
+    content: "";
+  };
+  @top-left{
+    content:"";
+  }
+}
 
 section.a {
   /*parallel-flow: name,  this will trigger the parallel-flow script*/
@@ -113,26 +144,12 @@ section.a {
 }
 
 section.c {
-  --parallel-flow: beta;
   /* color: rgb(0, 128, 124); */
   color: black;
   /* width: calc(45% - 2ch); */
   margin-left: auto;
-  top: 0 !important;
-}
-
-section.b {
-  --parallel-flow: alpha;
-}
-
-section.d {
-  --parallel-flow: alpha;
-  margin-left: auto;
-  top: 0 !important;
-}
-
-h2 {
-  margin-top: 0;
+  /* top: -2mm !important; */
+  --parallel-flow: beta;
 }
 
 p {
@@ -141,17 +158,39 @@ p {
   line-height: 4mm;
 }
 
+.p-indent {
+  text-indent: 6mm;
+}
+
 section {
   break-before: page;
 }
 
 h1 {
   font-family: AntiqueSerie;
-  break-after: always;
+  /* break-after: always; */
   font-size: 8.5pt;
   display: flex;
   height: 100%;
   justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+h1 .footnote-ref{
+  font-family: AntiqueSerie;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+h4 {
+  font-family: AntiqueSerie;
+  font-size: 8pt;
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
   align-items: center;
   text-transform: uppercase;
 }
@@ -165,23 +204,23 @@ h3 {
   font-weight: 400;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
-  
+
   --paged-parallel-sync: beta h3;
+
+  line-height: 4mm;
+  margin-top: 4mm;
+  margin-bottom: 4mm;
 }
 
-h4 {
-  font-family: AntiqueSerie;
-  font-size: 8pt;
-  break-after: always;
-  display: flex;
-  height: 100%;
-  justify-content: space-around;
-  align-items: center;
-  text-transform: uppercase;
+code {
+  font-family: cmuntb;
+  margin-top: 4mm;
+  margin-bottom: 4mm;
+  font-size: 9.5pt;
 }
 
-.c h3 {
-  /* text-transform: capitalize; */
+blockquote {
+  margin: 0 0 0 6mm;
 }
 
 h3:first-of-type {
@@ -223,4 +262,43 @@ a {
 
 blockquote p{
   width: 105%;
+}
+
+.footnote-ref {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  color: #000000;
+  font-weight: bold;
+  /* margin-left: -3px; */
+}
+
+ol.footnotes-list {
+  margin-top: 4mm;
+  padding-inline-start: 10px;
+  /* background-color: red; */
+}
+
+.span_right {
+  position: absolute;
+  right: 7mm;
+}
+
+.title-note {
+  font-family: AntiqueSerie;
+  font-size: 9.5pt;
+  position: absolute;
+  display: block;
+  width: 65mm;
+  bottom: 0;
+}
+
+#title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 100%;
+  justify-content: center;
+  gap: 15mm;
 }
