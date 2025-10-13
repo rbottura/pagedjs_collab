@@ -121,7 +121,15 @@ section p {
     content:"";
   }
 }
-@page:nth(16){
+@page:nth(18){
+  margin-bottom: 19mm;
+}
+@page:nth(19){
+  @bottom-center {
+  content:'';
+}
+}
+@page:nth(20){
   @bottom-center {
     content:'';
   }
@@ -164,6 +172,11 @@ p {
 
 section {
   break-before: page;
+}
+
+.span_right {
+  position: absolute;
+  right: 7mm;
 }
 
 h1 {
@@ -245,7 +258,7 @@ h3:first-of-type {
 }
 
 #fig_1_fr {
-  --parallel-impact: all;
+  /* --parallel-impact: all; */
   width: 134mm;
 }
 

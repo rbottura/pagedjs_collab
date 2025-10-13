@@ -109,6 +109,66 @@ section p {
   };
 }
 
+@page:nth(21){
+  @bottom-center {
+    content:'';
+  }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(22){
+  @bottom-center {
+    content:'';
+  }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(23){
+  @bottom-center {
+    content:'';
+  }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(24){
+  @bottom-center {
+    content:'';
+  }
+  @top-left{
+    content: "";
+  };
+  @top-right{
+    content: "";
+  };
+  @top-center{
+    content: "";
+  };
+}
+
 @page:nth(20){
   margin-bottom:10mm;
   @bottom-center {
@@ -289,7 +349,7 @@ ol.footnotes-list {
 
 .span_right {
   position: absolute;
-  right: 7mm;
+  right: 42mm;
 }
 
 .title-note {

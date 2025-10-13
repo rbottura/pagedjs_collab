@@ -132,6 +132,11 @@ h4 {
   break-before: always;
 }
 
+.span_right {
+  position: absolute;
+  right: 7mm;
+}
+
 .footnotes {
   break-before: always;
 }
@@ -348,6 +353,16 @@ ol.footnotes-list {
   @top-center {
     content: "E";
   }
+}
+
+@page:nth(34) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
+}
+
+@page:nth(36) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
 }
 
 /* Odd pages from 7 to 33 with content "F" */
