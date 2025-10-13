@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dix Hypothèses sur l'Art Logiciel - Florian Cramer</title>
-    <style>
+        <style>
       * {
         margin: 0;
         padding: 0;
@@ -17,9 +17,6 @@
       }
 
       body {
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
-          sans-serif;
-        line-height: 1.6;
         color: #000;
         background: #fff;
         padding: 40px;
@@ -51,7 +48,7 @@
       }
 
       nav a:hover {
-        text-decoration: underline;
+        /* text-decoration: underline; */
         color: #000;
       }
 
@@ -91,6 +88,10 @@
         text-transform: uppercase;
         font-family: AntiqueSerie;
       }
+      
+      blockquote {
+        margin: 0 0 0 60px;
+      }
 
       header.hidden {
         display: none;
@@ -98,14 +99,17 @@
       .content {
         max-width: 780px;
         font-family: "Times New Roman", Times, serif;
-        line-height: 22px;
-        font-size: 20px;
+        line-height: 30px;
+        font-size: 25px;
         margin: 0 auto;
       }
 
       .content p {
-        margin-bottom: 20px;
         text-align: left;
+      }
+
+      pre {
+        margin: 30px 0;
       }
 
       .content h3 {
@@ -114,9 +118,9 @@
         justify-content: center;
         text-align: center;
         font-weight: 400;
-        margin-bottom: 20px;
-        line-height: 22px;
-        font-size: 20px;
+        margin: 20px 0;
+        line-height: 30px;
+        font-size: 25px;
       }
 
       .content section {
@@ -125,6 +129,19 @@
 
       .content section.active {
         display: block;
+      }
+
+      .footnotes {
+        margin: 40px 0;
+      }
+
+      .footnotes-list {
+        margin-top: 40px;
+      }
+
+      .footnotes-list li {
+        margin-left: 20px;
+        padding-left: 40px;
       }
 
       .question {
@@ -184,7 +201,7 @@
       }
 
       .print-option:hover .option-text {
-        text-decoration: underline;
+        /* text-decoration: underline; */
       }
 
       .option-label {
@@ -220,7 +237,7 @@
 
       .about-content a {
         color: #000;
-        text-decoration: underline;
+        /* text-decoration: underline; */
       }
 
       .about-content a:hover {
@@ -2766,7 +2783,7 @@
       <div id="about-page" class="tab about-page">
         <div class="about-content">
           <p>
-            This project was created to showcase the new multiflow
+            This project was created to showcase the new parallel-flows
             functionalities of Paged.js, developed by Julien Taquet, as part of
             the EPE European research project, funded by NLNet.
           </p>
@@ -2774,7 +2791,7 @@
           <p>
             <a href="https://epe.esad-gv.fr/" target="_blank">EPE–Écran Papier Éditer</a><br />
             <a href="https://pagedjs.org/" target="_blank">Paged.js</a><br />
-            <a href="#">Download multiflow plugin</a>
+            <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">Download parallel-flows plugin</a>
           </p>
 
           <p>
