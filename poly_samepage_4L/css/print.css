@@ -115,15 +115,17 @@ section.d {
 
 code {
   font-family: cmuntb;
-  margin-top: 4mm;
-  margin-bottom: 4mm;
-  font-size: 9.5pt;
+  font-size: 8pt;
+}
+
+pre {
+  margin-top: 3.4mm;
+  margin-bottom: 3.4mm;
 }
 
 blockquote {
   margin: 0 0 0 6mm;
 }
-
 
 h2 {
   margin-top: 0;
@@ -154,6 +156,21 @@ h1 {
   text-transform: uppercase;
 }
 
+h3 {
+  display: flex;
+  font-style: italic;
+  justify-content: center;
+  width: 100%;
+  font-size: 8pt;
+  font-weight: 400;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+
+  line-height: 3.4mm;
+  margin-top: 3.4mm;
+  margin-bottom: 3.4mm;
+}
+
 h4 {
   font-family: AntiqueSerie;
   font-size: 8pt;
@@ -163,17 +180,6 @@ h4 {
   justify-content: space-around;
   align-items: center;
   text-transform: uppercase;
-}
-
-h3 {
-  display: flex;
-  font-style: italic;
-  justify-content: center;
-  width: 100%;
-  font-size: 9pt;
-  font-weight: 400;
-  font-family: 'Times New Roman', Times, serif;
-  text-align: center;
 }
 
 h3:first-of-type {
@@ -200,10 +206,12 @@ h3:first-of-type {
 #fig_1_fr {
   --parallel-impact: all;
   width: 200mm;
+  display: flex;
+  justify-content: center;
 }
 
 #fig_1_fr code {
-  font-size: 15.5pt;
+  font-size: 11.5pt;
 }
 
 blockquote p{
@@ -211,6 +219,7 @@ blockquote p{
 }
 
 a {
+  /* display: none; */
   text-decoration: none;
   color: black;
   font-weight: 600;

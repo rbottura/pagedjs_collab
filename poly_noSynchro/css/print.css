@@ -176,7 +176,6 @@ h1 {
   text-transform: uppercase;
 }
 
-
 h1 .footnote-ref{
   font-family: AntiqueSerie;
 }
@@ -213,9 +212,12 @@ h3 {
 
 code {
   font-family: cmuntb;
+  font-size: 9.5pt;
+}
+
+pre {
   margin-top: 4mm;
   margin-bottom: 4mm;
-  font-size: 9.5pt;
 }
 
 blockquote {

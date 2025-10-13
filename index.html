@@ -1,160 +1,2897 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html>
+<html lang="fr">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Multiflows Pubs</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dix Hypothèses sur l'Art Logiciel - Florian Cramer</title>
     <style>
-      /* Container styling */
-      .print-links {
-        max-width: 600px;
-        margin: 2rem auto;
+      * {
+        margin: 0;
         padding: 0;
-        list-style: none;
+        box-sizing: border-box;
       }
 
-      /* Individual link items */
-      .print-links li {
-        margin: 0.5rem 0 1.5rem 0;
+      @font-face {
+        font-family: AntiqueSerie;
+        src: url("./static_assets/fonts/AntiqueSerie-Regular.woff");
       }
 
-      .print-links a {
-        display: block;
-        padding: 1rem 1.5rem;
-        background: #f0f7f4;
-        color: #2d5f4d;
-        text-decoration: none;
-        border-left: 4px solid #a8d5ba;
-        transition: all 0.2s ease;
-        font-weight: 500;
-        font-size: 26px;
-      }
-
-      /* Hover effect */
-      .print-links a:hover {
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial,
+          sans-serif;
+        line-height: 1.6;
+        color: #000;
         background: #fff;
-        border-left-color: #4a9d6f;
-        padding-left: 2rem;
-        box-shadow: 0 2px 8px rgba(74, 157, 111, 0.15);
+        padding: 40px;
       }
 
-      /* Active/visited state */
-      .print-links a:visited {
-        color: #3d7a5e;
+      nav {
+        max-width: 100vw;
+        margin: 0 auto 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-family: AntiqueSerie;
       }
 
-      /* Arrow indicator */
-      .print-links a::before {
-        content: "→ ";
-        opacity: 0;
-        transition: opacity 0.2s ease;
+      .nav-left {
+        display: flex;
+        gap: 100px;
       }
 
-      .print-links a:hover::before {
-        opacity: 1;
+      nav a {
+        color: #999;
+        text-decoration: none;
+        font-weight: 500;
+        cursor: pointer;
+        transition: color 0.2s ease;
       }
 
-      /* Note blocks (add after links) */
-      .note {
-        padding: 1rem 1.5rem;
-        border-radius: 4px;
-        font-size: 0.9rem;
-        line-height: 1.5;
+      nav a:hover {
+        text-decoration: underline;
+        color: #000;
       }
 
-      /* General note */
-      .note.info {
-        background: #e8f4f8;
-        border-left: 4px solid #4a9fd8;
-        color: #2c5f7a;
+      nav a.active {
+        font-weight: 700;
+        color: #000;
       }
 
-      /* Warning note */
-      .note.warning {
-        background: #fff8e1;
-        border-left: 4px solid #f9a825;
-        color: #7a5e1f;
+      .footnote-ref a {
+        font-family: "Times New Roman", Times, serif;
+        font-size: 0.6em;
+        /* vertical-align: super; */
+        line-height: 0;
+        color: #000000;
+        font-weight: bold;
+        text-decoration: none;
+        /* margin-left: -3px; */
       }
 
-      .note.warning::before {
-        content: "⚠️ ";
-        margin-right: 0.5rem;
+      .footnote-ref {
+        line-height: 0;
       }
 
-      /* Bug/error note */
-      .note.bug {
-        background: #ffebee;
-        border-left: 4px solid #e53935;
-        color: #7a2e2e;
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
       }
 
-      .note.bug::before {
-        content: "🐛 ";
-        margin-right: 0.5rem;
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: 100px 0;
+        text-transform: uppercase;
+        font-family: AntiqueSerie;
       }
 
-      /* Success/done note */
-      .note.success {
-        background: #e8f5e9;
-        border-left: 4px solid #4caf50;
-        color: #2e5f30;
+      header.hidden {
+        display: none;
+      }
+      .content {
+        max-width: 780px;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 22px;
+        font-size: 20px;
+        margin: 0 auto;
       }
 
-      .note.success::before {
-        content: "✓ ";
-        margin-right: 0.5rem;
+      .content p {
+        margin-bottom: 20px;
+        text-align: left;
       }
-      .note {
-        font-family: Arial, Helvetica, sans-serif;
+
+      .content h3 {
+        font-style: italic;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        font-weight: 400;
+        margin-bottom: 20px;
+        line-height: 22px;
+        font-size: 20px;
+      }
+
+      .content section {
+        display: none;
+      }
+
+      .content section.active {
+        display: block;
+      }
+
+      .question {
+        font-style: italic;
+        text-align: center;
+        margin: 40px 0 30px;
         font-size: 16px;
+      }
+
+      .tab {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .indent {
+        padding-left: 40px;
+      }
+
+      /* Print page styles */
+      .print-page,
+      .about-page {
+        display: none;
+      }
+
+      .print-page.active,
+      .about-page.active {
+        display: block;
+      }
+
+      #article-page {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+      }
+
+      #article-page.hidden {
+        display: none;
+      }
+
+      .print-options {
+        margin-top: 80px;
+        max-width: 800px;
+        font-family: AntiqueSerie;
+        line-height: 1;
+      }
+
+      .print-option {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+        cursor: pointer;
+      }
+
+      .print-option a {
+        text-decoration: none;
+        color: #000;
+      }
+
+      .print-option:hover .option-text {
+        text-decoration: underline;
+      }
+
+      .option-label {
+        font-weight: 900;
+        font-size: 30px;
+        min-width: 120px;
+        margin-right: 40px;
+      }
+
+      .option-text {
+        font-weight: 900;
+        font-size: 30px;
+        text-transform: uppercase;
+      }
+
+      .arrow {
+        margin-left: 10px;
+        font-size: 20px;
+      }
+
+      /* About page styles */
+      .about-content {
+        max-width: 700px;
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      .about-content p {
+        margin-bottom: 20px;
+        font-family: "Times New Roman", Times, serif;
+        line-height: 22px;
+        font-size: 20px;
+      }
+
+      .about-content a {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      .about-content a:hover {
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        header {
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        .author {
+          font-size: 24px;
+        }
+
+        nav {
+          flex-direction: column;
+          gap: 20px;
+          align-items: flex-start;
+          font-family: AntiqueSerie;
+        }
+
+        .nav-left {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .print-option {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .option-label {
+          margin-bottom: 5px;
+        }
       }
     </style>
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+    <nav>
+      <div class="nav-left">
+        <a
+          onclick="showLanguage('fr'); return false;"
+          id="nav-fr"
+          class="active"
+          >F</a
+        >
+        <a onclick="showLanguage('en'); return false;" id="nav-en">E</a>
+        <a onclick="showLanguage('de'); return false;" id="nav-de">D</a>
+        <a onclick="showLanguage('it'); return false;" id="nav-it">I</a>
+      </div>
+      <a onclick="showPage('print'); return false;" id="print-link">PRINT</a>
+      <a onclick="showPage('about'); return false;" id="about-link">ABOUT</a>
+    </nav>
 
-    <ul class="print-links">
-      <li>
-        <a href="./poly_noSynchro/index.html"
-          >FR/EN nosync samepage (polyfill)</a
-        >
-        <div class="note success">
-          DONE (12/10/2025)
+    <div class="container">
+      <!-- Article page -->
+
+      <header>
+        <h1 class="title">Dix Hypothèses sur l'Art Logiciel</h1>
+        <h1 class="author">Florian Cramer</h1>
+      </header>
+      <div id="article-page" class="active">
+        <div class="content">
+          <section class="chapter a" id="content_fr" lang="fr">
+            <h3>De quoi ne s’agit-il pas ?</h3>
+            <p>
+              De l’art logiciel, tel qu’il est défini dans l’encyclopédie
+              gratuite sur Internet Wikipédia (version de septembre 2003) :
+            </p>
+            <blockquote>
+              <p>
+                « L’art logiciel est le terme utilisé pour désigner la
+                conception graphique des éléments visuels contenus dans un
+                logiciel, par exemple une interface graphique utilisateur, des
+                icônes, etc. »<sup class="footnote-ref"
+                  ><a href="#fn2" id="fnref2">2</a></sup
+                >
+              </p>
+            </blockquote>
+            <h3>De quoi s’agit-il ?</h3>
+            <p>
+              D’artistes qui utilisent des logiciels informatiques pour produire
+              des œuvres qui sont elles-mêmes – ce que seuls les écrivains
+              avaient fait avant eux – des créations numériques fabriquées à
+              partir de symboles, à l’aide d’un ensemble d’outils également
+              constitués entièrement de symboles. Nul écrivain ne peut utiliser
+              le langage comme un simple « remplissage » en vue de composer une
+              œuvre qui elle-même ne serait pas du langage. Ainsi la
+              littérature, à l’image d’une boucle récursive, fabrique ses
+              propres outils. De la même manière les 0 et les 1 de l’art
+              numérique sont étroitement liés aux 0 et 1 de l’instrument qui les
+              a non seulement produits, mais également affichés et recopiés.
+            </p>
+            <h3>Sans logiciel, pas d’art numérique</h3>
+            <p>
+              Il serait naïf de croire que l’écriture, l’image, le son et le
+              réseau sur un ordinateur existent en tant que tels ou en
+              combinaison « multimédia », dans la mesure où aucune de ces formes
+              de données ne peut exister sans le programme informatique qui les
+              produit. Une vérité qui s’applique non seulement à leur conception
+              et à leur traitement (grâce aux logiciels de traitement de texte,
+              de création graphique ou de création musicale, par exemple), mais
+              aussi à leur simple affichage (dans les navigateurs, les logiciels
+              de visualisation d’image et les lecteurs) et leur reproduction
+              (via les logiciels de réseau et systèmes d’exploitation). De même,
+              toute œuvre numérique qui n’est pas elle-même un programme
+              informatique ne peut exister qu’au sein du cadre que lui aura
+              assigné un logiciel préconçu.
+            </p>
+
+            <p class="p-indent">
+              Chaque œuvre d’art numérique participe donc de l’art logiciel au
+              sens large, au moins dans la mesure où il relève d’une forme d’art
+              assisté par logiciel. Elle participe de l’art logiciel au sens
+              strict, me semble-t-il, lorsqu’elle intègre le logiciel non comme
+              aide extérieure, mais comme une partie intégrante de son
+              esthétique.
+            </p>
+            <h3>
+              L’art logiciel n’est pas necéssairement numérique ou électronique
+            </h3>
+            <p>
+              Un programme informatique est une série d’instructions formelles
+              (algorithmiques) dont l’exécution peut, mais ne doit pas
+              nécessairement, être effectuée par une machine. Prenons l’exemple
+              suivant :
+            </p>
+            <pre><code>// Classic.walk
+        Repeat
+        {
+        1 st street left
+        2 nd street right
+        2 nd street left
+        }
+        </code></pre>
+            <p>
+              Il s’agit d’un exemple du programme .Walk, que l’on retrouve sur
+              le site Socialfiction (http:// cryptoforest.blogspot.com)<sup
+                class="footnote-ref"
+                ><a href="#fn3" id="fnref3">3</a></sup
+              >. D’après ses créateurs, .Walk fonctionne comme un « ordinateur
+              psychogéographique », dans lequel les grilles d’un transistor sont
+              remplacées par les rues d’une grande ville et les électrons par
+              des piétons circulant dans ses artères. Le programme renvoie ainsi
+              à deux antécédents historiques : d’abord à l’art conceptuel et au
+              mouvement Fluxus avec leurs événements para-algorithmiques,
+              minimalistes (tels que ceux orchestrés par George Brecht, La Monte
+              Young et Sol LeWitt selon un paradigme défini par John Cage) ;
+              puis à l’histoire de l’ordinateur moderne dans son incarnation
+              première, à savoir rien de plus que cet appareil imaginaire et
+              théorique que constituait la machine de Turing.
+            </p>
+            <h3>L’art logiciel n’est pas synonyme d’art conceptuel</h3>
+            <p>
+              .Walk se démarque d’un événement comme l’instruction binaire « on.
+              off. » du Three Lamp Events de George Brecht en 1961
+              <sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup
+              >, dans la mesure où cette œuvre reflète une pratique culturelle
+              répétée : l’utilisation des ordinateurs, des logiciels et de leur
+              programmation. Alors que le Lamp Event pourrait être considéré
+              comme un préambule à la programmation logicielle artistique via
+              une logique formelle, .Walk revendique – par son titre faisant
+              écho au .NET de Microsoft –, son appartenance à une culture
+              logicielle. Par conséquent, dans cette œuvre, ce n’est pas l’art
+              conceptuel qui fait référence au logiciel, mais l’inverse : le
+              logiciel renvoie aux performances et interventions d’ordre
+              conceptuel des années 1960 (qui incluait également la
+              psychogéographie de l’Internationale Situationniste), qu’il
+              revisite en tant que logiciel. Pourtant, cette allusion n’a en soi
+              plus rien de conceptuel ; elle est historique, ironique, œuvre de
+              collage.
+            </p>
+            <p class="p-indent">
+              Et c’est précisément là que l’art logiciel d’aujourd’hui contredit
+              cette équation d’art et de logiciel telle qu’elle fut présentée en
+              1970, lors de l’exposition d’art conceptuel Software de Jack
+              Burnham au Jewish Museum de New York et dans le premier numéro du
+              magazine d’art vidéo Radical Software
+              <sup class="footnote-ref"><a href="#fn5" id="fnref5">5</a></sup
+              >. Trente ans plus tard, le logiciel n’apparaît plus comme une
+              conception de laboratoire et un paradigme de purification
+              conceptualiste, mais se présente plutôt – et ce depuis la
+              démocratisation des PC et d’Internet – comme du code erroné, comme
+              le responsable de plantages, d’incompatibilités, de virus,
+              exprimant ainsi la contingence et non plus la rigueur des
+              symboles. Le net.art de Jodi, Alexei Shulgin, Vuk ćosić ou encore
+              I/O/D ayant permis d’esthétiser ces contingences et donc de
+              libérer l’art numérique de son apparent poli académique et
+              industriel, il n’est pas étonnant de retrouver dans la récente
+              histoire de l’art logiciel, qui s’inscrit dans la continuité
+              discursive de l’art en ligne des années 1990, certains noms
+              familiers. Considérer l’évolution des travaux artistiques de Jodi
+              de 1996 à nos jours permet de voir idéalement comment les
+              expériences en net.art avec graphiques écran et communications en
+              réseau ont tout d’abord constitué une œuvre dénonçant les
+              contraintes de son environnement logiciel (voir la manipulation
+              d’un navigateur intitulée OSS à l’adresse http://oss.jodi.org),
+              pour évoluer ensuite vers la reprogrammation de logiciels (voir
+              l’œuvre Untitled Game, basée sur le jeu vidéo Quake, à l’adresse
+              http://www.untitled-game.org) et aboutir enfin à un texte source
+              BASIC par la réduction de l’objet visible (dans la toute dernière
+              œuvre, intitulée 10 Programs written in BASIC ©1984
+              <sup class="footnote-ref"><a href="#fn6" id="fnref6">6</a></sup
+              >). Il est vrai que l’art logiciel, lorsqu’il se fait minimaliste,
+              présente une certaine similarité avec la pratique plus ancienne de
+              l’art conceptuel ; ce rapprochement reste toutefois antinomique
+              dans la mesure où il n’intervient pas dans l’esprit de cette
+              dématérialisation de l’œuvre artistique typique de la période
+              1966-1971, telle qu’elle est décrite par Lucy Lippard dans son
+              livre Six Years. Au contraire, dans l’art logiciel, le logiciel
+              est considéré comme un élément matériel – un postulat qui
+              constitue également une condition préalable aux codeworks («
+              œuvres code ») d’artistes tels que Jodi, antiorp, mez, Alan
+              Sondheim, Johan Meskens et Lanny Quarles
+              <sup class="footnote-ref"><a href="#fn7" id="fnref7">7</a></sup
+              >, mêlant éléments syntaxiques empruntés aux langages de
+              programmation, aux protocoles réseau, aux messages système, et
+              expressions argotiques caractéristiques de la culture
+              informatique, comme le montre l’e-mail suivant de l’artiste
+              française Pascale Gustin :
+            </p>
+            <div class="force-break"></div>
+            <div id="fig_1_fr">
+              <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
+        ][ref lex][1/O.ns 10verses NOT es][
+        --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+        ------------------------------------A:
+        ---------------------------][menta les_sel][l] a tenement) T nem T
+        -tout d_abord--------1/O(f.ne
+        1 of 1 deletions
+        1 deletion done
+        apply: Command attempted to use minibuffer while in minibuffer
+        </code></pre>
+            </div>
+            <h3>L’art logiciel n’est pas synonyme d’art algorithmique</h3>
+            <p>
+              Si le logiciel, défini de façon générale, est composé
+              d’algorithmes, peut-on assimiler l’art logiciel à l’art
+              algorithmique ou à l’art génératif – dont Philip Galanter a fourni
+              une définition bien utile :
+            </p>
+            <blockquote>
+              <p>
+                « L’art génératif renvoie à toute pratique artistique dans
+                laquelle l’artiste crée un processus, comme une série de règles
+                en langage naturel, un programme informatique, une machine ou
+                tout autre mécanisme, mis en œuvre ensuite avec un certain degré
+                d’autonomie et contribuant ou aboutissant à une œuvre artistique
+                achevée.»
+                <sup class="footnote-ref"><a href="#fn8" id="fnref8">8</a></sup>
+              </p>
+            </blockquote>
+            <p>
+              Certes, il se peut que l’art logiciel implique une certaine
+              autonomie dans l’enchaînement des événements, telle que l’a
+              décrite Jack Burnham dans des essais fortement marqués par la
+              cybernétique et la théorie générale des systèmes nées au cours des
+              années 1960
+              <sup class="footnote-ref"><a href="#fn9" id="fnref9">9</a></sup
+              >. Une autonomie que l’on retrouve par exemple dans le cas d’un
+              code fonctionnel prenant l’apparence d’une application de PC
+              classique<sup class="footnote-ref"
+                ><a href="#fn10" id="fnref10">10</a></sup
+              >, ou encore dans le cas d’instructions formelles univoques comme
+              dans .Walk. Cependant, si l’on considère certains des sous-genres
+              d’art logiciel les plus prisés, tels que les modifications de jeux
+              vidéo<sup class="footnote-ref"
+                ><a href="#fn11" id="fnref11">11</a></sup
+              >
+              et les navigateurs expérimentaux
+              <sup class="footnote-ref"><a href="#fn12" id="fnref12">12</a></sup
+              >, il ne s’agit plus de l’autonomie esthétique de processus
+              algorithmiques, mais de leur interruption intempestive par
+              l’action combinée du logiciel, de l’homme et des données en
+              réseau. En outre, d’après la définition de Galanter, dans l’art
+              génératif le logiciel n’est qu’un moyen parmi d’autres, qui ne
+              constituera pas en lui-même une œuvre d’art mais se contentera
+              plutôt d’y « contribuer », à l’image de nombreuses formes d’art
+              assisté par ordinateur (notamment la musique électronique) dans
+              lesquelles le logiciel n’est pas considéré comme faisant partie de
+              l’esthétique de l’œuvre, mais comme élément agissant à
+              l’arrière-plan.
+            </p>
+            <p class="p-indent">
+              L’art logiciel, pour sa part, ne satisfait pas aux critères de
+              l’art génératif, ou du moins n’est en mesure d’y satisfaire que
+              dans un sens métaphorique et non technique, c’est-à-dire lorsqu’il
+              produit un logiciel dysfonctionnel et imaginaire. C’est le cas des
+              codeworks, par exemple.
+            </p>
+            <h3>
+              L’art logiciel ne repose pas sur du vide, il fait partie d’une
+              culture logicielle
+            </h3>
+            <p>
+              Si l’art logiciel conçoit moins le logiciel comme un moyen de
+              contrôle des processus génératifs que comme un matériel de jeu, il
+              ne l’interprète plus – à l’inverse des pratiques « classiques » de
+              l’art conceptuel et de l’art génératif – comme de la syntaxe pure.
+              Le logiciel devient alors sémantique, porteur d’une signification
+              esthétique, culturelle et politique<sup class="footnote-ref"
+                ><a href="#fn13" id="fnref13">13</a></sup
+              >. Alors qu’en 1970 la culture logicielle – telle que documentée
+              par l’exposition Software de Burnham et l’affrontement entre l’art
+              conceptuel et le développement logiciel dans des laboratoires de
+              recherche – restait circonscrite au domaine universitaire, et que
+              même la culture hacker se bornait à de prestigieuses institutions
+              telles que le MIT et Berkeley, c’est aujourd’hui une culture de
+              masse qui s’accompagne d’une esthétique quotidienne du logiciel.
+              De même, comme le montrent notamment les débats autour des
+              logiciels libres, des monopoles, des licences, des logiciels
+              publicitaires (adware) et des logiciels espions (spyware), le
+              logiciel a désormais de plus en plus souvent une résonance
+              politique. Malgré tout, la critique culturelle des logiciels n’a
+              fait l’objet que de quelques tentatives sporadiques, comme dans
+              les essais de Wolfgang Hagen, de Matthew Fuller ou encore sur la
+              liste de diffusion softwareandculture lancée par Jeremy
+              Hunsinger<sup class="footnote-ref"
+                ><a href="#fn14" id="fnref14">14</a></sup
+              >.
+            </p>
+            <h3>L’art logiciel n’est pas l’art du programmeur</h3>
+            <p>
+              Historiquement, le fossé entre l’« utilisation » et la «
+              programmation » d‘ordinateurs résulte de la création de
+              l’interface utilisateur « iconique »<sup class="footnote-ref"
+                ><a href="#fn15" id="fnref15">15</a></sup
+              >
+              et de sa commercialisation par Apple et Microsoft, qui pour la
+              première fois attribuèrent à chaque mode d’opération un medium
+              différent : des images « iconiques » pour l’« utilisation » et du
+              texte alphanumérique pour la « programmation ». C’est précisément
+              à ce moment que la programmation d’ordinateurs est devenue un art
+              obscur, associé à un savoir que seule possèderait une prétendue
+              élite<sup class="footnote-ref"
+                ><a href="#fn16" id="fnref16">16</a></sup
+              >. Les programmeurs ont bien entendu cultivé ce mythe et repris à
+              leur compte l’héritage idéologique de la fin du xviiie siècle, en
+              créant à travers le personnage du hacker une réincarnation du
+              génie romantique. Chaque exposé sur l’art logiciel comporte donc
+              un risque, à savoir celui d’entretenir le culte du génie de la
+              programmation. Un culte que contredisent les logiciels
+              imaginaires, simulés et dysfonctionnels, ainsi que les
+              manipulations de logiciels existants, qui ne nécessitent aucune
+              maîtrise particulière en programmation<sup class="footnote-ref"
+                ><a href="#fn17" id="fnref17">17</a></sup
+              >. Si le logiciel peut être non seulement le matériau de base de
+              l’art logiciel, mais également son objet de réflexion, alors cette
+              réflexion peut s’exprimer à travers des matériaux qui en seraient
+              complètement différents – comme le montre l’œuvre de Julia Guther
+              et Jakob Lehr n:info, dévoilée à Berlin lors de l’édition 2001 du
+              festival Browserday. Celle-ci se présente comme un navigateur
+              prenant la forme d’un cadre de fenêtre amovible, et renverse la
+              rhétorique des logiciels de PC « iconiques » en proposant un outil
+              analogique comme métaphore du logiciel numérique, exposant par là
+              même l’application logicielle dite de « navigation Web » comme une
+              technique culturelle, un mode de perception et de pensée<sup
+                class="footnote-ref"
+                ><a href="#fn18" id="fnref18">18</a></sup
+              >. On ne trouverait donc rien à redire à de l’art logiciel qui
+              prendrait la forme d’une image peinte.
+            </p>
+            <h3>
+              Les clichés de genre pourraient rendre l’art logiciel ennuyeux
+            </h3>
+            <p>
+              Certes, le risque de se cantonner dans des stéréotypes existe
+              aussi dans des formes artistiques qui, comme le mouvement Fluxus,
+              ne se définissent pas via des matériaux spécifiques. Et pourtant,
+              l’art logiciel pourrait bien perdre tout intérêt – aux yeux des
+              critiques, conservateurs et jurys de concours – si son répertoire
+              se limitait à des navigateurs Web expérimentaux, des
+              visualisations de données, des jeux vidéo modifiés et des
+              cracks<sup class="footnote-ref"
+                ><a href="#fn19" id="fnref19">19</a></sup
+              >
+              (tels que les virus informatiques et les fork bombs
+              <sup class="footnote-ref"><a href="#fn20" id="fnref20">20</a></sup
+              >). Un autre problème vient du fait que l’on associe souvent l’art
+              logiciel à cet ensemble qu’est l’« art des médias », ce qui a pour
+              conséquence d’empêcher certains programmes présentant un intérêt
+              artistique – tels que ceux qui apparaissent dans le cadre du
+              GNU/Linux et des logiciels libres – d’arriver jusqu’aux concours,
+              festivals et expositions d’art logiciel.
+            </p>
+            <h3>
+              En réalité, le débat sur l’art logiciel et sa légitimité en tant
+              qu’art ne concerne pas l’art logiciel lui-même
+            </h3>
+            <p>
+              On s’interroge régulièrement sur la pertinence du mot « art » dans
+              la dénomination « art logiciel », qui deviendrait alors une
+              discipline à part entière. La manière naïve d’envisager la
+              question considère le logiciel comme le simple résultat d’une
+              ingénierie, remettant ainsi en cause sa valeur artistique. À
+              l’inverse une vision plus réfléchie dénonce le fait qu’un
+              mouvement polymorphe se soit vu, une fois de plus et de façon
+              injustifiée, affubler de l’étiquette « art ». Effectivement, tout
+              comme la culture japonaise traditionnelle s’est passée de tout
+              concept d’arts libéraux par opposition aux arts appliqués, on
+              constate également dans la culture logicielle, aussi bien dans le
+              cas du logiciel libre que dans celui du logiciel commercial, une
+              vision de l’« art » dans le sens de sa racine étymologique latine
+              ars, qui signifie « habileté », « savoir-faire ».
+            </p>
+            <p class="p-indent">
+              Comme l’a démontré un festival organisé par l’artiste Alexeï
+              Shulgin, il peut être possible, grâce à l’imagination et à la
+              mentalité hacker des programmeurs de logiciels en accès libre, de
+              rassembler dans le cadre de l’art logiciel les travaux d’artistes
+              et de non-artistes autoproclamés<sup class="footnote-ref"
+                ><a href="#fn21" id="fnref21">21</a></sup
+              >. Toutefois, les objections à la classification de l’art logiciel
+              dans la catégorie « art » ne sont qu’une des différentes façons de
+              reconsidérer le concept d’art en lui-même.
+            </p>
+            <p class="p-indent">
+              Lev Manovich, dans son compte rendu intitulé « Don’t Call it Art:
+              Ars Electronica 2003 »<sup class="footnote-ref"
+                ><a href="#fn22" id="fnref22">22</a></sup
+              >, formule une objection personnelle d’une manière plus subtile
+              que les deux précédentes en appelant à ne pas qualifier l’art
+              logiciel d’« art », dans la mesure où cette pratique s’exclurait
+              elle-même du cadre de l’« art contemporain » de par son trop grand
+              intérêt pour un matériau spécifique. Or l’art contemporain, tel
+              qu’on peut le voir dans les galeries, les salons, les musées et
+              leurs expositions, se compose de sous-disciplines témoignant d’une
+              attitude qui est loin d’être neutre à l’égard de leurs matériaux
+              respectifs : on trouve d’un côté des peintures grand format et de
+              l’art photographique pour les collectionneurs privés, et de
+              l’autre des installations artistiques académiques (souvent sur
+              support vidéo), généralement présentées dans des salles
+              subventionnées et produites par des artistes et conservateurs
+              issus des cultural studies<sup class="footnote-ref"
+                ><a href="#fn23" id="fnref23">23</a></sup
+              >. Ceci mis à part, l’art logiciel n’est rien d’autre qu’un terme
+              générique, au même titre que l’art pictural, sonore, scriptural ou
+              vidéo. En outre il n’a pas été défini par les artistes eux-mêmes,
+              mais par les critiques et les conservateurs, qui avaient identifié
+              dans l’art numérique contemporain une tendance à utiliser des
+              logiciels comme medium<sup class="footnote-ref"
+                ><a href="#fn24" id="fnref24">24</a></sup
+              >.
+            </p>
+            <p class="p-indent">
+              Il devient donc très facile de justifier l’utilisation de
+              l’expression « art logiciel ». En effet, elle provient simplement
+              du fait qu’aujourd’hui des productions majeures en art
+              contemporain (à l’image de celles décrites dans cet article)
+              voient le jour sous la forme de logiciels.
+            </p>
+            <p class="p-indent">
+              Il devient alors nécessaire de disposer d’une théorie et d’une
+              critique de l’art logiciel.
+            </p>
+
+            <div class="footnotes">
+              <p>
+                Travail sous licence Creative Commons Attribution-ShareAlike
+                License. Pour visualiser une copie de cette licence, visitez le
+                site http://creativecommons.org/licenses/by-sa/1.0/ ou envoyez
+                un courrier à Creative Commons, 559 Nathan Abbott Way, Stanford,
+                California 94305, USA.
+              </p>
+              <p>
+                http://cryptoforest.blogspot.com Site de Wilfried Hou Je Bek.
+                http://www.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+                « Don’t Call it Art: Ars Electronica 2003 » par Lev Manovich.
+                Archive du texte posté en septembre 2003 sur la liste de
+                diffusion Nettime.
+              </p>
+              <ol class="footnotes-list">
+                <li id="fn2" class="footnote-item">
+                  <p>
+                    « Software art is a term for the graphic design of visual
+                    elements contained in software, eg. GUI (Graphic User
+                    Interface), Icons, etc. »,
+                    http://www.wikipedia.org/wiki/Software_art (cette définition
+                    est celle qui apparaissait en septembre 2003, elle a été
+                    modifiée depuis lors)
+                    <a href="#fnref2" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn3" class="footnote-item">
+                  <p>
+                    Wilfried Hou Je Bek, .Walk for dummies, consultable sur
+                    Socialfiction,
+                    http://www.socialfiction.org/dotwalk/dummies.html
+                    <a href="#fnref3" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn4" class="footnote-item">
+                  <p>
+                    On retrouve cette instruction sous forme de petite partition
+                    dans George Brecht, Water-Yam/George Brecht, Éd. Lebeer
+                    Hossmann, Bruxelles, 1986 (la version originale date de
+                    1963).
+                    <a href="#fnref4" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn5" class="footnote-item">
+                  <p>
+                    Pour l’exposition, voir Edward A. Shanken, « The House That
+                    Jack Built: Jack Burnham’s Concept of “Software” as a
+                    Metaphor for Art », dans Leonardo Electronic Almanac, vol.
+                    6, n° 10, novembre 1998,
+                    http://www.leoalmanac.org/journal/Vol_6/lea_v6_n10.txt.
+                    Également consultable sur http://www.artexetra.com/House.pdf
+                    ; Radical Software est consultable depuis peu sur le site
+                    http://www.radicalsoftware.org
+                    <a href="#fnref5" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn6" class="footnote-item">
+                  <p>
+                    Exposé lors d’Electrohype à Malmö en 2003.
+                    <a href="#fnref6" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn7" class="footnote-item">
+                  <p>
+                    Voir aussi notamment Alan Sondheim, « Introduction: Codework
+                    », dans American Book Review, vol. 22, n° 6, University of
+                    Houston-Victoria, Victoria, septembre 2001, p. 1-4,
+                    http://www.litline.org/ABR/issues/Volume22/Issue6/sondheim.pdf
+                    ; McKenzie Wark, « Essay: Codework », dans American Book
+                    Review, vol. 22, n° 6, septembre 2001, p. 1- 5.
+                    <a href="#fnref7" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn8" class="footnote-item">
+                  <p>
+                    Une citation que l’on retrouve sur
+                    http://www.generative.net/read/definitions
+                    <a href="#fnref8" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn9" class="footnote-item">
+                  <p>
+                    Voir aussi la version allemande du Structure of Art de Jack
+                    Burnham, traduite maladroitement sous le titre Kunst und
+                    Strukturalismus, DuMont Schauberg, Cologne, 1973.
+                    <a href="#fnref9" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn10" class="footnote-item">
+                  <p>
+                    Auto-Illustrator, Adrian Ward, 2001,
+                    http://www.auto-illustrator.com
+                    <a href="#fnref10" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn11" class="footnote-item">
+                  <p>
+                    Untitled Game de Jodi
+                    (http://www.untitled-game.org/download.html) ; retroyou de
+                    Joan Leandre (http://www.retroyou.org).
+                    <a href="#fnref11" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn12" class="footnote-item">
+                  <p>
+                    Web Stalker de I/O/D (http://bak.spc.org/iod/iod4.html) ;
+                    Nebula.M81 de Netochka Nezvanova
+                    (http://www.mediaartnet.org/works/nebula/) ; %Wrong Browser
+                    de Jodi (http://www.wrongbrowser.org) ; Shredder de Mark
+                    Napier (http://www.potatoland.org/shredder/) ; Discoder de
+                    Kensuke Sembos et Yae Akaivas
+                    (http://www.exonemo.com/DISCODER/indexE.html) ; ZNC Browser
+                    de Peter Luining (http://znc.ctrlaltdel.org/pc_znc2.0.htm).
+                    <a href="#fnref12" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn13" class="footnote-item">
+                  <p>
+                    Le Injunction Generator de Ubermorgen.com
+                    (http://www.ipnic.org/intro.html), qui émet automatiquement
+                    des injonctions juridiques, ainsi que le serveur proxy
+                    Insert_coin (http://odem.org/insert_coin/) de Alvar Freude
+                    et Dragan Espenschied, qui censure du texte, sont deux
+                    exemples convaincants de l’activisme politique de l’art
+                    logiciel.
+                    <a href="#fnref13" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn14" class="footnote-item">
+                  <p>
+                    Wolfgang Hagen, « Der Stil der Sourcen. Anmerkungen zur
+                    Theorie und Geschichte der Programmiersprachen », dans
+                    Wolfgang Coy, Georg C.Tholen, Martin Warnke (Sous la dir.
+                    de), Hyperkult, Stroemfeld, Bâle, 1997, p. 33-68 ; Matthew
+                    Fuller, Behind the Blip. Essays on the Culture of Software,
+                    Autonomedia, New York, 2003 ; softwareandculture, page
+                    d’accueil sur
+                    http://lists.tmttlt.com/listinfo.cgi/softwareandculture-tmttlt.com
+                    et archives sur
+                    http://lists.tmttlt.com/private.cgi/softwareandculture-tmttlt.com/
+                    <a href="#fnref14" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn15" class="footnote-item">
+                  <p>
+                    Ici Florian Cramer utilise le terme « iconique » au sens
+                    d’une relation de ressemblance, en référence à Charles S.
+                    Peirce (NdT).
+                    <a href="#fnref15" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn16" class="footnote-item">
+                  <p>
+                    Et ce, bien que la programmation dans un langage usuel ne
+                    nécessite guère plus qu’une connaissance des variables, des
+                    boucles et des instructions de type « si/alors ».
+                    <a href="#fnref16" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn17" class="footnote-item">
+                  <p>
+                    Comme par exemple le ScreenSaver de Ivan Khimin et Eldar
+                    Karhalev (http://runme.org/project/+screensaver/), une
+                    configuration de l’économiseur d’écran Windows qui permet
+                    d’obtenir un carré volant à la fois suprématiste et
+                    hypnotique.
+                    <a href="#fnref17" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn18" class="footnote-item">
+                  <p>
+                    n:info, http://myhd.org
+                    <a href="#fnref18" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn19" class="footnote-item">
+                  <p>
+                    Les cracks sont des programmes informatiques qui servent à
+                    perturber la marche normale d’un autre logiciel,
+                    généralement pour en dépasser les protections ou les
+                    restrictions d’utilisation (NdT).
+                    <a href="#fnref19" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn20" class="footnote-item">
+                  <p>
+                    Une fork bomb vise à saturer, jusqu’au plantage, la capacité
+                    de gestion de processus d’un ordinateur en multipliant
+                    rapidement une tâche à accomplir (NdT).
+                    <a href="#fnref20" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn21" class="footnote-item">
+                  <p>
+                    Pour exemples, le programme WinGluk Builder développé par un
+                    hacker et récompensé lors du festival Read_Me 2002
+                    (http://readme.runme.org/1.2/inde6.htm) et le programme
+                    Tempest for Eliza exposé l’année suivante
+                    (http://www.erikyyy.de/tempest/), qui implémente un émetteur
+                    radio à ondes courtes par le biais d’un graphique affiché
+                    sur des moniteurs.
+                    <a href="#fnref21" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn22" class="footnote-item">
+                  <p>
+                    Lev Manovich, « Don’t Call It Art: Ars Electronica 2003 »,
+                    Nettime, septembre 2003,
+                    http://amsterdam.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+                    <a href="#fnref22" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn23" class="footnote-item">
+                  <p>
+                    Née dans les années 1960 en Grande-Bretagne, la discipline
+                    des cultural studies mêle principalement l’analyse
+                    littéraire à la sociologie. Elle ne possède pas d’équivalent
+                    institutionnel en France (NdT).
+                    <a href="#fnref23" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn24" class="footnote-item">
+                  <p>
+                    C’était le cas notamment de Saul Albert dans « Artware »,
+                    Mute, n° 14, Mute Publishing Ltd, Londres, 1999, p. 63-65,
+                    http://twenteenthcentury.com/saul/artware.htm, d’Alexander
+                    Galloway dans « Year in Review: State of net.art 99 », dans
+                    Switch, 1999, http://switch.sjsu.edu/web/v5n3/D-1.html,
+                    d’Andreas Broeckmann qui a introduit en 2000 une section «
+                    Software » dans le festival Transmediale, et enfin de Tilman
+                    Baumgärtel avec l’article « Experimentelle Software. Zu
+                    einigen neueren Computerprogrammen von Künstlern », dans
+                    Telepolis, Heise Zeitschriften Verlag, Hanovre, octobre
+                    2001, http://www.heise.de/tp/r4/artikel/9/9908/1.html
+                    <a href="#fnref24" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section
+            class="chapter b"
+            id="content_en"
+            lang="en"
+            data-trad-of=".b"
+          >
+            <!-- <h1>Ten theses about software art</h1> -->
+            <h3>What this is not about</h3>
+            <p>
+              “Software art” as it is defined in the free Internet encyclopaedia
+              Wikipedia (as of September 2003):
+            </p>
+            <blockquote>
+              <p>
+                “Software art is a term for the graphic design of visual
+                elements contained in software, eg. GUI (Graphic User
+                Interface), Icons etc.”<sup class="footnote-ref"
+                  ><a href="#fn1" id="fnref1">1</a></sup
+                >
+              </p>
+            </blockquote>
+            <h3>What this is about</h3>
+            <p>
+              Artists who use digital software to produce works which themselves
+              are digital data create—as only writers have done before them —
+              works made up of symbols using a set of instruments that is also
+              comprised entirely of symbols. No literary writer can use language
+              merely as a stopgap device with which to compose an artwork that
+              is not in itself language—so, like in a recursive loop, literature
+              writes its own instrumentation. In the same way, the zeros and
+              ones of digital art are closely related to the zeros and ones of
+              the instruments with which they are not only created, displayed
+              and reproduced.
+            </p>
+            <h3>There is no digital art without software</h3>
+            <p>
+              It is always naive to assume that there is type, images, sound or
+              networking in computers provided for themselves or in “multimedia”
+              combinations, since these data forms do not exist without the
+              computer programs that produce them. This applies not only to
+              their design and processing (through, for example, text, graphics
+              or music authoring software), but already to their mere display
+              (in software browsers, viewers and players) and reproduction
+              (through network and operating system software). Every digital
+              artwork that is not itself a computer program exists only within
+              the framework that prefabricated software has defined for it. All
+              digital art is therefore “software art” at least to the degree
+              that it is software-aided art. It becomes software art in the
+              narrower sense, I would suggest, when it does not regard software
+              as an external aid, but as part of its own aesthetics.
+            </p>
+            <h3>Software art need not be digital or electronic</h3>
+            <p>
+              A computer program is a series of formal (algorithmic)
+              instructions which can, but must not necessarily be executed by a
+              machine. Like this example:
+            </p>
+            <pre><code>// Classic.walk
+        Repeat
+        {
+        1 st street left
+        2 nd street right
+        2 nd street left
+        }</code></pre>
+            <p>
+              This is an example program<sup class="footnote-ref"
+                ><a href="#fn2" id="fnref2">2</a></sup
+              >
+              of “.walk” by http://www. socialfiction.org. “.walk” has been
+              labelled by its inventors a “psychogeographical computer” because
+              it is made up of the streets of big cities rather than transistor
+              grids and executes its programs by having pedestrians rather than
+              electrons run through them. .walk therefore reflects two
+              historical precursors: firstly Fluxus and Concept Art with their
+              para-algorithmic, minimalist action scores (like those composed by
+              George Brecht, La Monte Young and Sol LeWitt following a paradigm
+              set by John Cage), and secondly the modern computer in its
+              earliest incarnation of only an imaginary, theoretical apparatus
+              in the shape of the Turing Machine.
+            </p>
+            <h3>Software art is not synonymous with concept art</h3>
+            <p>
+              .Walk differs from action scores such as George Brecht’s first
+              “Lamp Event” of 1961 and its binary instruction “on.off”<sup
+                class="footnote-ref"
+                ><a href="#fn3" id="fnref3">3</a></sup
+              >
+              inasmuch as it reflects a tested cultural practice; the use of
+              computers, software and their programming. While the “Lamp Event”
+              could be read as an anticipation of artistic software programming
+              through formalism, .walk’s title—which is a play on Microsoft’s
+              “.NET"—already identifies itself as part of a software culture. In
+              this work, therefore, it is not Concept Art that points to
+              software, but the opposite; software points back to the conceptual
+              actionism of the 1960s—which also included the psychogeography of
+              the Situationist International—, rereading it as computer
+              software. However, this look back is no longer conceptual in
+              itself, but historical, ironic, a work of collage. It is precisely
+              in this respect that today’s software art contradicts the equation
+              of art and software as it was established in 1970 both in Jack
+              Burnham’s 1970 Concept Art exhibition “Software” in the Jewish
+              Museum New York and in the first issue of the video art magazine
+              “Radical Software.<sup class="footnote-ref"
+                ><a href="#fn4" id="fnref4">4</a></sup
+              >
+              Thirty years later, software is no longer a laboratory construct
+              and a paradigm of conceptualist purification, but is—since the
+              wide distribution of PCs and Internet—faulty code to a large
+              extent, the cause of crashes, incompatibilities, viruses and thus
+              of the contingency rather than the stringency of symbols. As the
+              Net.art by jodi, Alexei Shulgin, Vuk Cosic, I/O/D and others
+              aestheticised precisely these contingencies and so liberated
+              digital art from its apparent academic and industrial sleekness,
+              it is no coincidence that we encounter familiar names in recent
+              software art, which has a discursive continuity with the net art
+              of the 1990s. Looking at the development of jodi’s artistic work
+              from 1996 to the present day, we gain an exemplary view of how
+              Net.art experiments with screen graphics and network communication
+              first became work rebelling against the limitations of its
+              software context (for example in the browser manipulation “OSS”
+              http://oss.jodi.org), then developed into the reprogramming of
+              software (as in the “Untitled Game” based on the computer game
+              “Quake” http://www.untitled-game.org) and finally a reduction of
+              the visible object to simple BASIC sourcecode (in the most recent
+              work “10 Programs written in BASIC © 1984").<sup
+                class="footnote-ref"
+                ><a href="#fn5" id="fnref5">5</a></sup
+              >
+              It is true that recent software art has surface similarity to
+              older Concept Art when it makes use of minimalist form. But this
+              resemblance is contradictory, because it does not reflect the
+              spirit of what Lucy Lippard in her book “Six Years” called the
+              dematerialisation of the art work from 1966 to 1971. On the
+              contrary, in today’s software art software is certainly understood
+              as material. This understanding is also a precondition to the
+              written “codeworks” of artists including jodi, antiorp, mez, Alan
+              Sondheim, Johan Meskens and Lanny Quarles,<sup
+                class="footnote-ref"
+                ><a href="#fn6" id="fnref6">6</a></sup
+              >
+              which combine syntactic elements from programming languages,
+              network protocols, system messages, and computercultural slang.
+              The following email by the French artist Pascale Gustin is an
+              example of this:
+            </p>
+            <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
+              ][ref lex][1/O.ns 10verses NOT es][
+              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+              ------------------------------------A:
+              ---------------------------][menta les_sel][l] a tenement) T nem T
+              -tout d_abord--------1/O(f.ne
+              1 of 1 deletions
+              1 deletion done
+              apply: Command attempted to use minibuffer while in minibuffer
+              </code></pre>
+            <!-- <div class="force-break"></div> -->
+            <h3>Software art is not synonymous with algorithmic art</h3>
+            <p>
+              If software, generally defined, is algorithms—does that mean
+              software art is the same thing as algorithmic or generative art ?
+              The following, helpful definition of generative art was given by
+              Philip Galanter:
+            </p>
+            <blockquote>
+              <p>
+                “Generative art refers to any art practice where the artist
+                creates a process, such as a set of natural language rules, a
+                computer program, a machine, or other mechanism, which is then
+                set into motion with some degree of autonomy contributing to or
+                resulting in a completed work of art.”<sup class="footnote-ref"
+                  ><a href="#fn7" id="fnref7">7</a></sup
+                >
+              </p>
+            </blockquote>
+            <p>
+              It is true that software art may involve autonomy in a sequence of
+              events as it had also been described in Jack Burnham’s essays,
+              strongly influenced by cybernetics and general systems theory,
+              from the 1960s<sup class="footnote-ref"
+                ><a href="#fn8" id="fnref8">8</a></sup
+              >
+              for example as running code in the guise of classic PC user
+              software, or also as unambiguous formal instructions as in
+              “.walk.” But if one looks at popular sub-genres of software art
+              like game modifications<sup class="footnote-ref"
+                ><a href="#fn9" id="fnref9">9</a></sup
+              >
+              and experimental browsers,<sup class="footnote-ref"
+                ><a href="#fn10" id="fnref10">10</a></sup
+              >
+              these are not concerned with the aesthetic autonomy of algorithmic
+              processes, but with interrupting these by means of irritative
+              couplings of software, humans and network data. In generative art,
+              according to Galanter’s definition, software is only one of
+              several possible means which, rather than being an artwork in
+              itself, may only “contribute” to it, in the same way that many
+              computer-aided arts (including electronic music) do not see
+              software as part of their aesthetics, but permit it to work in the
+              background. For its part, software art fails to meet the criterion
+              of the generative, or it only fulfils this in the metaphorical,
+              rather than the technical sense when it writes—as in “codeworks”
+              for example—dysfunctional and imaginary software.
+            </p>
+            <h3>
+              Software art is not being made in a vacuum, but as part of a
+              software culture
+            </h3>
+            <p>
+              If recent software art does not understand software as generative
+              process control, but as material for play, it no longer reads
+              it—as in classic conceptual and generative art—as pure syntax, but
+              as something semantic, something that is aesthetically, culturally
+              and politically charged.<sup class="footnote-ref"
+                ><a href="#fn11" id="fnref11">11</a></sup
+              >
+              While software culture in 1970—as is documented by Burnham’s
+              “Software” exhibition with its confrontation of concept art and
+              research laboratory software development—was an academic matter,
+              and even hacker culture was limited to elite institutes such as
+              MIT and Berkeley, today there is not only a mass culture and
+              everyday aesthetics of software. As is indicated, for example, by
+              the debates on Free Software, software monopolies, software
+              patents, adware and spyware, software has become an increasingly
+              political matter. However, cultural criticism of software only
+              exists in scattered efforts, for example in essays by Wolfgang
+              Hagen and Matthew Fuller and on the mailing list
+              “softwareandculture” initiated by Jeremy Hunsinger.<sup
+                class="footnote-ref"
+                ><a href="#fn12" id="fnref12">12</a></sup
+              >
+            </p>
+            <h3>Software art is not programmer’ s art</h3>
+            <p>
+              Historically, the gap between the “using” and “programming”
+              computers results from the iconic user interface and its
+              commercialization by Apple and Microsoft, which for the first time
+              assigned the two methods of operation different media: iconic
+              images to “usage” and alphanumerical text to “programmation.” It
+              was only in this way that the programming of computers became a
+              black art, mystified as a supposedly elitist, specialist
+              knowledge.<sup class="footnote-ref"
+                ><a href="#fn13" id="fnref13">13</a></sup
+              >
+              Programmers have of course cultivated this myth, taking over the
+              ideological heritage of the late 18th century by creating, in the
+              hacker, a reincarnation of the romantic genius. Every discourse on
+              software art, therefore, is in danger of continuing the cult of
+              the programming genius. This is countered by imaginary, simulated
+              and dysfunctional software as well as by manipulations of existing
+              software which require no programmer expertise at all.<sup
+                class="footnote-ref"
+                ><a href="#fn14" id="fnref14">14</a></sup
+              >
+              If software can be not only the material of software art, but also
+              the object of its reflection, this reflection can also be set into
+              completely different material to software itself, as was
+              demonstrated, for example, by the work “n:info” by Julia Guther
+              and Jakob Lehr presented at the “browserday” Festival 2001. This
+              was a browser in the form of a portable window frame, a work that
+              turns the rhetoric of iconic PC software on its head by presenting
+              an analog device as a metaphor for digital software, and thus
+              exposing the software application “Web browsing” as a cultural
+              technique, a mode of perception and of thought.<sup
+                class="footnote-ref"
+                ><a href="#fn15" id="fnref15">15</a></sup
+              >
+              There is nothing, therefore, to be said against software art in
+              the form of a painted picture.
+            </p>
+            <h3>Genre clichés could make software art boring</h3>
+            <p>
+              Of course, the danger of becoming paralyzed in stereotypes also
+              exists in art forms which, like Fluxus, do not define themselves
+              through specific materials. Nevertheless: software art would
+              become boring if— in the perception of critics, curators and
+              juries—its repertoire were to be narrowed down to experimental web
+              browsers, data visualizations, modified computer games and cracker
+              codes (like computer viruses and fork bombs). Another problem is
+              the association of software art with the “media art” system, with
+              the side-effect that artistically interesting computer
+              programs—like those which emerge in the field of GNU/Linux and
+              Free Software, for example—do not reach software art competitions,
+              festivals and exhibitions.
+            </p>
+            <h3>
+              The discussion whether software art can be called art at all is
+              not actually concerned with software art
+            </h3>
+            <p>
+              Over and over again, the question is raised whether software art
+              should be given the suffix “art” at all. The naïve version of the
+              question views software as simply engineering, and therefore
+              doubts its artistic value; a more complex variation complains that
+              yet again a multifaceted culture has had the unnecessary
+              criterion, the attribute of “art” stuck onto it. And indeed, just
+              as, for example, traditional Japanese culture existed without a
+              concept of the liberal arts as opposed to the applied arts, an
+              understanding of “art” in the old sense of “ars", of artifice, is
+              widespread both in free and corporate software developer culture.
+              Thanks to the hacker imagination of Free Software programmers, it
+              is certainly possible to combine the works of declared artists and
+              declared non-artists in the field of software art, as a festival
+              exhibition curated by artist Alexei Shulgin has demonstrated.<sup
+                class="footnote-ref"
+                ><a href="#fn16" id="fnref16">16</a></sup
+              >
+              Nonetheless, ultimately, objections to the “art” suffix as it is
+              applied to software art are only a vehicle with which to question
+              the concept of “art” itself. In his review “Don’t Call it Art: Ars
+              Electronica 2003,”<sup class="footnote-ref"
+                ><a href="#fn17" id="fnref17">17</a></sup
+              >
+              Lev Manovich comes up with a third, refined variant of the
+              objection when he called software art “not art” because, due to
+              its focus on a specific material, it did not belong to the system
+              of “contemporary art.” However, the contemporary art that can be
+              seen in galleries, on fairs and in museum exhibitions is made up
+              of subdisciplines which display anything but a neutral attitude to
+              their material: on the one hand there is large-format painting and
+              photo art for private collectors, on the other hand academic
+              (often video-aided) installation art, which is typically exhibited
+              in state- subsidised buildings and produced by curators and
+              artists trained in cultural studies. Quite apart from that,
+              software art is simply a generic term no different to painting,
+              sound, script or video art—nor was it defined by the artists
+              themselves, but by critics and curators, who observed a trend
+              towards work using software as its material in contemporary
+              digital art.<sup class="footnote-ref"
+                ><a href="#fn18" id="fnref18">18</a></sup
+              ><br />
+              The term “software art” is therefore easy to legitimate, because
+              it results quite simply from the fact that remarkable contemporary
+              art (like the works mentioned in this text) is being produced in
+              the form of software, therefore demanding a theory and criticism
+              of software art.
+            </p>
+            <div class="force-break"></div>
+            <div class="footnotes">
+              <p>
+                © This work is licensed under the Creative Commons
+                AttributionShareAlike License. To view a copy of this license,
+                visit http://creativecommons.org/ licenses/by-sa/1.0/ or send a
+                letter to Creative Commons, 559 Nathan Abbott Way, Stanford,
+                California 94305, USA.
+              </p>
+              <p>
+                http://odem.org/insert_coin/ are two convincing examples of
+                politically activist software art.
+              </p>
+              <p>
+                year http://www.erikyyy.de/tempest/, which implemented a
+                short-wave radio broadcast by means of screen graphics on tube
+                monitors.
+              </p>
+              <ol class="footnotes-list">
+                <li id="fn1" class="footnote-item">
+                  <p>
+                    http://www.wikipedia.org/wiki/Software_art Date: 9/23/2003.
+                    <a href="#fnref1" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn2" class="footnote-item">
+                  <p>
+                    socialfiction.org, .walk for dummies,
+                    http://www.socialfiction.org/dotwalk/dummies.html
+                    <a href="#fnref2" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn3" class="footnote-item">
+                  <p>
+                    Score-cards in ?]<a href="#fnref3" class="footnote-backref"
+                      >↩︎</a
+                    >
+                  </p>
+                </li>
+                <li id="fn4" class="footnote-item">
+                  <p>
+                    On the exhibition, see ?],“Radical Software” may now be
+                    found in facsimile at http://www.radicalsoftware.org.
+                    <a href="#fnref4" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn5" class="footnote-item">
+                  <p>
+                    Exhibited at Electrohype in Malmö.
+                    <a href="#fnref5" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn6" class="footnote-item">
+                  <p>
+                    In this respect, see sources including ?]and ?]<a
+                      href="#fnref6"
+                      class="footnote-backref"
+                      >↩︎</a
+                    >
+                  </p>
+                </li>
+                <li id="fn7" class="footnote-item">
+                  <p>
+                    Quoted for example at
+                    http://www.philipgalanter.com/pages/acad/idx_top.html and
+                    http://www.generative.net
+                    <a href="#fnref7" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn8" class="footnote-item">
+                  <p>
+                    See also the German edition of Burnham’s “Structure of Art",
+                    ?]rather unfortunately translated as “Kunst und
+                    Strukturalismus”.
+                    <a href="#fnref8" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn9" class="footnote-item">
+                  <p>
+                    jodis “Untitled Game", Joan Leandres “retroyou”
+                    http://www.retroyou.org
+                    <a href="#fnref9" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn10" class="footnote-item">
+                  <p>
+                    I/O/D’s “Web Stalker” http://www.backspace.org/iod/,
+                    Netochka Nezvanovas “Nebula M.81", Jodi’s “wrongbrowsers”
+                    http://www.wrongbrowser.org, Mark Napier’s “Shredder”
+                    http://www.potatoland.org/shredder/, Kensuke Sembo’s and Yae
+                    Akaiva’s “Discoder”
+                    http://www.exonemo.com/DISCODER/indexE.html, Peter Luining’s
+                    “ZNC Browser” http://znc.ctrlaltdel.org/pc_znc2.0.htm
+                    <a href="#fnref10" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn11" class="footnote-item">
+                  <p>
+                    The “Injunction Generator” by ubermorgen.com
+                    http://www.ipnic.org/intro.html, which automatically
+                    generates legal injunctions and the contentcensoring web
+                    proxy server “insert coin” by Alvar Freude and Dragan
+                    Espenschied
+                    <a href="#fnref11" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn12" class="footnote-item">
+                  <p>
+                    Wolfgang Hagen, Der Stil der Sourcen, ?],Matthew Fuller,
+                    Behind the Blip ?],softwareandculture homepage and archive
+                    at
+                    http://listserv.cddc.vt.edu/mailman/listinfo/softwareandculture
+                    <a href="#fnref12" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn13" class="footnote-item">
+                  <p>
+                    Although in order to be able to program a computer in one of
+                    the common languages, all that is needed is a knowledge of
+                    variables, loops and if-then-conditions.
+                    <a href="#fnref13" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn14" class="footnote-item">
+                  <p>
+                    Like for example the “SCREEN SAVER” by Ivan Khimin and Eldar
+                    Karhalev http://runme.org/project/+screensaver/, a
+                    configuration of the Windows screen saver into a
+                    suprematist-hypnotic, floating square.
+                    <a href="#fnref14" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn15" class="footnote-item">
+                  <p>
+                    http://myhd.org/ninfo
+                    <a href="#fnref15" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn16" class="footnote-item">
+                  <p>
+                    Examples of this are the award-winning hacker program
+                    “WinGluk Builder” at the readme-Festival 2002
+                    http://www.macros-center.ru/read_me/art_work/27/readme27.zip
+                    and the program “Tempest for Eliza” exhibited in the
+                    following
+                    <a href="#fnref16" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn17" class="footnote-item">
+                  <p>
+                    Published on the mailing lists “Rhizome” and “Nettime”, ?]<a
+                      href="#fnref17"
+                      class="footnote-backref"
+                      >↩︎</a
+                    >
+                  </p>
+                </li>
+                <li id="fn18" class="footnote-item">
+                  <p>
+                    For example Saul Albert in his 1999 essay “Artware” ?],Alex
+                    Galloway in “Year in Review: State of net.art 99”
+                    http://switch.sjsu.edu/web/v5n3/D-1.html, Andreas
+                    Broeckmann, who added a software section to the
+                    Transmediale-Festival in the year 2000 and, in 2001, Tilman
+                    Baumgärtel with his article “Experimentelle Software” ?]<a
+                      href="#fnref18"
+                      class="footnote-backref"
+                      >↩︎</a
+                    >
+                  </p>
+                </li>
+              </ol>
+            </div>
+          </section>
+
+          <section class="chapter c" id="content_it" lang="it">
+            <h3>Di cosa non si tratta?</h3>
+            <p>
+              Dell’arte software, come definita nell’enciclopedia gratuita su
+              Internet Wikipedia (versione di settembre 2003):
+            </p>
+            <blockquote>
+              <p>
+                « L’arte software è il termine utilizzato per designare la
+                concezione grafica degli elementi visivi contenuti in un
+                software, per esempio un’interfaccia grafica utente, delle
+                icone, ecc. »<sup class="footnote-ref"
+                  ><a href="#fn1" id="fnref1">1</a></sup
+                >
+              </p>
+            </blockquote>
+            <h3>Di cosa si tratta?</h3>
+            <p>
+              Di artisti che utilizzano software informatici per produrre opere
+              che sono esse stesse – ciò che solo gli scrittori avevano fatto
+              prima di loro – creazioni digitali fabbricate a partire da
+              simboli, con l’aiuto di un insieme di strumenti ugualmente
+              costituiti interamente da simboli. Nessuno scrittore può
+              utilizzare il linguaggio come un semplice
+              «&nbsp;riempimento&nbsp;» per comporre un’opera che essa stessa
+              non sarebbe linguaggio. Così la letteratura, a immagine di un
+              ciclo ricorsivo, fabbrica i propri strumenti. Allo stesso modo gli
+              0 e gli 1 dell’arte digitale sono strettamente legati agli 0 e 1
+              dello strumento che li ha non solo prodotti, ma anche visualizzati
+              e copiati.
+            </p>
+            <h3>Senza software, niente arte digitale</h3>
+            <p>
+              Sarebbe ingenuo credere che la scrittura, l’immagine, il suono e
+              la rete su un computer esistano come tali o in combinazione
+              «&nbsp;multimediale&nbsp;», nella misura in cui nessuna di queste
+              forme di dati può esistere senza il programma informatico che li
+              produce. Una verità che si applica non solo alla loro concezione e
+              al loro trattamento (grazie ai software di elaborazione testi, di
+              creazione grafica o di creazione musicale, per esempio), ma anche
+              alla loro semplice visualizzazione (nei browser, nei software di
+              visualizzazione immagini e nei lettori) e alla loro riproduzione
+              (tramite i software di rete e i sistemi operativi). Allo stesso
+              modo, ogni opera digitale che non è essa stessa un programma
+              informatico può esistere solo nel quadro che le avrà assegnato un
+              software preconcetto. Ogni opera d’arte digitale partecipa quindi
+              dell’arte software in senso lato, almeno nella misura in cui
+              deriva da una forma d’arte assistita da software. Partecipa
+              dell’arte software in senso stretto, mi sembra, quando integra il
+              software non come aiuto esterno, ma come parte integrante della
+              sua estetica.
+            </p>
+            <h3>
+              L’arte software non è necessariamente digitale o elettronica
+            </h3>
+            <p>
+              Un programma informatico è una serie di istruzioni formali
+              (algoritmiche) la cui esecuzione può, ma non deve necessariamente,
+              essere effettuata da una macchina. Prendiamo il seguente esempio:
+            </p>
+            <pre><code>// Classic.walk
+        Repeat
+        {
+        1 st street left
+        2 nd street right
+        2 nd street left
+        }</code></pre>
+            <p>
+              Si tratta di un esempio del programma .Walk, che si trova sul sito
+              Socialfiction (http://cryptoforest.blogspot.com)<sup
+                class="footnote-ref"
+                ><a href="#fn2" id="fnref2">2</a></sup
+              >. Secondo i suoi creatori, .Walk funziona come un «&nbsp;computer
+              psicogegografico&nbsp;», nel quale le griglie di un transistor
+              sono sostituite dalle strade di una grande città e gli elettroni
+              da pedoni che circolano nelle sue arterie. Il programma rimanda
+              così a due antecedenti storici: prima all’arte concettuale e al
+              movimento Fluxus con i loro eventi para-algoritmici, minimalisti
+              (come quelli orchestrati da George Brecht, La Monte Young e Sol
+              LeWitt secondo un paradigma definito da John Cage); poi alla
+              storia del computer moderno nella sua prima incarnazione, ovvero
+              niente di più che quell’apparecchio immaginario e teorico che
+              costituiva la macchina di Turing.
+            </p>
+            <h3>L’arte software non è sinonimo di arte concettuale</h3>
+            <p>
+              .Walk si distingue da un evento come l’istruzione binaria « on.
+              off. » del Three Lamp Events di George Brecht nel 1961
+              <sup class="footnote-ref"><a href="#fn3" id="fnref3">3</a></sup
+              >, nella misura in cui quest’opera riflette una pratica culturale
+              ripetuta: l’uso dei computer, dei software e della loro
+              programmazione. Mentre il Lamp Event potrebbe essere considerato
+              come un preambolo alla programmazione software artistica tramite
+              una logica formale, .Walk rivendica – per il suo titolo che fa eco
+              al .NET di Microsoft –, la sua appartenenza a una cultura
+              software. Di conseguenza, in questo lavoro, non è l’arte
+              concettuale che fa riferimento al software, ma l’inverso: il
+              software rimanda alle performance e agli interventi di ordine
+              concettuale degli anni 1960 (che includeva anche la psicogeografia
+              dell’Internazionale Situazionista), che rivisita in quanto
+              software. Tuttavia, questa allusione non ha più nulla di
+              concettuale in sé; è storica, ironica, opera di collage.
+            </p>
+            <p>
+              Ed è precisamente qui che l’arte software di oggi contraddice
+              quell’equazione di arte e software come fu presentata nel 1970,
+              durante l’esposizione d’arte concettuale Software di Jack Burnham
+              al Jewish Museum di New York e nel primo numero della rivista
+              d’arte video Radical Software
+              <sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup
+              >. Trent’anni dopo, il software non appare più come una concezione
+              di laboratorio e un paradigma di purificazione concettualista, ma
+              si presenta piuttosto – e questo dalla democratizzazione dei PC e
+              di Internet – come codice errato, come responsabile di crash,
+              incompatibilità, virus, esprimendo così la contingenza e non più
+              il rigore dei simboli.
+            </p>
+            <p>
+              Il net.art di Jodi, Alexei Shulgin, Vuk ćosić o ancora I/O/D
+              avendo permesso di estetizzare queste contingenze e quindi di
+              liberare l’arte digitale dal suo apparente smalto accademico e
+              industriale, non è sorprendente trovare nella recente storia
+              dell’arte software, che si iscrive nella continuità discorsiva
+              dell’arte online degli anni 1990, alcuni nomi familiari.
+            </p>
+            <p>
+              Considerare l’evoluzione dei lavori artistici di Jodi dal 1996 ai
+              nostri giorni permette di vedere idealmente come le esperienze in
+              net.art con grafiche schermo e comunicazioni in rete abbiano
+              dapprima costituito un’opera che denunciava i vincoli del suo
+              ambiente software (vedere la manipolazione di un browser
+              intitolata OSS all’indirizzo http://oss.jodi.org), per evolvere
+              poi verso la riprogrammazione di software (vedere l’opera Untitled
+              Game, basata sul videogioco Quake, all’indirizzo
+              http://www.untitled-game.org) e approdare infine a un testo
+              sorgente BASIC tramite la riduzione dell’oggetto visibile
+              (nell’ultimissima opera, intitolata 10 Programs written in BASIC
+              ©1984
+              <sup class="footnote-ref"><a href="#fn5" id="fnref5">5</a></sup
+              >).
+            </p>
+            <p>
+              È vero che l’arte software, quando si fa minimalista, presenta una
+              certa similarità con la pratica più antica dell’arte concettuale;
+              questo avvicinamento resta tuttavia antinomico nella misura in cui
+              non interviene nello spirito di quella dematerializzazione
+              dell’opera artistica tipica del periodo 1966-1971, come descritta
+              da Lucy Lippard nel suo libro Six Years. Al contrario, nell’arte
+              software, il software è considerato come un elemento materiale –
+              un postulato che costituisce anche una condizione preliminare ai
+              codeworks («&nbsp;opere codice&nbsp;») di artisti come Jodi,
+              antiorp, mez, Alan Sondheim, Johan Meskens e Lanny Quarles
+              <sup class="footnote-ref"><a href="#fn6" id="fnref6">6</a></sup
+              >, mescolando elementi sintattici presi in prestito dai linguaggi
+              di programmazione, ai protocolli di rete, ai messaggi di sistema,
+              ed espressioni gergali caratteristiche della cultura informatica,
+              come mostra la seguente e-mail dell’artista francese Pascale
+              Gustin:
+            </p>
+            <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
+              ][ref lex][1/O.ns 10verses NOT es][
+              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+              ------------------------------------A:
+              ---------------------------][menta les_sel][l] a tenement) T nem T
+              -tout d_abord--------1/O(f.ne
+              1 of 1 deletions
+              1 deletion done
+              apply: Command attempted to use minibuffer while in minibuffer
+              </code></pre>
+            <h3>L’arte software non è sinonimo di arte algoritmica</h3>
+            <p>
+              Se il software, definito in modo generale, è composto da
+              algoritmi, si può assimilare l’arte software all’arte algoritmica
+              o all’arte generativa – di cui Philip Galanter ha fornito una
+              definizione molto utile:
+            </p>
+            <blockquote>
+              <p>
+                « L’arte generativa rimanda a ogni pratica artistica nella quale
+                l’artista crea un processo, come una serie di regole in
+                linguaggio naturale, un programma informatico, una macchina o
+                qualsiasi altro meccanismo, messo in opera poi con un certo
+                grado di autonomia e che contribuisce o sfocia in un’opera
+                artistica compiuta. »<sup class="footnote-ref"
+                  ><a href="#fn7" id="fnref7">7</a></sup
+                >
+              </p>
+            </blockquote>
+            <p>
+              Certamente, può darsi che l’arte software implichi una certa
+              autonomia nell’incatenamento degli eventi, come l’ha descritta
+              Jack Burnham in saggi fortemente marcati dalla cibernetica e dalla
+              teoria generale dei sistemi nate nel corso degli anni 1960
+              <sup class="footnote-ref"><a href="#fn8" id="fnref8">8</a></sup
+              >. Un’autonomia che si trova per esempio nel caso di un codice
+              funzionale che prende l’apparenza di un’applicazione PC
+              classica<sup class="footnote-ref"
+                ><a href="#fn9" id="fnref9">9</a></sup
+              >, o ancora nel caso di istruzioni formali univoche come in .Walk.
+              Tuttavia, se si considerano alcuni dei sottogeneri d’arte software
+              più apprezzati, come le modifiche di videogiochi<sup
+                class="footnote-ref"
+                ><a href="#fn10" id="fnref10">10</a></sup
+              >
+              e i browser sperimentali
+              <sup class="footnote-ref"><a href="#fn11" id="fnref11">11</a></sup
+              >, non si tratta più dell’autonomia estetica di processi
+              algoritmici, ma della loro interruzione intempestiva dall’azione
+              combinata del software, dell’uomo e dei dati in rete. Inoltre,
+              secondo la definizione di Galanter, nell’arte generativa il
+              software è solo un mezzo tra gli altri, che non costituirà di per
+              sé un’opera d’arte ma si accontenterà piuttosto di
+              «&nbsp;contribuirvi&nbsp;», a immagine di molte forme d’arte
+              assistita da computer (in particolare la musica elettronica) nelle
+              quali il software non è considerato come facente parte
+              dell’estetica dell’opera, ma come elemento agente in background.
+            </p>
+            <p>
+              L’arte software, da parte sua, non soddisfa i criteri dell’arte
+              generativa, o almeno è in grado di soddisfarli solo in senso
+              metaforico e non tecnico, cioè quando produce un software
+              disfunzionale e immaginario. È il caso dei codeworks, per esempio.
+            </p>
+            <h3>
+              L’arte software non poggia sul vuoto, fa parte di una cultura
+              software
+            </h3>
+            <p>
+              Se l’arte software concepisce meno il software come un mezzo di
+              controllo dei processi generativi che come un materiale di gioco,
+              non lo interpreta più – al contrario delle pratiche
+              «&nbsp;classiche&nbsp;» dell’arte concettuale e dell’arte
+              generativa – come sintassi pura. Il software diventa allora
+              semantico, portatore di un significato estetico, culturale e
+              politico<sup class="footnote-ref"
+                ><a href="#fn12" id="fnref12">12</a></sup
+              >. Mentre nel 1970 la cultura software – come documentata
+              dall’esposizione Software di Burnham e dal confronto tra l’arte
+              concettuale e lo sviluppo software nei laboratori di ricerca –
+              restava circoscritta al dominio universitario, e che anche la
+              cultura hacker si limitava a prestigiose istituzioni come il MIT e
+              Berkeley, è oggi una cultura di massa che si accompagna a
+              un’estetica quotidiana del software. Allo stesso modo, come
+              mostrano in particolare i dibattiti attorno ai software liberi, ai
+              monopoli, alle licenze, ai software pubblicitari (adware) e ai
+              software spia (spyware), il software ha ormai sempre più spesso
+              una risonanza politica. Malgrado tutto, la critica culturale dei
+              software è stata oggetto solo di alcuni tentativi sporadici, come
+              nei saggi di Wolfgang Hagen, di Matthew Fuller o ancora sulla
+              mailing list softwareandculture lanciata da Jeremy Hunsinger<sup
+                class="footnote-ref"
+                ><a href="#fn13" id="fnref13">13</a></sup
+              >.
+            </p>
+            <h3>L’arte software non è l’arte del programmatore</h3>
+            <p>
+              Storicamente, il fossato tra l’«&nbsp;uso&nbsp;» e la
+              «&nbsp;programmazione&nbsp;» di computer risulta dalla creazione
+              dell’interfaccia utente «&nbsp;iconica&nbsp;»<sup
+                class="footnote-ref"
+                ><a href="#fn14" id="fnref14">14</a></sup
+              >
+              e dalla sua commercializzazione da parte di Apple e Microsoft, che
+              per la prima volta attribuirono a ogni modo di operazione un
+              medium differente: immagini «&nbsp;iconiche&nbsp;» per
+              l’«&nbsp;uso&nbsp;» e testo alfanumerico per la
+              «&nbsp;programmazione&nbsp;». È precisamente in questo momento che
+              la programmazione di computer è diventata un’arte oscura,
+              associata a un sapere che solo possiederebbe una presunta élite
+              <sup class="footnote-ref"><a href="#fn15" id="fnref15">15</a></sup
+              >. I programmatori hanno naturalmente coltivato questo mito e
+              ripreso per proprio conto l’eredità ideologica della fine del
+              XVIII secolo, creando attraverso il personaggio dell’hacker una
+              reincarnazione del genio romantico.
+            </p>
+            <p>
+              Ogni esposizione sull’arte software comporta quindi un rischio,
+              ovvero quello di mantenere il culto del genio della
+              programmazione. Un culto che contraddicono i software immaginari,
+              simulati e disfunzionali, così come le manipolazioni di software
+              esistenti, che non necessitano alcuna padronanza particolare in
+              programmazione
+              <sup class="footnote-ref"><a href="#fn16" id="fnref16">16</a></sup
+              >. Se il software può essere non solo il materiale di base
+              dell’arte software, ma anche il suo oggetto di riflessione, allora
+              questa riflessione può esprimersi attraverso materiali che ne
+              sarebbero completamente differenti – come mostra l’opera di Julia
+              Guther e Jakob Lehr n:info, svelata a Berlino durante l’edizione
+              2001 del festival Browserday. Questa si presenta come un browser
+              che prende la forma di una cornice di finestra amovibile, e
+              rovescia la retorica dei software PC «&nbsp;iconici&nbsp;»
+              proponendo uno strumento analogico come metafora del software
+              digitale, esponendo così l’applicazione software detta di
+              «&nbsp;navigazione Web&nbsp;» come una tecnica culturale, un modo
+              di percezione e di pensiero<sup class="footnote-ref"
+                ><a href="#fn17" id="fnref17">17</a></sup
+              >. Non si troverebbe quindi nulla da ridire sull’arte software che
+              prendesse la forma di un’immagine dipinta.
+            </p>
+            <h3>
+              I cliché di genere potrebbero rendere l’arte software noiosa
+            </h3>
+            <p>
+              Certamente, il rischio di confinarsi negli stereotipi esiste anche
+              in forme artistiche che, come il movimento Fluxus, non si
+              definiscono tramite materiali specifici. E tuttavia, l’arte
+              software potrebbe ben perdere tutto l’interesse – agli occhi dei
+              critici, conservatori e giurie di concorso – se il suo repertorio
+              si limitasse a browser Web sperimentali, visualizzazioni di dati,
+              videogiochi modificati e crack
+              <sup class="footnote-ref"
+                ><a href="#fn18" id="fnref18">18</a></sup
+              >
+              (come i virus informatici e le fork bomb
+              <sup class="footnote-ref"><a href="#fn19" id="fnref19">19</a></sup
+              >). Un altro problema viene dal fatto che si associa spesso l’arte
+              software a quell’insieme che è l’«&nbsp;arte dei media&nbsp;», il
+              che ha per conseguenza di impedire ad alcuni programmi che
+              presentano un interesse artistico – come quelli che appaiono nel
+              quadro del GNU/Linux e dei software liberi – di arrivare fino ai
+              concorsi, festival ed esposizioni d’arte software.
+            </p>
+            <h3>
+              In realtà, il dibattito sull’arte software e la sua legittimità in
+              quanto arte non riguarda l’arte software stessa
+            </h3>
+            <p>
+              Ci si interroga regolarmente sulla pertinenza della parola
+              «&nbsp;arte&nbsp;» nella denominazione «&nbsp;arte
+              software&nbsp;», che diventerebbe così una disciplina a sé stante.
+              Il modo ingenuo di considerare la questione considera il software
+              come il semplice risultato di un’ingegneria, rimettendo così in
+              causa il suo valore artistico. Al contrario una visione più
+              riflessa denuncia il fatto che un movimento polimorfo si sia
+              visto, ancora una volta e in modo ingiustificato, affibbiare
+              l’etichetta «&nbsp;arte&nbsp;». Effettivamente, così come la
+              cultura giapponese tradizionale si è passata di ogni concetto di
+              arti liberali per opposizione alle arti applicate, si constata
+              ugualmente nella cultura software, sia nel caso del software
+              libero che in quello del software commerciale, una visione
+              dell’«&nbsp;arte&nbsp;» nel senso della sua radice etimologica
+              latina ars, che significa «&nbsp;abilità&nbsp;», «&nbsp;saper
+              fare&nbsp;».
+            </p>
+            <p>
+              Come ha dimostrato un festival organizzato dall’artista Alexei
+              Shulgin, può essere possibile, grazie all’immaginazione e alla
+              mentalità hacker dei programmatori di software ad accesso libero,
+              di riunire nel quadro dell’arte software i lavori di artisti e
+              non-artisti autoproclamati
+              <sup class="footnote-ref"><a href="#fn20" id="fnref20">20</a></sup
+              >. Tuttavia, le obiezioni alla classificazione dell’arte software
+              nella categoria «&nbsp;arte&nbsp;» non sono che uno dei diversi
+              modi di riconsiderare il concetto d’arte stesso.
+            </p>
+            <p>
+              Lev Manovich, nel suo resoconto intitolato « Don’t Call it Art:
+              Ars Electronica 2003 »
+              <sup class="footnote-ref"><a href="#fn21" id="fnref21">21</a></sup
+              >, formula un’obiezione personale in maniera più sottile delle due
+              precedenti chiamando a non qualificare l’arte software come
+              «&nbsp;arte&nbsp;», nella misura in cui questa pratica si
+              escluderebbe da sola dal quadro dell’«&nbsp;arte
+              contemporanea&nbsp;» per il suo troppo grande interesse per un
+              materiale specifico. Ora l’arte contemporanea, come si può vedere
+              nelle gallerie, nei saloni, nei musei e nelle loro esposizioni, si
+              compone di sotto-discipline che testimoniano un atteggiamento che
+              è lungi dall’essere neutro verso i loro materiali rispettivi: si
+              trovano da un lato pitture di grande formato e arte fotografica
+              per i collezionisti privati, e dall’altro installazioni artistiche
+              accademiche (spesso su supporto video), generalmente presentate in
+              sale sovvenzionate e prodotte da artisti e conservatori usciti dai
+              cultural studies
+              <sup class="footnote-ref"><a href="#fn22" id="fnref22">22</a></sup
+              >. Questo messo da parte, l’arte software non è nient’altro che un
+              termine generico, come l’arte pittorica, sonora, scrittoria o
+              video. Inoltre non è stata definita dagli artisti stessi, ma dai
+              critici e dai conservatori, che avevano identificato nell’arte
+              digitale contemporanea una tendenza a utilizzare software come
+              medium
+              <sup class="footnote-ref"><a href="#fn23" id="fnref23">23</a></sup
+              >.
+            </p>
+            <p>
+              Diventa quindi molto facile giustificare l’utilizzo
+              dell’espressione «&nbsp;arte software&nbsp;». Infatti, essa
+              proviene semplicemente dal fatto che oggi produzioni maggiori in
+              arte contemporanea (a immagine di quelle descritte in questo
+              articolo) vedono la luce sotto forma di software. Diventa allora
+              necessario disporre di una teoria e di una critica dell’arte
+              software.
+            </p>
+            <p>
+              Lavoro sotto licenza Creative Commons Attribution-ShareAlike
+              License. Per visualizzare una copia di questa licenza, visitate il
+              sito http://creativecommons.org/licenses/by-sa/1.0/ o inviate una
+              lettera a Creative Commons, 559 Nathan Abbott Way, Stanford,
+              California 94305, USA.
+            </p>
+            <p>
+              http://cryptoforest.blogspot.com Sito di Wilfried Hou Je Bek.
+              http://www.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+              « Don’t Call it Art: Ars Electronica 2003 » di Lev Manovich.
+              Archivio del testo postato in settembre 2003 sulla mailing list
+              Nettime.
+            </p>
+            <hr class="footnotes-sep" />
+            <section class="footnotes">
+              <ol class="footnotes-list">
+                <li id="fn1" class="footnote-item">
+                  <p>
+                    « Software art is a term for the graphic design of visual
+                    elements contained in software, eg. GUI (Graphic User
+                    Interface), Icons, etc. »,
+                    http://www.wikipedia.org/wiki/Software_art (questa
+                    definizione è quella che appariva nel settembre 2003, è
+                    stata modificata da allora)
+                    <a href="#fnref1" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn2" class="footnote-item">
+                  <p>
+                    Wilfried Hou Je Bek, .Walk for dummies, consultabile su
+                    Socialfiction,
+                    http://www.socialfiction.org/dotwalk/dummies.html
+                    <a href="#fnref2" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn3" class="footnote-item">
+                  <p>
+                    Si trova questa istruzione sotto forma di piccola partitura
+                    in George Brecht, Water-Yam/George Brecht, Ed. Lebeer
+                    Hossmann, Bruxelles, 1986 (la versione originale data dal
+                    1963).
+                    <a href="#fnref3" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn4" class="footnote-item">
+                  <p>
+                    Per l’esposizione, vedere Edward A. Shanken, « The House
+                    That Jack Built: Jack Burnham’s Concept of
+                    «&nbsp;Software&nbsp;» as a Metaphor for Art », in Leonardo
+                    Electronic Almanac, vol. 6, n° 10, novembre 1998,
+                    http://www.leoalmanac.org/journal/Vol_6/lea_v6_n10.txt.
+                    Consultabile anche su http://www.artexetra.com/House.pdf ;
+                    Radical Software è consultabile da poco sul sito
+                    http://www.radicalsoftware.org
+                    <a href="#fnref4" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn5" class="footnote-item">
+                  <p>
+                    Esposto durante Electrohype a Malmö nel 2003.
+                    <a href="#fnref5" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn6" class="footnote-item">
+                  <p>
+                    Vedere anche in particolare Alan Sondheim, « Introduction:
+                    Codework », in American Book Review, vol. 22, n° 6,
+                    University of Houston-Victoria, Victoria, settembre 2001, p.
+                    1-4,
+                    http://www.litline.org/ABR/issues/Volume22/Issue6/sondheim.pdf
+                    ; McKenzie Wark, « Essay: Codework », in American Book
+                    Review, vol. 22, n° 6, settembre 2001, p. 1-5.
+                    <a href="#fnref6" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn7" class="footnote-item">
+                  <p>
+                    Una citazione che si trova su
+                    http://www.philipgalanter.com/downloads/ga2003_what_is_genart.pdf
+                    o ancora http://www.generative.net/read/definitions
+                    <a href="#fnref7" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn8" class="footnote-item">
+                  <p>
+                    Vedere anche la versione tedesca del Structure of Art di
+                    Jack Burnham, tradotto maldestramente sotto il titolo Kunst
+                    und Strukturalismus, DuMont Schauberg, Colonia, 1973.
+                    <a href="#fnref8" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn9" class="footnote-item">
+                  <p>
+                    Auto-Illustrator, Adrian Ward, 2001,
+                    http://www.auto-illustrator.com
+                    <a href="#fnref9" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn10" class="footnote-item">
+                  <p>
+                    Untitled Game di Jodi
+                    (http://www.untitled-game.org/download.html) ; retroyou di
+                    Joan Leandre (http://www.retroyou.org).
+                    <a href="#fnref10" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn11" class="footnote-item">
+                  <p>
+                    Web Stalker di I/O/D (http://bak.spc.org/iod/iod4.html) ;
+                    Nebula.M81 di Netochka Nezvanova
+                    (http://www.mediaartnet.org/works/nebula/) ; %Wrong Browser
+                    di Jodi (http://www.wrongbrowser.org) ; Shredder di Mark
+                    Napier (http://www.potatoland.org/shredder/) ; Discoder di
+                    Kensuke Sembos e Yae Akaivas
+                    (http://www.exonemo.com/DISCODER/indexE.html) ; ZNC Browser
+                    di Peter Luining (http://znc.ctrlaltdel.org/pc_znc2.0.htm).
+                    <a href="#fnref11" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn12" class="footnote-item">
+                  <p>
+                    L’Injunction Generator di Ubermorgen.com
+                    (http://www.ipnic.org/intro.html), che emette
+                    automaticamente ingiunzioni giuridiche, così come il server
+                    proxy Insert_coin (http://odem.org/insert_coin/) di Alvar
+                    Freude e Dragan Espenschied, che censura del testo, sono due
+                    esempi convincenti dell’attivismo politico dell’arte
+                    software.
+                    <a href="#fnref12" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn13" class="footnote-item">
+                  <p>
+                    Wolfgang Hagen, « Der Stil der Sourcen. Anmerkungen zur
+                    Theorie und Geschichte der Programmiersprachen », in
+                    Wolfgang Coy, Georg C.Tholen, Martin Warnke (Sotto la dir.
+                    di), Hyperkult, Stroemfeld, Basilea, 1997, p. 33-68 ;
+                    Matthew Fuller, Behind the Blip. Essays on the Culture of
+                    Software, Autonomedia, New York, 2003 ; softwareandculture,
+                    pagina d’accesso su
+                    http://lists.tmttlt.com/listinfo.cgi/softwareandculture-tmttlt.com
+                    e archivi su
+                    http://lists.tmttlt.com/private.cgi/softwareandculture-tmttlt.com/
+                    <a href="#fnref13" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn14" class="footnote-item">
+                  <p>
+                    Qui Florian Cramer utilizza il termine «&nbsp;iconico&nbsp;»
+                    nel senso di una relazione di somiglianza, in riferimento a
+                    Charles S. Peirce (NdT).
+                    <a href="#fnref14" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn15" class="footnote-item">
+                  <p>
+                    E questo, benché la programmazione in un linguaggio usuale
+                    non necessiti molto più di una conoscenza delle variabili,
+                    dei cicli e delle istruzioni di tipo
+                    «&nbsp;se/allora&nbsp;».
+                    <a href="#fnref15" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn16" class="footnote-item">
+                  <p>
+                    Come per esempio il ScreenSaver di Ivan Khimin e Eldar
+                    Karhalev (http://runme.org/project/+screensaver/), una
+                    configurazione del salvaschermo Windows che permette di
+                    ottenere un quadrato volante al tempo stesso suprematista e
+                    ipnotico.
+                    <a href="#fnref16" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn17" class="footnote-item">
+                  <p>
+                    n:info, http://myhd.org
+                    <a href="#fnref17" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn18" class="footnote-item">
+                  <p>
+                    I crack sono programmi informatici che servono a disturbare
+                    il normale funzionamento di un altro software, generalmente
+                    per superarne le protezioni o le restrizioni d’uso (NdT).
+                    <a href="#fnref18" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn19" class="footnote-item">
+                  <p>
+                    Una fork bomb mira a saturare, fino al crash, la capacità di
+                    gestione di processi di un computer moltiplicando
+                    rapidamente un compito da compiere (NdT).
+                    <a href="#fnref19" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn20" class="footnote-item">
+                  <p>
+                    Per esempi, il programma WinGluk Builder sviluppato da un
+                    hacker e premiato durante il festival Read_Me 2002
+                    (http://readme.runme.org/1.2/inde6.htm) e il programma
+                    Tempest for Eliza esposto l’anno seguente
+                    (http://www.erikyyy.de/tempest/), che implementa un
+                    trasmettitore radio a onde corte tramite una grafica
+                    visualizzata su monitor.
+                    <a href="#fnref20" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn21" class="footnote-item">
+                  <p>
+                    Lev Manovich, « Don’t Call It Art: Ars Electronica 2003 »,
+                    Nettime, settembre 2003,
+                    http://amsterdam.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+                    <a href="#fnref21" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn22" class="footnote-item">
+                  <p>
+                    Nati negli anni 1960 in Gran Bretagna, la disciplina dei
+                    cultural studies mescola principalmente l’analisi letteraria
+                    alla sociologia. Non possiede equivalente istituzionale in
+                    Francia (NdT).
+                    <a href="#fnref22" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn23" class="footnote-item">
+                  <p>
+                    Era il caso in particolare di Saul Albert in « Artware »,
+                    Mute, n° 14, Mute Publishing Ltd, Londra, 1999, p. 63-65,
+                    http://twenteenthcentury.com/saul/artware.htm, di Alexander
+                    Galloway in « Year in Review: State of net.art 99 », in
+                    Switch, 1999, http://switch.sjsu.edu/web/v5n3/D-1.html, di
+                    Andreas Broeckmann che ha introdotto nel 2000 una sezione «
+                    Software » nel festival Transmediale, e infine di Tilman
+                    Baumgärtel con l’articolo « Experimentelle Software. Zu
+                    einigen neueren Computerprogrammen von Künstlern », in
+                    Telepolis, Heise Zeitschriften Verlag, Hannover, ottobre
+                    2001, http://www.heise.de/tp/r4/artikel/9/9908/1.html
+                    <a href="#fnref23" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+              </ol>
+            </section>
+          </section>
+
+          <section class="chapter d" id="content_de" lang="de">
+            <h3>Worum es sich nicht handelt?</h3>
+            <p>
+              Um Software-Kunst, wie sie in der kostenlosen
+              Internet-Enzyklopädie Wikipedia definiert wird (Version von
+              September 2003):
+            </p>
+            <blockquote>
+              <p>
+                « Software-Kunst ist der Begriff, der verwendet wird, um das
+                grafische Design der visuellen Elemente in einer Software zu
+                bezeichnen, zum Beispiel eine grafische Benutzeroberfläche,
+                Icons, usw. »<sup class="footnote-ref"
+                  ><a href="#fn2" id="fnref2">2]</a></sup
+                >
+              </p>
+            </blockquote>
+            <h3>Worum es sich handelt?</h3>
+            <p>
+              Um Künstler, die Computer-Software verwenden, um Werke zu
+              produzieren, die selbst – was nur Schriftsteller vor ihnen getan
+              hatten – digitale Schöpfungen sind, die aus Symbolen hergestellt
+              werden, mit Hilfe eines Werkzeugsatzes, der ebenfalls vollständig
+              aus Symbolen besteht. Kein Schriftsteller kann die Sprache als
+              bloße «&nbsp;Füllung&nbsp;» verwenden, um ein Werk zu komponieren,
+              das selbst nicht Sprache wäre. So produziert die Literatur, nach
+              Art einer rekursiven Schleife, ihre eigenen Werkzeuge. Ebenso sind
+              die 0en und 1en der digitalen Kunst eng mit den 0en und 1en des
+              Instruments verbunden, das sie nicht nur produziert, sondern auch
+              angezeigt und kopiert hat.
+            </p>
+            <h3>Ohne Software keine digitale Kunst</h3>
+            <p>
+              Es wäre naiv zu glauben, dass Schrift, Bild, Ton und Netzwerk auf
+              einem Computer als solche oder in «&nbsp;multimedialer&nbsp;»
+              Kombination existieren, insofern keine dieser Datenformen ohne das
+              Computerprogramm existieren kann, das sie produziert. Eine
+              Wahrheit, die nicht nur für ihre Konzeption und Bearbeitung gilt
+              (dank Textverarbeitungs-, Grafikdesign- oder
+              Musikproduktionssoftware zum Beispiel), sondern auch für ihre
+              einfache Anzeige (in Browsern, Bildbetrachtungssoftware und
+              Playern) und ihre Reproduktion (über Netzwerksoftware und
+              Betriebssysteme). Ebenso kann jedes digitale Werk, das nicht
+              selbst ein Computerprogramm ist, nur innerhalb des Rahmens
+              existieren, den ihm eine vorgefertigte Software zugewiesen hat.
+              Jedes digitale Kunstwerk nimmt daher an Software-Kunst im weiteren
+              Sinne teil, zumindest insofern es von einer Form
+              software-assistierter Kunst stammt. Es nimmt an Software-Kunst im
+              engeren Sinne teil, so scheint mir, wenn es Software nicht als
+              externe Hilfe, sondern als integralen Bestandteil seiner Ästhetik
+              einbezieht.
+            </p>
+            <h3>
+              Software-Kunst ist nicht notwendigerweise digital oder
+              elektronisch
+            </h3>
+            <p>
+              Ein Computerprogramm ist eine Reihe formaler (algorithmischer)
+              Anweisungen, deren Ausführung von einer Maschine durchgeführt
+              werden kann, aber nicht notwendigerweise muss. Nehmen wir
+              folgendes Beispiel:
+            </p>
+            <pre><code>// Classic.walk
+        Repeat
+        {
+        1 st street left
+        2 nd street right
+        2 nd street left
+        }</code></pre>
+            <p>
+              Dies ist ein Beispiel des .Walk-Programms, das auf der Website
+              Socialfiction zu finden ist (http://cryptoforest.blogspot.com)<sup
+                class="footnote-ref"
+                ><a href="#fn3" id="fnref3">3</a></sup
+              >. Laut seinen Schöpfern funktioniert .Walk als
+              «&nbsp;psychogeographischer Computer&nbsp;», in dem die Gitter
+              eines Transistors durch die Straßen einer Großstadt und die
+              Elektronen durch Fußgänger ersetzt werden, die in ihren Arterien
+              zirkulieren. Das Programm verweist so auf zwei historische
+              Vorläufer: zunächst auf die Konzeptkunst und die Fluxus-Bewegung
+              mit ihren para-algorithmischen, minimalistischen Ereignissen (wie
+              die von George Brecht, La Monte Young und Sol LeWitt
+              orchestrierten nach einem von John Cage definierten Paradigma);
+              dann auf die Geschichte des modernen Computers in seiner ersten
+              Verkörperung, nämlich nichts mehr als jenes imaginäre und
+              theoretische Gerät, das die Turing-Maschine darstellte.
+            </p>
+            <h3>Software-Kunst ist nicht synonym mit Konzeptkunst</h3>
+            <p>
+              .Walk unterscheidet sich von einem Ereignis wie der binären
+              Anweisung « on. off. » aus George Brechts Three Lamp Events von
+              1961
+              <sup class="footnote-ref"><a href="#fn4" id="fnref4">4</a></sup
+              >, insofern dieses Werk eine wiederholte kulturelle Praxis
+              widerspiegelt: die Verwendung von Computern, Software und ihrer
+              Programmierung. Während das Lamp Event als Präambel zur
+              künstlerischen Softwareprogrammierung über formale Logik
+              betrachtet werden könnte, beansprucht .Walk – durch seinen Titel,
+              der an Microsofts .NET erinnert – seine Zugehörigkeit zu einer
+              Software-Kultur. Folglich ist es in diesem Werk nicht die
+              Konzeptkunst, die auf Software Bezug nimmt, sondern umgekehrt: die
+              Software verweist auf die konzeptuellen Performances und
+              Interventionen der 1960er Jahre (die auch die Psychogeographie der
+              Situationistischen Internationale einschloss), die sie als
+              Software überarbeitet. Dennoch hat diese Anspielung an sich nichts
+              Konzeptuelles mehr; sie ist historisch, ironisch, ein
+              Collage-Werk.
+            </p>
+            <p>
+              Und genau hier widerspricht die heutige Software-Kunst jener
+              Gleichsetzung von Kunst und Software, wie sie 1970 während Jack
+              Burnhams Konzeptkunst-Ausstellung Software im Jewish Museum in New
+              York und in der ersten Ausgabe des Videokunst-Magazins Radical
+              Software
+              <sup class="footnote-ref"><a href="#fn5" id="fnref5">5</a></sup>
+              präsentiert wurde. Dreißig Jahre später erscheint Software nicht
+              mehr als Laborkonzept und konzeptualistisches Reinigungsparadigma,
+              sondern präsentiert sich vielmehr – und das seit der
+              Demokratisierung von PCs und Internet – als fehlerhafter Code, als
+              Verantwortlicher für Abstürze, Inkompatibilitäten, Viren, und
+              drückt so Kontingenz und nicht mehr die Strenge der Symbole aus.
+            </p>
+            <p>
+              Da die Net.art von Jodi, Alexei Shulgin, Vuk ćosić oder I/O/D es
+              ermöglicht hat, diese Kontingenzen zu ästhetisieren und so die
+              digitale Kunst von ihrem scheinbaren akademischen und
+              industriellen Glanz zu befreien, ist es nicht überraschend, in der
+              jüngsten Geschichte der Software-Kunst, die sich in die diskursive
+              Kontinuität der Online-Kunst der 1990er Jahre einschreibt, einige
+              vertraute Namen zu finden.
+            </p>
+            <p>
+              Die Betrachtung der Entwicklung von Jodis künstlerischen Arbeiten
+              von 1996 bis heute ermöglicht es ideal zu sehen, wie die
+              Net.art-Experimente mit Bildschirmgrafiken und
+              Netzwerkkommunikation zunächst ein Werk bildeten, das die Zwänge
+              seiner Software-Umgebung anprangerte (siehe die
+              Browser-Manipulation mit dem Titel OSS unter http://oss.jodi.org),
+              dann zur Umprogrammierung von Software entwickelte (siehe das Werk
+              Untitled Game, basierend auf dem Videospiel Quake, unter
+              http://www.untitled-game.org) und schließlich durch die Reduktion
+              des sichtbaren Objekts zu einem BASIC-Quelltext führte (im
+              allerneuesten Werk mit dem Titel 10 Programs written in BASIC
+              ©1984
+              <sup class="footnote-ref"><a href="#fn6" id="fnref6">6</a></sup
+              >).
+            </p>
+            <p>
+              Es ist wahr, dass Software-Kunst, wenn sie minimalistisch wird,
+              eine gewisse Ähnlichkeit mit der älteren Praxis der Konzeptkunst
+              zeigt; diese Annäherung bleibt jedoch antinomisch, insofern sie
+              nicht im Geiste jener Entmaterialisierung des Kunstwerks typisch
+              für die Periode 1966-1971 erfolgt, wie sie von Lucy Lippard in
+              ihrem Buch Six Years beschrieben wird. Im Gegenteil, in der
+              Software-Kunst wird Software als materielles Element betrachtet –
+              ein Postulat, das auch eine Voraussetzung für die Codeworks
+              („Code-Werke") von Künstlern wie Jodi, antiorp, mez, Alan
+              Sondheim, Johan Meskens und Lanny Quarles
+              <sup class="footnote-ref"><a href="#fn7" id="fnref7">7</a></sup>
+              darstellt, die syntaktische Elemente aus Programmiersprachen,
+              Netzwerkprotokollen, Systemmeldungen und umgangssprachliche
+              Ausdrücke der Computerkultur vermischen, wie die folgende E-Mail
+              der französischen Künstlerin Pascale Gustin zeigt:
+            </p>
+            <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
+              ][ref lex][1/O.ns 10verses NOT es][
+              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+              ------------------------------------A:
+              ---------------------------][menta les_sel][l] a tenement) T nem T
+              -tout d_abord--------1/O(f.ne
+              1 of 1 deletions
+              1 deletion done
+              apply: Command attempted to use minibuffer while in minibuffer
+              </code></pre>
+            <h3>Software-Kunst ist nicht synonym mit algorithmischer Kunst</h3>
+            <p>
+              Wenn Software, allgemein definiert, aus Algorithmen besteht, kann
+              man Software-Kunst mit algorithmischer Kunst oder generativer
+              Kunst gleichsetzen – wofür Philip Galanter eine sehr nützliche
+              Definition geliefert hat:
+            </p>
+            <blockquote>
+              <p>
+                « Generative Kunst bezieht sich auf jede künstlerische Praxis,
+                in der der Künstler einen Prozess schafft, wie eine Reihe von
+                Regeln in natürlicher Sprache, ein Computerprogramm, eine
+                Maschine oder jeden anderen Mechanismus, der dann mit einem
+                gewissen Grad an Autonomie umgesetzt wird und zu einem
+                vollendeten Kunstwerk beiträgt oder führt. »<sup
+                  class="footnote-ref"
+                  ><a href="#fn8" id="fnref8">8</a></sup
+                >
+              </p>
+            </blockquote>
+            <p>
+              Gewiss kann es sein, dass Software-Kunst eine gewisse Autonomie in
+              der Verkettung von Ereignissen impliziert, wie sie Jack Burnham in
+              Essays beschrieben hat, die stark von der Kybernetik und der
+              allgemeinen Systemtheorie der 1960er Jahre geprägt waren
+              <sup class="footnote-ref"><a href="#fn9" id="fnref9">9</a></sup
+              >. Eine Autonomie, die man zum Beispiel im Fall von funktionalem
+              Code findet, der das Aussehen einer klassischen PC-Anwendung
+              annimmt<sup class="footnote-ref"
+                ><a href="#fn10" id="fnref10">10</a></sup
+              >, oder auch im Fall eindeutiger formaler Anweisungen wie in
+              .Walk. Wenn man jedoch einige der beliebtesten
+              Software-Kunst-Subgenres betrachtet, wie
+              Videospiel-Modifikationen<sup class="footnote-ref"
+                ><a href="#fn11" id="fnref11">11</a></sup
+              >
+              und experimentelle Browser
+              <sup class="footnote-ref"><a href="#fn12" id="fnref12">12</a></sup
+              >, geht es nicht mehr um die ästhetische Autonomie algorithmischer
+              Prozesse, sondern um ihre unzeitgemäße Unterbrechung durch die
+              kombinierte Aktion von Software, Mensch und Netzwerkdaten.
+              Außerdem ist nach Galanters Definition in der generativen Kunst
+              Software nur ein Mittel unter anderen, das nicht an sich ein
+              Kunstwerk darstellt, sondern sich damit begnügt, dazu
+              „beizutragen", ähnlich wie viele Formen computergestützter Kunst
+              (insbesondere elektronische Musik), in denen Software nicht als
+              Teil der Ästhetik des Werks betrachtet wird, sondern als im
+              Hintergrund wirkendes Element.
+            </p>
+            <p>
+              Software-Kunst ihrerseits erfüllt die Kriterien generativer Kunst
+              nicht, oder ist zumindest nur in der Lage, sie in metaphorischem
+              und nicht technischem Sinne zu erfüllen, das heißt, wenn sie
+              dysfunktionale und imaginäre Software produziert. Dies ist zum
+              Beispiel bei Codeworks der Fall.
+            </p>
+            <h3>
+              Software-Kunst beruht nicht auf Leere, sie ist Teil einer
+              Software-Kultur
+            </h3>
+            <p>
+              Wenn Software-Kunst Software weniger als Mittel zur Kontrolle
+              generativer Prozesse denn als Spielmaterial begreift,
+              interpretiert sie es nicht mehr – im Gegensatz zu den
+              „klassischen" Praktiken der Konzeptkunst und generativen Kunst –
+              als reine Syntax. Software wird dann semantisch, Träger
+              ästhetischer, kultureller und politischer Bedeutung<sup
+                class="footnote-ref"
+                ><a href="#fn13" id="fnref13">13</a></sup
+              >. Während 1970 die Software-Kultur – wie durch Burnhams
+              Software-Ausstellung und die Konfrontation zwischen Konzeptkunst
+              und Software-Entwicklung in Forschungslabors dokumentiert – auf
+              den universitären Bereich beschränkt blieb, und selbst die
+              Hacker-Kultur sich auf prestigeträchtige Institutionen wie das MIT
+              und Berkeley beschränkte, ist sie heute eine Massenkultur, die von
+              einer alltäglichen Ästhetik der Software begleitet wird. Ebenso
+              hat Software, wie insbesondere die Debatten um freie Software,
+              Monopole, Lizenzen, Adware und Spyware zeigen, heute immer
+              häufiger eine politische Resonanz. Trotz allem war die kulturelle
+              Kritik von Software nur Gegenstand einiger sporadischer Versuche,
+              wie in den Essays von Wolfgang Hagen, Matthew Fuller oder auch auf
+              der von Jeremy Hunsinger gestarteten Mailingliste
+              softwareandculture<sup class="footnote-ref"
+                ><a href="#fn14" id="fnref14">14</a></sup
+              >.
+            </p>
+            <h3>Software-Kunst ist nicht die Kunst des Programmierers</h3>
+            <p>
+              Historisch resultiert die Kluft zwischen der „Verwendung" und
+              „Programmierung" von Computern aus der Schaffung der „ikonischen"
+              Benutzeroberfläche<sup class="footnote-ref"
+                ><a href="#fn15" id="fnref15">15</a></sup
+              >
+              und ihrer Kommerzialisierung durch Apple und Microsoft, die zum
+              ersten Mal jeder Betriebsart ein anderes Medium zuordneten:
+              „ikonische" Bilder für die „Verwendung" und alphanumerischen Text
+              für die „Programmierung". Genau in diesem Moment wurde die
+              Computerprogrammierung zu einer obskuren Kunst, verbunden mit
+              einem Wissen, das nur eine angebliche Elite besitzen würde
+              <sup class="footnote-ref"><a href="#fn16" id="fnref16">16</a></sup
+              >. Programmierer haben natürlich diesen Mythos kultiviert und das
+              ideologische Erbe des späten 18. Jahrhunderts für sich
+              beansprucht, indem sie durch die Figur des Hackers eine
+              Reinkarnation des romantischen Genies schufen.
+            </p>
+            <p>
+              Jede Darstellung über Software-Kunst birgt daher ein Risiko,
+              nämlich das, den Kult des Programmiergenies zu unterhalten. Ein
+              Kult, dem imaginäre, simulierte und dysfunktionale Software sowie
+              Manipulationen bestehender Software widersprechen, die keine
+              besondere Programmierkompetenz erfordern
+              <sup class="footnote-ref"><a href="#fn17" id="fnref17">17</a></sup
+              >. Wenn Software nicht nur das Grundmaterial der Software-Kunst,
+              sondern auch ihr Reflexionsobjekt sein kann, dann kann sich diese
+              Reflexion durch völlig andere Materialien ausdrücken – wie das
+              Werk von Julia Guther und Jakob Lehr n:info zeigt, das 2001 in
+              Berlin während des Browserday-Festivals enthüllt wurde. Dieses
+              präsentiert sich als Browser in Form eines abnehmbaren
+              Fensterrahmens und kehrt die Rhetorik „ikonischer" PC-Software um,
+              indem es ein analoges Werkzeug als Metapher für digitale Software
+              vorschlägt und dabei die sogenannte
+              „Web-Navigation"-Software-Anwendung als kulturelle Technik, als
+              Wahrnehmungs- und Denkweise exponiert<sup class="footnote-ref"
+                ><a href="#fn18" id="fnref18">18</a></sup
+              >. Man würde also nichts gegen Software-Kunst einzuwenden haben,
+              die die Form eines gemalten Bildes annimmt.
+            </p>
+            <h3>Genre-Klischees könnten Software-Kunst langweilig machen</h3>
+            <p>
+              Gewiss existiert das Risiko, sich auf Stereotypen zu beschränken,
+              auch in künstlerischen Formen, die sich wie die Fluxus-Bewegung
+              nicht über spezifische Materialien definieren. Und dennoch könnte
+              Software-Kunst durchaus alles Interesse verlieren – in den Augen
+              von Kritikern, Kuratoren und Wettbewerbsjurys – wenn sich ihr
+              Repertoire auf experimentelle Web-Browser, Datenvisualisierungen,
+              modifizierte Videospiele und Cracks
+              <sup class="footnote-ref"
+                ><a href="#fn19" id="fnref19">19</a></sup
+              >
+              (wie Computerviren und Fork-Bomben
+              <sup class="footnote-ref"><a href="#fn20" id="fnref20">20</a></sup
+              >) beschränkte. Ein anderes Problem kommt daher, dass man
+              Software-Kunst oft mit jenem Ensemble assoziiert, das
+              „Medienkunst" ist, was zur Folge hat, dass bestimmte Programme mit
+              künstlerischem Interesse – wie die, die im Rahmen von GNU/Linux
+              und freier Software erscheinen – nicht bis zu
+              Software-Kunst-Wettbewerben, -Festivals und -Ausstellungen
+              gelangen.
+            </p>
+            <h3>
+              In Wirklichkeit betrifft die Debatte über Software-Kunst und ihre
+              Legitimität als Kunst nicht die Software-Kunst selbst
+            </h3>
+            <p>
+              Man stellt regelmäßig die Relevanz des Wortes „Kunst" in der
+              Bezeichnung „Software-Kunst" in Frage, die so zu einer
+              eigenständigen Disziplin würde. Die naive Art, die Frage zu
+              betrachten, betrachtet Software als einfaches Ergebnis von
+              Ingenieurswesen und stellt so ihren künstlerischen Wert in Frage.
+              Umgekehrt prangert eine reflektiertere Sicht die Tatsache an, dass
+              eine polymorphe Bewegung sich, wieder einmal und ungerechtfertigt,
+              das Etikett „Kunst" hat anheften lassen. Tatsächlich, wie die
+              traditionelle japanische Kultur ohne jedes Konzept der freien
+              Künste im Gegensatz zu den angewandten Künsten ausgekommen ist,
+              stellt man auch in der Software-Kultur fest, sowohl im Fall freier
+              Software als auch kommerzieller Software, eine Sicht der „Kunst"
+              im Sinne ihrer lateinischen etymologischen Wurzel ars, die
+              „Geschicklichkeit", „Know-how" bedeutet.
+            </p>
+            <p>
+              Wie ein von dem Künstler Alexei Shulgin organisiertes Festival
+              gezeigt hat, kann es möglich sein, dank der Vorstellungskraft und
+              Hacker-Mentalität der Programmierer freier Software, im Rahmen der
+              Software-Kunst die Arbeiten von Künstlern und selbsternannten
+              Nicht-Künstlern zu vereinen
+              <sup class="footnote-ref"><a href="#fn21" id="fnref21">21</a></sup
+              >. Jedoch sind die Einwände gegen die Klassifizierung der
+              Software-Kunst in der Kategorie „Kunst" nur eine der verschiedenen
+              Arten, das Konzept der Kunst selbst zu überdenken.
+            </p>
+            <p>
+              Lev Manovich formuliert in seinem Bericht mit dem Titel « Don’t
+              Call it Art: Ars Electronica 2003 »
+              <sup class="footnote-ref"
+                ><a href="#fn22" id="fnref22">22</a></sup
+              >
+              einen persönlichen Einwand auf subtilere Weise als die beiden
+              vorherigen, indem er dazu aufruft, Software-Kunst nicht als
+              „Kunst" zu bezeichnen, insofern diese Praxis sich selbst aus dem
+              Rahmen der „zeitgenössischen Kunst" durch ihr zu großes Interesse
+              an einem spezifischen Material ausschließen würde. Nun besteht
+              zeitgenössische Kunst, wie man sie in Galerien, Salons, Museen und
+              ihren Ausstellungen sehen kann, aus Unterdisziplinen, die eine
+              Haltung bezeugen, die alles andere als neutral gegenüber ihren
+              jeweiligen Materialien ist: man findet einerseits großformatige
+              Malerei und fotografische Kunst für private Sammler, und
+              andererseits akademische Kunstinstallationen (oft auf
+              Video-Support), die allgemein in subventionierten Räumen
+              präsentiert und von Künstlern und Kuratoren produziert werden, die
+              aus den Cultural Studies stammen
+              <sup class="footnote-ref"><a href="#fn23" id="fnref23">23</a></sup
+              >. Dies beiseite gestellt, ist Software-Kunst nichts anderes als
+              ein Oberbegriff, ebenso wie Mal-, Klang-, Schrift- oder
+              Videokunst. Außerdem wurde sie nicht von den Künstlern selbst
+              definiert, sondern von Kritikern und Kuratoren, die in der
+              zeitgenössischen digitalen Kunst eine Tendenz identifiziert
+              hatten, Software als Medium zu verwenden
+              <sup class="footnote-ref"><a href="#fn24" id="fnref24">24</a></sup
+              >.
+            </p>
+            <p>
+              Es wird daher sehr leicht, die Verwendung des Ausdrucks
+              „Software-Kunst" zu rechtfertigen. Tatsächlich kommt sie einfach
+              daher, dass heute bedeutende Produktionen zeitgenössischer Kunst
+              (nach Art derer, die in diesem Artikel beschrieben werden) in Form
+              von Software das Licht der Welt erblicken. Es wird dann notwendig,
+              über eine Theorie und Kritik der Software-Kunst zu verfügen.
+            </p>
+            <p>
+              Arbeit unter Creative Commons Attribution-ShareAlike License. Um
+              eine Kopie dieser Lizenz zu sehen, besuchen Sie die Website
+              http://creativecommons.org/licenses/by-sa/1.0/ oder senden Sie
+              einen Brief an Creative Commons, 559 Nathan Abbott Way, Stanford,
+              California 94305, USA.
+            </p>
+            <p>
+              http://cryptoforest.blogspot.com Website von Wilfried Hou Je Bek.
+              http://www.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+              « Don’t Call it Art: Ars Electronica 2003 » von Lev Manovich.
+              Archiv des im September 2003 auf der Nettime-Mailingliste
+              geposteten Textes.
+            </p>
+            <hr class="footnotes-sep" />
+            <section class="footnotes">
+              <ol class="footnotes-list">
+                <li id="fn1" class="footnote-item">
+                  <p>
+                    Der Ausdruck « Software Art » wurde in diesem Text auf
+                    Wunsch von Florian Cramer mit « Software-Kunst » übersetzt,
+                    der damit die « Software-Kunst » nicht als Bewegung, sondern
+                    als allgemeine Bezeichnung zur Beschreibung dieser Praxis
+                    behandeln möchte (Anm. d. Ü.).
+                    <a href="#fnref1" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn2" class="footnote-item">
+                  <p>
+                    « Software art is a term for the graphic design of visual
+                    elements contained in software, eg. GUI (Graphic User
+                    Interface), Icons, etc. »,
+                    http://www.wikipedia.org/wiki/Software_art (diese Definition
+                    erschien im September 2003, sie wurde seitdem geändert)
+                    <a href="#fnref2" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn3" class="footnote-item">
+                  <p>
+                    Wilfried Hou Je Bek, .Walk for dummies, einsehbar auf
+                    Socialfiction,
+                    http://www.socialfiction.org/dotwalk/dummies.html
+                    <a href="#fnref3" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn4" class="footnote-item">
+                  <p>
+                    Diese Anweisung findet sich als kleine Partitur in George
+                    Brecht, Water-Yam/George Brecht, Ed. Lebeer Hossmann,
+                    Brüssel, 1986 (die Originalversion stammt von 1963).
+                    <a href="#fnref4" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn5" class="footnote-item">
+                  <p>
+                    Zur Ausstellung siehe Edward A. Shanken, « The House That
+                    Jack Built: Jack Burnham’s Concept of «&nbsp;Software&nbsp;»
+                    as a Metaphor for Art », in Leonardo Electronic Almanac,
+                    vol. 6, Nr. 10, November 1998,
+                    http://www.leoalmanac.org/journal/Vol_6/lea_v6_n10.txt. Auch
+                    einsehbar unter http://www.artexetra.com/House.pdf ; Radical
+                    Software ist seit kurzem auf der Website
+                    http://www.radicalsoftware.org einsehbar
+                    <a href="#fnref5" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn6" class="footnote-item">
+                  <p>
+                    Ausgestellt während Electrohype in Malmö 2003.
+                    <a href="#fnref6" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn7" class="footnote-item">
+                  <p>
+                    Siehe auch insbesondere Alan Sondheim, « Introduction:
+                    Codework », in American Book Review, vol. 22, Nr. 6,
+                    University of Houston-Victoria, Victoria, September 2001, S.
+                    1-4,
+                    http://www.litline.org/ABR/issues/Volume22/Issue6/sondheim.pdf
+                    ; McKenzie Wark, « Essay: Codework », in American Book
+                    Review, vol. 22, Nr. 6, September 2001, S. 1-5.
+                    <a href="#fnref7" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn8" class="footnote-item">
+                  <p>
+                    Ein Zitat, das sich auf
+                    http://www.philipgalanter.com/downloads/ga2003_what_is_genart.pdf
+                    oder auch http://www.generative.net/read/definitions findet
+                    <a href="#fnref8" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn9" class="footnote-item">
+                  <p>
+                    Siehe auch die deutsche Version von Jack Burnhams Structure
+                    of Art, ungeschickt unter dem Titel Kunst und
+                    Strukturalismus übersetzt, DuMont Schauberg, Köln, 1973.
+                    <a href="#fnref9" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn10" class="footnote-item">
+                  <p>
+                    Auto-Illustrator, Adrian Ward, 2001,
+                    http://www.auto-illustrator.com
+                    <a href="#fnref10" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn11" class="footnote-item">
+                  <p>
+                    Untitled Game von Jodi
+                    (http://www.untitled-game.org/download.html) ; retroyou von
+                    Joan Leandre (http://www.retroyou.org).
+                    <a href="#fnref11" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn12" class="footnote-item">
+                  <p>
+                    Web Stalker von I/O/D (http://bak.spc.org/iod/iod4.html) ;
+                    Nebula.M81 von Netochka Nezvanova
+                    (http://www.mediaartnet.org/works/nebula/) ; %Wrong Browser
+                    von Jodi (http://www.wrongbrowser.org) ; Shredder von Mark
+                    Napier (http://www.potatoland.org/shredder/) ; Discoder von
+                    Kensuke Sembos und Yae Akaivas
+                    (http://www.exonemo.com/DISCODER/indexE.html) ; ZNC Browser
+                    von Peter Luining (http://znc.ctrlaltdel.org/pc_znc2.0.htm).
+                    <a href="#fnref12" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn13" class="footnote-item">
+                  <p>
+                    Der Injunction Generator von Ubermorgen.com
+                    (http://www.ipnic.org/intro.html), der automatisch
+                    juristische Verfügungen ausstellt, sowie der Proxy-Server
+                    Insert_coin (http://odem.org/insert_coin/) von Alvar Freude
+                    und Dragan Espenschied, der Text zensiert, sind zwei
+                    überzeugende Beispiele für den politischen Aktivismus der
+                    Software-Kunst.
+                    <a href="#fnref13" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn14" class="footnote-item">
+                  <p>
+                    Wolfgang Hagen, « Der Stil der Sourcen. Anmerkungen zur
+                    Theorie und Geschichte der Programmiersprachen », in
+                    Wolfgang Coy, Georg C.Tholen, Martin Warnke (Hrsg.),
+                    Hyperkult, Stroemfeld, Basel, 1997, S. 33-68 ; Matthew
+                    Fuller, Behind the Blip. Essays on the Culture of Software,
+                    Autonomedia, New York, 2003 ; softwareandculture, Homepage
+                    auf
+                    http://lists.tmttlt.com/listinfo.cgi/softwareandculture-tmttlt.com
+                    und Archive auf
+                    http://lists.tmttlt.com/private.cgi/softwareandculture-tmttlt.com/
+                    <a href="#fnref14" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn15" class="footnote-item">
+                  <p>
+                    Hier verwendet Florian Cramer den Begriff „ikonisch" im
+                    Sinne einer Ähnlichkeitsbeziehung, in Bezugnahme auf Charles
+                    S. Peirce (Anm. d. Ü.).
+                    <a href="#fnref15" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn16" class="footnote-item">
+                  <p>
+                    Und das, obwohl Programmierung in einer gewöhnlichen Sprache
+                    kaum mehr als Kenntnisse von Variablen, Schleifen und
+                    „wenn/dann"-Anweisungen erfordert.
+                    <a href="#fnref16" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn17" class="footnote-item">
+                  <p>
+                    Wie zum Beispiel der ScreenSaver von Ivan Khimin und Eldar
+                    Karhalev (http://runme.org/project/+screensaver/), eine
+                    Konfiguration des Windows-Bildschirmschoners, die es
+                    ermöglicht, ein sowohl suprematistisches als auch
+                    hypnotisches fliegendes Quadrat zu erhalten.
+                    <a href="#fnref17" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn18" class="footnote-item">
+                  <p>
+                    n:info, http://myhd.org
+                    <a href="#fnref18" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn19" class="footnote-item">
+                  <p>
+                    Cracks sind Computerprogramme, die dazu dienen, das normale
+                    Funktionieren einer anderen Software zu stören, im
+                    Allgemeinen um deren Schutz oder Nutzungsbeschränkungen zu
+                    umgehen (Anm. d. Ü.).
+                    <a href="#fnref19" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn20" class="footnote-item">
+                  <p>
+                    Eine Fork-Bomb zielt darauf ab, die
+                    Prozessverwaltungskapazität eines Computers bis zum Absturz
+                    zu sättigen, indem sie schnell eine zu erledigende Aufgabe
+                    vervielfältigt (Anm. d. Ü.).
+                    <a href="#fnref20" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn21" class="footnote-item">
+                  <p>
+                    Zum Beispiel das von einem Hacker entwickelte und beim
+                    Read_Me 2002 Festival preisgekrönte Programm WinGluk Builder
+                    (http://readme.runme.org/1.2/inde6.htm) und das im folgenden
+                    Jahr ausgestellte Programm Tempest for Eliza
+                    (http://www.erikyyy.de/tempest/), das einen
+                    Kurzwellen-Radiosender über eine auf Monitoren angezeigte
+                    Grafik implementiert.
+                    <a href="#fnref21" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn22" class="footnote-item">
+                  <p>
+                    Lev Manovich, « Don’t Call It Art: Ars Electronica 2003 »,
+                    Nettime, September 2003,
+                    http://amsterdam.nettime.org/Lists-Archives/nettime-l-0309/msg00102.html
+                    <a href="#fnref22" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn23" class="footnote-item">
+                  <p>
+                    In den 1960er Jahren in Großbritannien entstanden, vermischt
+                    die Disziplin der Cultural Studies hauptsächlich
+                    Literaturanalyse mit Soziologie. Sie besitzt kein
+                    institutionelles Äquivalent in Frankreich (Anm. d. Ü.).
+                    <a href="#fnref23" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+                <li id="fn24" class="footnote-item">
+                  <p>
+                    Dies war insbesondere der Fall bei Saul Albert in « Artware
+                    », Mute, Nr. 14, Mute Publishing Ltd, London, 1999, S.
+                    63-65, http://twenteenthcentury.com/saul/artware.htm, bei
+                    Alexander Galloway in « Year in Review: State of net.art 99
+                    », in Switch, 1999,
+                    http://switch.sjsu.edu/web/v5n3/D-1.html, bei Andreas
+                    Broeckmann, der 2000 eine „Software"-Sektion im
+                    Transmediale-Festival einführte, und schließlich bei Tilman
+                    Baumgärtel mit dem Artikel « Experimentelle Software. Zu
+                    einigen neueren Computerprogrammen von Künstlern », in
+                    Telepolis, Heise Zeitschriften Verlag, Hannover, Oktober
+                    2001, http://www.heise.de/tp/r4/artikel/9/9908/1.html
+                    <a href="#fnref24" class="footnote-backref">↩︎</a>
+                  </p>
+                </li>
+              </ol>
+            </section>
+          </section>
         </div>
-      </li>
-      <li>
-        <a href="./poly_2L_synchro/">FR/EN SYNC samepage (polyfill)</a>
-        <div class="note success">
-          DONE (12/10/2025)
+      </div>
+
+      <!-- Print page -->
+      <div id="print-page" class="tab print-page">
+        <div class="print-options">
+          <div class="print-option">
+            <div class="option-label">F/E</div>
+            <div class="option-text">
+              <a href="./poly_noSynchro/index.html">2 Colonnes par page <span class="arrow">↘</span></a>
+            </div>
+          </div>
+
+          <div class="print-option">
+            <div class="option-label">F/E</div>
+            <div class="option-text">
+              <a href="./poly_2L_synchro/index.html">2 Colonnes par page [synchronisé] <span class="arrow">↘</span></a>
+            </div>
+          </div>
+
+          <div class="print-option">
+            <div class="option-label">F/E</div>
+            <div class="option-text">
+              <a href="./poly_samespread/index.html">1 Colonne par page <span class="arrow">↘</span></a>
+            </div>
+          </div>
+
+          <div class="print-option">
+            <div class="option-label">F/E/I</div>
+            <div class="option-text">
+              <a href="./poly_samepage_3L/index.html">3 Colonnes par page <span class="arrow">↘</span></a>
+            </div>
+          </div>
+
+          <div class="print-option">
+            <div class="option-label">F/E/D/I</div>
+            <div class="option-text">
+              <a href="./poly_samepage_4L/index.html">4 Colonnes par page <span class="arrow">↘</span></a>
+            </div>
+          </div>
         </div>
-      </li>
-      <li>
-        <a href="./poly_samespread/">FR/EN nosync samespread (polyfill)</a>
-      </li>
-      <li>
-        <a href="./poly_samepage_3L/">FR/EN/IT nosync samepage 3L (polyfill)</a>
-      </li>
-      <li>
-        <a href="./poly_samepage_4L/"
-          >FR/EN/IT/DE nosync samepage 4L (polyfill)</a
-        >
-      </li>
-      <li>
-        <!-- <a href="./vite_template/dist/">vite template</a> -->
-      </li>
-    </ul>
-    <!-- <script src="" async defer></script> -->
+      </div>
+
+      <!-- About page -->
+      <div id="about-page" class="tab about-page">
+        <div class="about-content">
+          <p>
+            This project was created to showcase the new multiflow
+            functionalities of Paged.js, developed by Julien Taquet, as part of
+            the EPE European research project, funded by NLNet.
+          </p>
+
+          <p>
+            <a href="https://epe.esad-gv.fr/" target="_blank">EPE–Écran Papier Éditer</a><br />
+            <a href="https://pagedjs.org/" target="_blank">Paged.js</a><br />
+            <a href="#">Download multiflow plugin</a>
+          </p>
+
+          <p>
+            The text of Florian Cramer is licensed under the Creative Commons
+            Attribution-ShareAlike License. To view a copy of this license,
+            visit
+            <a href="http://creativecommons.org/licenses/by-sa/1.0/"
+              >http://creativecommons.org/licenses/by-sa/1.0/</a
+            >
+            or send a letter to Creative Commons, 559 Nathan Abbott Way,
+            Stanford, California 94305, USA.
+          </p>
+
+          <p>
+            The French translation is from:<br />
+            Florian Cramer, «Dix hypothèses au sujet de l'art logiciel»,
+            <em>Art++</em>, Orléans: Hyx, 2011.
+          </p>
+
+          <p>
+            The Italian and German translations were generated using Sonnet 4.5
+            – Claude.
+          </p>
+
+          <p>
+            Design by Romain Laurent<br />
+            Code by Raphaël Boittura
+          </p>
+
+          <p>2025</p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function showPage(page) {
+        const articlePage = document.getElementById("article-page");
+        const printPage = document.getElementById("print-page");
+        const aboutPage = document.getElementById("about-page");
+        const printLink = document.getElementById("print-link");
+        const aboutLink = document.getElementById("about-link");
+        const headerNode = document.querySelector("header");
+
+        // Hide article page first
+        if (articlePage.classList.contains("active")) {
+          articlePage.classList.remove("active");
+        }
+        articlePage.classList.add("hidden");
+        articlePage.classList.add("hidden");
+        headerNode.classList.add("hidden");
+
+        // Remove active class from all nav links
+        printLink.classList.remove("active");
+        aboutLink.classList.remove("active");
+        document
+          .querySelectorAll(".nav-left a")
+          .forEach((link) => link.classList.remove("active"));
+
+        if (page === "print") {
+          printPage.classList.add("active");
+          aboutPage.classList.remove("active");
+          printLink.classList.add("active");
+        } else if (page === "about") {
+          printPage.classList.remove("active");
+          aboutPage.classList.add("active");
+          aboutLink.classList.add("active");
+        }
+      }
+
+      function showLanguage(lang) {
+        const articlePage = document.getElementById("article-page");
+        const printPage = document.getElementById("print-page");
+        const aboutPage = document.getElementById("about-page");
+        const printLink = document.getElementById("print-link");
+        const aboutLink = document.getElementById("about-link");
+        const headerNode = document.querySelector("header");
+        const pageTitle = headerNode.querySelector(".title");
+
+        // Hide print and about pages, show article
+        articlePage.classList.remove("hidden");
+        printPage.classList.remove("active");
+        aboutPage.classList.remove("active");
+        printLink.classList.remove("active");
+        aboutLink.classList.remove("active");
+        headerNode.classList.remove("hidden");
+
+        const listTitle = [
+          "Dix Hypothèses sur l'Art Logiciel",
+          "Ten theses about software art",
+          "Zehn Hypothesen zur Software-Kunst",
+          "Dieci ipotesi sull'arte software",
+        ];
+        const langIndex = { fr: 0, en: 1, de: 2, it: 3 };
+        pageTitle.textContent = listTitle[langIndex[lang]];
+
+        // Hide all sections
+        const sections = document.querySelectorAll(".content section");
+        sections.forEach((section) => section.classList.remove("active"));
+
+        // Show the selected language section
+        const selectedSection = document.querySelector(
+          `.content section[lang="${lang}"]`
+        );
+        console.log(`.content section[lang="${lang}"]`);
+        if (selectedSection) {
+          selectedSection.classList.add("active");
+        }
+
+        // Update nav active states
+        document
+          .querySelectorAll(".nav-left a")
+          .forEach((link) => link.classList.remove("active"));
+        document.getElementById(`nav-${lang}`).classList.add("active");
+      }
+      window.addEventListener('DOMContentLoaded', function() {
+            showLanguage('fr');
+        });
+    </script>
   </body>
 </html>

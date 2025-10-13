@@ -4,8 +4,8 @@
 }
 
 section {
-  width: 134 !important;
-  height: 186mm !important;
+  width: 134mm !important;
+  height: 185mm !important;
   p:first-child {
     margin-top: 0;
   }
@@ -36,70 +36,13 @@ section p {
     align-self: flex-start;
     padding-top: 1em;
   };
-}
-
-@page:right{
-  margin-left: 15mm;
-  margin-right: 21mm;
   @top-center {
-    /* content: 'E'; */
     text-align: center;
     font-family: AntiqueSerie;
     font-size: 9pt;
   }
 }
 
-@page:left{
-  margin-left: 21mm;
-  margin-right: 15mm;
-  @top-center {
-    /* content: 'F'; */
-    text-align: center;
-    font-family: AntiqueSerie;
-    font-size: 9pt;
-  }
-}
-
-@page:nth(1){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
-@page:nth(2){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
-@page:nth(3){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
-@page:nth(4){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
-@page:nth(5){
-  @bottom-center {
-    content:'';
-  }
-  @top-center{
-    content: "";
-  };
-}
 
 section.a {
   /*parallel-flow: name,  this will trigger the parallel-flow script*/
@@ -118,16 +61,6 @@ section.c {
   /* margin-left: auto; */
   top: 0 !important;
   --parallel-flow: beta;
-}
-
-section.b {
-  /* --parallel-flow: alpha; */
-}
-
-section.d {
-  /* --parallel-flow: alpha; */
-  margin-left: auto;
-  top: 0 !important;
 }
 
 h2 {
@@ -157,6 +90,15 @@ h1 {
   font-family: AntiqueSerie;
   font-size: 8.5pt;
   text-transform: uppercase;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+h1 .footnote-ref{
+  font-family: AntiqueSerie;
 }
 
 h3 {
@@ -186,14 +128,6 @@ h4 {
   text-transform: uppercase;
 }
 
-.c h3 {
-  /* text-transform: capitalize; */
-}
-
-h3:first-of-type {
-  margin-top: 0;
-}
-
 .force-break {
   break-before: always;
 }
@@ -203,12 +137,12 @@ h3:first-of-type {
 }
 
 .footnotes li::marker {
-  font-size: 6.5pt;
+  font-size: 9.5pt;
 }
 
 .footnotes p {
-  font-size: 7.5pt;
-  line-height: 3mm;
+  font-size: 9.5pt;
+  line-height: 4mm;
 }
 
 #fig_1_fr {
@@ -232,7 +166,7 @@ blockquote p{
 
 .footnote-ref {
   font-family: 'Times New Roman', Times, serif;
-  font-size: 0.6em;
+  font-size: .6em;
   vertical-align: super;
   line-height: 0;
   color: #000000;
@@ -244,10 +178,20 @@ ol {
   margin: 0;
 }
 
+pre {
+  transform-origin: center;
+  transform: rotate(-90deg) scale(1.5) ;
+  display: flex;
+  height: 185mm;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  break-after: always;
+  break-before: always;
+}
+
 code {
   font-family: cmuntb;
-  margin-top: 4mm;
-  margin-bottom: 4mm;
   font-size: 9.5pt;
 }
 
@@ -261,172 +205,293 @@ ol.footnotes-list {
   /* background-color: red; */
 }
 
+.page_redirect {
+  font-family: cmuntb;
+  font-weight: 600;
+  font-size: 16.5pt;
+  line-height: 7mm;
+  margin-bottom: 7mm;
+  margin-left: 7mm;
+}
+
 
 /* Even pages from 6 to 32 with content "E" */
-@page:nth(6) { 
+@page:nth(2) {
+  margin-left: 21mm;
+  margin-right: 15mm;
+  @bottom-center {
+    content:'';
+  }
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(4) {
+  margin-left: 21mm;
+  margin-right: 15mm;
+  @bottom-center {
+    content:'';
+  }
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(6) {
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(8) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(10) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(12) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(14) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(16) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(18) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
-    content: "E";
+    content: "";
   }
 }
 
 @page:nth(20) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(22) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(24) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(26) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(28) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(30) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 @page:nth(32) { 
+  margin-left: 21mm;
+  margin-right: 15mm;
   @top-center {
     content: "E";
   }
 }
 
 /* Odd pages from 7 to 33 with content "F" */
+@page:nth(1) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
+  margin-bottom: 39mm;
+  @bottom-center {
+    content:'';
+  }
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(3) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
+  @bottom-center {
+    content:'';
+  }
+  @top-center{
+    content: "";
+  };
+}
+
+@page:nth(5) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
+  @bottom-center {
+    content:'';
+  }
+  @top-center{
+    content: "";
+  };
+}
+
 @page:nth(7) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(9) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(11) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(13) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(15) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(17) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(19) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
-    content: "F";
+    content: "";
   }
 }
 
 @page:nth(21) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(23) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(25) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(27) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(29) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(31) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }
 }
 
 @page:nth(33) { 
+  margin-left: 15mm;
+  margin-right: 21mm;
   @top-center {
     content: "F";
   }

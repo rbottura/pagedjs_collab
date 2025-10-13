@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Multiflows Pubs</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+    <style>
+      /* Container styling */
+      .print-links {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0;
+        list-style: none;
+      }
+
+      /* Individual link items */
+      .print-links li {
+        margin: 0.5rem 0 1.5rem 0;
+      }
+
+      .print-links a {
+        display: block;
+        padding: 1rem 1.5rem;
+        background: #f0f7f4;
+        color: #2d5f4d;
+        text-decoration: none;
+        border-left: 4px solid #a8d5ba;
+        transition: all 0.2s ease;
+        font-weight: 500;
+        font-size: 26px;
+      }
+
+      /* Hover effect */
+      .print-links a:hover {
+        background: #fff;
+        border-left-color: #4a9d6f;
+        padding-left: 2rem;
+        box-shadow: 0 2px 8px rgba(74, 157, 111, 0.15);
+      }
+
+      /* Active/visited state */
+      .print-links a:visited {
+        color: #3d7a5e;
+      }
+
+      /* Arrow indicator */
+      .print-links a::before {
+        content: "→ ";
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .print-links a:hover::before {
+        opacity: 1;
+      }
+
+      /* Note blocks (add after links) */
+      .note {
+        padding: 1rem 1.5rem;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+      }
+
+      /* General note */
+      .note.info {
+        background: #e8f4f8;
+        border-left: 4px solid #4a9fd8;
+        color: #2c5f7a;
+      }
+
+      /* Warning note */
+      .note.warning {
+        background: #fff8e1;
+        border-left: 4px solid #f9a825;
+        color: #7a5e1f;
+      }
+
+      .note.warning::before {
+        content: "⚠️ ";
+        margin-right: 0.5rem;
+      }
+
+      /* Bug/error note */
+      .note.bug {
+        background: #ffebee;
+        border-left: 4px solid #e53935;
+        color: #7a2e2e;
+      }
+
+      .note.bug::before {
+        content: "🐛 ";
+        margin-right: 0.5rem;
+      }
+
+      /* Success/done note */
+      .note.success {
+        background: #e8f5e9;
+        border-left: 4px solid #4caf50;
+        color: #2e5f30;
+      }
+
+      .note.success::before {
+        content: "✓ ";
+        margin-right: 0.5rem;
+      }
+      .note {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+    <ul class="print-links">
+      <li>
+        <a href="./poly_noSynchro/index.html"
+          >FR/EN nosync samepage (polyfill)</a
+        >
+        <div class="note success">
+          DONE (12/10/2025)
+        </div>
+      </li>
+      <li>
+        <a href="./poly_2L_synchro/">FR/EN SYNC samepage (polyfill)</a>
+        <div class="note warning">
+          missing back cover page
+        </div>
+        <!-- <div class="note success">
+          DONE (12/10/2025)
+        </div> -->
+      </li>
+      <li>
+        <a href="./poly_samespread/">FR/EN nosync samespread (polyfill)</a>
+        <div class="note warning">
+          missing back cover page
+        </div>
+        <!-- <div class="note success">
+          DONE (12/10/2025)
+        </div> -->
+      </li>
+      
+      <li>
+        <a href="./poly_samepage_3L/">FR/EN/IT nosync samepage 3L (polyfill)</a>
+      </li>
+      <li>
+        <a href="./poly_samepage_4L/"
+          >FR/EN/IT/DE nosync samepage 4L (polyfill)</a
+        >
+      </li>
+      <li>
+        <!-- <a href="./vite_template/dist/">vite template</a> -->
+      </li>
+    </ul>
+    <!-- <script src="" async defer></script> -->
+  </body>
+</html>

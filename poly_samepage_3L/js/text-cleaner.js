@@ -47,7 +47,7 @@ class textCleaner extends Paged.Handler {
             this.applySmartQuotes(chap, lang);
 
             // 4. Apply micro-typography rules
-            this.applyMicroTypography(chap, lang);
+            // this.applyMicroTypography(chap, lang);
 
             // 5. Mark as processed
             chap.dataset.typographyProcessed = 'true';
