@@ -13,7 +13,12 @@
 
       @font-face {
         font-family: AntiqueSerie;
-        src: url("./static_assets/fonts/AntiqueSerie-Regular.woff");
+        src: url("./global_assets/fonts/AntiqueSerie-Regular.otf");
+      }
+
+      @font-face {
+        font-family: cmuntb;
+        src: url("./global_assets/fonts/cmuntb.ttf");
       }
 
       body {
@@ -99,8 +104,8 @@
       .content {
         max-width: 780px;
         font-family: "Times New Roman", Times, serif;
-        line-height: 30px;
-        font-size: 25px;
+        line-height: 28px;
+        font-size: 21px;
         margin: 0 auto;
       }
 
@@ -109,7 +114,13 @@
       }
 
       pre {
-        margin: 30px 0;
+        margin: 28px 0;
+      }
+
+      pre code {
+        font-family: cmuntb;
+        font-size: 21px;
+        line-height: 28px;
       }
 
       .content h3 {
@@ -119,8 +130,8 @@
         text-align: center;
         font-weight: 400;
         margin: 20px 0;
-        line-height: 30px;
-        font-size: 25px;
+        line-height: 28px;
+        font-size: 21px;
       }
 
       .content section {
@@ -137,6 +148,8 @@
 
       .footnotes-list {
         margin-top: 40px;
+        font-size: 16px;
+        line-height: 24px;
       }
 
       .footnotes-list li {
@@ -158,6 +171,10 @@
 
       .indent {
         padding-left: 40px;
+      }
+
+      .p-indent {
+        text-indent: 60px;
       }
 
       /* Print page styles */
@@ -302,7 +319,7 @@
       <!-- Article page -->
 
       <header>
-        <h1 class="title">Dix Hypothèses sur l'Art Logiciel</h1>
+        <h1 class="title">Dix Hypothèses sur l’Art Logiciel</h1>
         <h1 class="author">Florian Cramer</h1>
       </header>
       <div id="article-page" class="active">
@@ -1088,14 +1105,14 @@
               example of this:
             </p>
             <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
-              ][ref lex][1/O.ns 10verses NOT es][
-              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
-              ------------------------------------A:
-              ---------------------------][menta les_sel][l] a tenement) T nem T
-              -tout d_abord--------1/O(f.ne
-              1 of 1 deletions
-              1 deletion done
-              apply: Command attempted to use minibuffer while in minibuffer
+        ][ref lex][1/O.ns 10verses NOT es][
+        --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+        ------------------------------------A:
+        ---------------------------][menta les_sel][l] a tenement) T nem T
+        -tout d_abord--------1/O(f.ne
+        1 of 1 deletions
+        1 deletion done
+        apply: Command attempted to use minibuffer while in minibuffer
               </code></pre>
             <!-- <div class="force-break"></div> -->
             <h3>Software art is not synonymous with algorithmic art</h3>
@@ -1613,14 +1630,14 @@
               Gustin:
             </p>
             <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
-              ][ref lex][1/O.ns 10verses NOT es][
-              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
-              ------------------------------------A:
-              ---------------------------][menta les_sel][l] a tenement) T nem T
-              -tout d_abord--------1/O(f.ne
-              1 of 1 deletions
-              1 deletion done
-              apply: Command attempted to use minibuffer while in minibuffer
+        ][ref lex][1/O.ns 10verses NOT es][
+        --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+        ------------------------------------A:
+        ---------------------------][menta les_sel][l] a tenement) T nem T
+        -tout d_abord--------1/O(f.ne
+        1 of 1 deletions
+        1 deletion done
+        apply: Command attempted to use minibuffer while in minibuffer
               </code></pre>
             <h3>L’arte software non è sinonimo di arte algoritmica</h3>
             <p>
@@ -2255,14 +2272,14 @@
               der französischen Künstlerin Pascale Gustin zeigt:
             </p>
             <pre><code>L’_eN(g)Rage \ment politi][~isch][K et l’ _art is T(od);
-              ][ref lex][1/O.ns 10verses NOT es][
-              --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
-              ------------------------------------A:
-              ---------------------------][menta les_sel][l] a tenement) T nem T
-              -tout d_abord--------1/O(f.ne
-              1 of 1 deletions
-              1 deletion done
-              apply: Command attempted to use minibuffer while in minibuffer
+        ][ref lex][1/O.ns 10verses NOT es][
+        --------\B(L)ien-sUr 2 que/S\tions f.Ond(ent)
+        ------------------------------------A:
+        ---------------------------][menta les_sel][l] a tenement) T nem T
+        -tout d_abord--------1/O(f.ne
+        1 of 1 deletions
+        1 deletion done
+        apply: Command attempted to use minibuffer while in minibuffer
               </code></pre>
             <h3>Software-Kunst ist nicht synonym mit algorithmischer Kunst</h3>
             <p>
@@ -2785,13 +2802,13 @@
           <p>
             This project was created to showcase the new parallel-flows
             functionalities of Paged.js, developed by Julien Taquet, as part of
-            the EPE European research project, funded by NLNet.
+            the EPE European research project, funded by <a href="https://nlnet.nl/" target="_blank">NLNet</a>.
           </p>
 
           <p>
             <a href="https://epe.esad-gv.fr/" target="_blank">EPE–Écran Papier Éditer</a><br />
             <a href="https://pagedjs.org/" target="_blank">Paged.js</a><br />
-            <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows">Download parallel-flows plugin</a>
+            <a href="https://github.com/pagedjs/pagedjs-experiments/tree/main/--paged-parallel-flows" target="_blank">Download parallel-flows plugin</a>
           </p>
 
           <p>
@@ -2817,8 +2834,8 @@
           </p>
 
           <p>
-            Design by Romain Laurent<br />
-            Code by Raphaël Boittura
+            Design by <a href="https://romainlaurent.com/">Romain Laurent ↗</a><br />
+            Code by <a href="https:\\raphaelbottura.com" target="_blank">Raphaël Bottura ↗</a>
           </p>
 
           <p>2025</p>
@@ -2879,10 +2896,10 @@
         headerNode.classList.remove("hidden");
 
         const listTitle = [
-          "Dix Hypothèses sur l'Art Logiciel",
+          "Dix Hypothèses sur l’Art Logiciel",
           "Ten theses about software art",
           "Zehn Hypothesen zur Software-Kunst",
-          "Dieci ipotesi sull'arte software",
+          "Dieci ipotesi sull’arte software",
         ];
         const langIndex = { fr: 0, en: 1, de: 2, it: 3 };
         pageTitle.textContent = listTitle[langIndex[lang]];
